@@ -1,0 +1,161 @@
+ul {
+    list-style-type: none; /* Elimina el puntito de la lista */
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    /* Con Margin y padding = 0 tanto en body ocmo html, eliminamos los espacios predeterminados del navegador */
+    overflow: hidden; /* Oculta la barra de desplazamiento del navegador */
+    user-select: none;
+}
+
+#contenedor {
+    width: 100vw; /* Le decimos al contenedor que ocupe el ancho completo de la pantalla */
+    height: 100vh; /* Le decimos al contenedor que ocupe el alto completo de la pantalla */
+    display: flex;/* Generamos un contenedor flexible permitiendo que los elementos se expandan o contraigan según el espacio
+    si quitamos esto el fondo se vería mal. */
+    background-image: url("Recursos/PantallaCompletaimagen.jpg"); /* Definimos la imagen de fondo */
+    background-size: cover; /* Estiramos la imagen para que cubra todo el contenedor*/
+    background-repeat: no-repeat; /* hacemos que la imagen no se repita */
+    z-index: 100;
+}
+
+#puntostext {   color: rgb(255, 255, 255); /* Asignamos color al texto */
+    font-size: 3.5vh; /* Elegimos el tamaño de la fuente */
+    font-weight: bold; /* Le damos formato negrita al texto */
+    position: absolute; /* definimos su posición dentro del contenedor haciendo que no ocupe un lugar como tal */
+    top: 3vh;
+    right:42%;
+    margin-right: 9vh;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px; /* redondea el recuadro */
+    background-color: rgb(87, 87, 87);
+    padding: 10px;
+    display: none;
+    z-index: 2;
+}
+
+#monaso {
+    top: 30%; /* Mueve el mono al 50% desde la parte superior */
+    left: 45%; /* Mueve el mono al 50% desde la parte izquierda */
+    width: 100%; /* Expandimos el mono al 100% del contenedor */
+    height: 100%; /* Expandimos el mono al 100% del contenedor */
+    max-width: 10vw; /* damos un tope al tamaño del mono basado en el viewport */
+    max-height: 26vh; /* damos un tope al tamaño del mono basado en el viewport */
+    background-image: url("Recursos/monosauriculare.gif"); /* Agregamos la imagen del monaso .gif pa que sonría */
+    background-size: contain; /* hace que el mono no se recorte al achicar la pagina */
+    background-repeat: no-repeat; /* hace que la imagen del mono no se repita*/
+    position: absolute; /* definimos el tipo de posición para el mono dentro del contenedor*/
+    animation: paused;
+    display: none;
+    z-index: 3;
+}
+
+
+
+    /*  
+    moverHorizontal: permite el movimiento en el eje X.
+    moverVertical: permite el movimiento en el eje y.
+    Estos se escriben junto a los segundos que tarda en completar el movimiento en cada eje "3s", "4s" de inicio a fin
+
+    "Linear" hace que la animación tenga una velocidad constante, le quita la capacidad de que pueda ir mas rapido o mas lento
+
+    "Infinite" hace que la animación se reproduzca en bucle
+
+    "Alternate" hace que la animación cambie de dirección al llegar al final osea de 0 a 100% y de 100% a 0
+    con esto generamos el efecto rebote.
+    */
+
+    .iconoscontainer {
+    position: relative;
+    width: 4%;
+    margin-left: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    color: white;
+    }
+    
+
+    #monasoico {
+    background-image: url("Recursos/monaso.ico.png");
+    width: 100%; 
+    padding-top: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: none;
+    }
+
+    #monasoicotext {
+    font-size: 1vw;
+    text-align: center;
+    margin-bottom: 40%;
+    display: none;
+    }
+
+    .carteleserror {
+    background-image: url("Recursos/cartelerror.png");
+    width: 30vh;
+    height: 30vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: fixed;
+    z-index: 1;
+    display: none;
+
+    top: none;
+    left: 100vh;
+    }
+    
+
+    .cartelcruz{
+    background-color: rgba(0, 0, 0, 0.0); /* rgba para transparencia */
+    width: 3.3vh;
+    height: 3.3vh;
+    top: 3.8%; 
+    right: 4%; 
+    position: absolute;
+    z-index: 1;
+    }
+
+    .cartelok{
+        background-color: rgba(0, 0, 0, 0.0);
+        width: 8.7vh;
+        height: 3.7vh;
+        top: 41%; 
+        right: 53%; 
+        position: absolute;
+        z-index: 1;
+    }
+
+    /*utilizamos calc para poder realizar operaciones matematicas dentro del css,
+    en este caso queremos que al mono llegar al 100%, el "programa" calcule matemáticamente el tamaño total
+    de la pantalla 100% y le reste en este caso un 10% (esto se ajusta en base al tamaño del mono) 
+    haciendo que el mono se detenga al 90%. 
+    Lo hacemos de esta forma "left: calc(100% - 10vw)" para que el elemento no se salga del contenedor 
+    y para que el valor siempre esté definido por el tamaño de la pantalla haciendo un rebote responsivo
+  
+    https://www.w3schools.com/cssref/func_calc.php
+    https://css-tricks.com/a-complete-guide-to-calc-in-css/ */
+
+@keyframes moverHorizontal {
+    0% { 
+        left: 0; 
+}
+    100% { 
+        left: calc(100% - 10vw); 
+
+} 
+}
+
+@keyframes moverVertical {
+    0% { 
+        top: 0; 
+}
+    100% {
+         top: calc(100% - 26vh); 
+}
+}

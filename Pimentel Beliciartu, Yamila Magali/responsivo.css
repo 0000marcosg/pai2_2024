@@ -1,0 +1,79 @@
+
+/* Media query para pantallas móviles */
+@media only screen and (max-width: 768px) {
+    /* Ocultar los elementos que no queremos mostrar */ 
+    .sangre,       
+    #clickpuerta,  
+    #textopuerta, 
+    .araña, 
+    .araña.move { 
+      display: none !important;
+    }
+  
+    /* Mostrar únicamente los elementos deseados */
+
+    #rotacionosito, 
+    #garras,       
+    .papel,
+    .cruz,    
+    #debajodelacama,
+    #ojos, 
+    #vibracioncuadro {         
+      display: block; /* Asegurar que sean visibles */
+    }
+  
+    #vibracioncuadro {
+        width: 18vw;
+        top: 28%; 
+        left: 32%; 
+      }
+      
+    #rotacionosito {
+      top: 52%;
+      left: 28%;
+      width: 17vw;
+    }
+  
+    #garras {
+      top: 54%;
+      right: 13%;
+      width: 18vw;
+    }
+  
+    .papel {
+      bottom: 10%;
+      left: 20%;
+      width: 30vw;
+    }
+    .cruz {
+        top: 26vh;
+        right: 23vw;
+        font-size: 8vw;
+        cursor: pointer;
+      }
+  
+    /* Ajustar posición y tamaño */
+    #debajodelacama {
+        position: absolute;
+        bottom: 20%;  
+        left: 40%;
+        width: 15vw;  
+        height: 10vh; /
+      }
+  
+      #ojos {
+        position: absolute;
+        bottom: 17%;
+        left: 41%;
+        width: 20vw;  /* Escalado para móviles */
+        display: none; 
+      }
+  
+    /* Reducir el fondo y hacer que se adapte al móvil */
+
+    .background-container, .grid-container {
+      background-size: cover;
+      background-position: center;
+    }
+  }
+  

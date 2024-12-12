@@ -1,0 +1,60 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#contenedor-interaccion {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* Posiciona el globo en la parte inferior */
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #2a7ed7cd, #97d8f1d9);
+}
+
+/* Estilo del globo */
+#globo {
+  width: 150px;
+  height: auto;
+  position: absolute;
+  left: 50%;
+}
+
+/* Estilo de los obstáculos (Rayos y Nubes) */
+.obstaculo {
+  width: 140px; 
+  height: auto;
+  position: absolute;
+  top: -60px;
+}
+/* Botón de reinicio */
+#boton-reiniciar {
+  position: absolute;
+  width: 150px;
+  height: auto;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+  #contenedor-interaccion {
+    width: 100%;
+    height: 100vh;
+  }
+
+  #globo {
+    width: 100px;
+  }
+
+  .obstaculo {
+    width: 70px;  }
+    
+  #boton-reiniciar {
+    width: 100px;
+    height: auto;
+  }
+}

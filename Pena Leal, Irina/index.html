@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="eventos.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="encabezado">
+            <h1> Sr.Corbatita es muy sabio</h1>
+            <h2>(Sólo preguntas de "si o no")</h2>
+        </div>
+        <div class="ask">
+            <!-- Campo para escribir la pregunta -->
+            <form action="/action_page.php" method="post" name="busqueda">
+                <label for="pregunta"></label>
+                <input id="preguntaInput" type="text" name="pregunta" required>
+
+            </form>
+            <!-- Botón para obtener respuesta -->
+            <div class="topnav" id="myTopnav">
+                <button id="botonRespuesta" href="javascript:void(0);" onclick="mostrarRespuestaCompleta()">
+                    <i class="fa-solid fa-paw fa-2xl icon" style="color: #ff5b94;"></i>
+                </button>
+
+            </div>
+        </div>
+        <div class="signo1">
+            <h4>¿</h4>
+        </div>
+        <div class="signo2">
+        <h4>?</h4>
+    </div>
+        <!-- Imagen del Sr. Corbatita -->
+        <div class="srcorbata">
+            <img id="imagenGato" class="gato vibrate-1" src="img/inicial.png" alt="gato">
+        </div>
+        <!-- Texto de respuesta -->
+        <div class="text">
+            <p id="respuestaTexto"></p>
+        </div>
+    </div>
+</body>
+</body>
+
+</html>

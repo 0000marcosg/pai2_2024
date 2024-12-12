@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('img/imagen.jpeg');
+    background-attachment: fixed;
+}
+
+h1 {
+    font-family: "DynaPuff", system-ui;
+    color: white;
+    padding: 20px;
+    margin: 0;
+    margin-top: 20px;
+    font-size: 40px;
+    -webkit-text-stroke: 1px rgb(102, 68, 4);
+}
+
+.cat-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin: 20px;
+}
+
+.cat-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cat {
+    background-size: cover;
+    background-position: center;
+    width: 300px;
+    height: 400px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.cat1 {
+    background-image: url('img/gato1.jpeg');
+}
+.cat2 {
+    background-image: url('img/gato2.jpeg');
+}
+.cat3 {
+    background-image: url('img/gato3.jpeg');
+}
+.cat4 {
+    background-image: url('img/gato4.jpeg');
+}
+
+.cat-name-input {
+    width: 100%;
+    padding: 5px;
+    margin: 20px 0;
+    border: 3px solid rgb(102, 68, 4);
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Estilos de la animación para tilt-shaking */
+.tilt-shaking {
+    animation: tilt-shaking 0.9s infinite;
+}
+
+@keyframes tilt-shaking {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        overflow: auto;
+        background-image: url('img/imagen2.jpeg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .cat-container {
+        grid-template-columns: 1fr;
+        margin: 10px;
+    }
+    .cat {
+        width: 300px;
+        height: 400px;
+    }
+    .cat-name-input {
+        margin-top: 5px;
+    }
+}

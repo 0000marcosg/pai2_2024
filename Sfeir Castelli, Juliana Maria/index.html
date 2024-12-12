@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PAI 2</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="fondo">
+        <div class="espacio3">
+          <img src="img/auto.png" id="auto" alt="Auto" />
+        </div>
+        <div class="espacio5 no-select">
+          <p id="contador">Clicks: 0</p>
+          <div id="mensaje">
+            ¡Dejaste de hacer turbo-click por más de 5 segundos!
+          </div>
+          <img id="frase" src="" alt="Frase" />
+        </div>
+      </div>
+      <img id="bola-disco" src="img/boladisco.png" alt="Bola Disco" />
+      <div id="destellos"></div>
+    </div>
+    <audio id="bocina" src="audio/bocinaauto.mp3" loop></audio>
+    <audio id="party" src="audio/party.mp3"></audio>
+
+    <script src="evento.js"></script>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&display=swap');
+
+body,
+img {
+  margin: unset;
+  overflow: hidden;
+}
+
+.flex-container {
+  display: flex;
+  background-color: rgb(163, 190, 172);
+  justify-content: center;
+  align-items: center; /* para un centrado perfecto*/
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Estilo para el contador */
+
+.ibm-plex-mono-bold {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+#counter {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  background-color: #000000;
+  padding: 12px 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  position: fixed; /* Fija el contador en una posición específica */
+  top: 20px; /* Distancia desde la parte superior */
+  left: 20px; /* Distancia desde la parte derecha */
+  z-index: 1000; /* Asegura que el contador esté por encima de otros elementos */
+  display: inline-block;
+}
+
+/* Media Queries para Responsividad */
+
+/* Pantallas medianas (tablets y dispositivos medianos) */
+@media (max-width: 768px) {
+  .Rob {
+    width: 100vw; /* Ajustar al ancho completo del viewport */
+    height: auto; /* Permitir altura automática */
+  }
+
+  #counter {
+    font-size: 20px; /* Reducir tamaño del texto */
+    padding: 10px 16px;
+    top: 15px; /* Ajustar espaciado */
+    left: 15px;
+  }
+  .background {
+    height: 100vh;
+    width: 100vw;
+  }
+}
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+  .Rob {
+    width: 90vw; /* Un poco más pequeño que el ancho del viewport */
+    height: auto; /* Altura automática para evitar desbordamientos */
+  }
+
+  #counter {
+    font-size: 16px; /* Reducir aún más el tamaño del texto */
+    padding: 8px 12px;
+    top: 10px;
+    left: 10px;
+  }
+  .background {
+    height: 100vh;
+    width: 100vw;
+  }
+}

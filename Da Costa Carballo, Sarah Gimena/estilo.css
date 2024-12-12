@@ -1,0 +1,129 @@
+* {box-sizing: border-box;}
+
+html, body {
+    height: 100%;
+}
+
+/*felx contenier flexbox--------------------------------------------------------------------*/
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+	align-items: flex-start;
+}
+
+.flex-container > div {
+	height: 500px;
+	width: 50%;
+	margin: 10% 5%;
+}
+
+/*estilo para los divs--------------------------------------------------------------------*/
+.objeto1 {
+    background-color: red;
+    transition: width 4s;
+}
+
+.objeto2 {
+    background-color: yellow;
+    transition: width 2s, transform 2s;
+}
+
+.objeto3 {
+    background-color: blue;
+}
+
+.objeto4 {
+    background-color: magenta;
+    transition: width 2s, transform 2s;
+    transition-delay: 0.5s;
+}
+
+.objeto5 {
+    background-color: lime;
+}
+
+.objeto6 {
+    background-color: aqua;
+}
+
+/*animaciones y transiciones-------------------------------------------------------*/
+
+.objeto1:hover{
+    width: 100%;
+    transition-timing-function: ease-in-out;
+}
+
+/*animacion objeto 2---------------------------------------------------------------*/
+.shake-horizontal:hover{
+    animation-name: diceno;
+    animation-duration: 0.5s;
+    position: relative;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}  
+@keyframes diceno{
+      from {left:0px; top:0px;}
+      to {left:50px; top:0px;}
+}
+
+/*animacion objeto3----------------------------------------------------------------------*/
+.shake-vertical:hover{
+    animation-name: dicesi;
+      animation-duration: 0.5s;
+      position: relative;
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+}      
+@keyframes dicesi{
+        from {left:0px; top:0px;}
+        to {left:0x; top:50px;}
+}
+
+/*animacion objeto 4---------------------------------------------------------------*/
+.rotate-center:hover{
+    width: 50%;
+    transform: rotate(360deg);
+}
+
+/*animacion objeto 5---------------------------------------------------------------------*/
+.objeto5:hover{
+    animation-name: camaleon;
+    position: relative;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes camaleon{
+    from{background-color: lime;}
+    to{background-color: blue;}
+}
+
+/*animacion objeto 6---------------------------------------------------------------------*/
+.objeto6{
+    position: relative;
+}
+@keyframes mymove{
+    0%{background-color: aqua; left:0px; top:0px;}
+    25%{background-color: yellow; left:100px; top:0px;}
+    50%{background-color: green; left:100px; top:100px;}
+    75%{background-color: blue; left:0px; top:100px;}
+    100%{background-color: aqua; left:0px; top:0px;}
+}
+
+/*vista para celular---------------------------------------------------------------------*/
+@media only screen and (max-width: 768px) {
+    body{
+        background-color: black;
+    }
+/*para ocultar los divs*/
+.oculto{
+        display: none;
+  
+}
+    
+
+}

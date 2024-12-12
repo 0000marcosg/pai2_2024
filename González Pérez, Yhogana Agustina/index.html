@@ -1,0 +1,61 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MeMix</title>
+  <link rel="stylesheet" href="estilo.css">
+  <script type="text/javascript" src="eventos.js"></script>
+</head>
+
+<body>
+  <h1>MeMix</h1>
+
+  <!-- Galería de Memes -->
+  <div class="galeria-memes">
+    <div id="sonidos-meme" class="grid-container">
+      <div class="icono-meme abajo" onclick="agregarMemeALista('finish-him')">
+        <img src="img/finishhim.jpeg">
+      </div>
+      <div class="icono-meme arriba" onclick="agregarMemeALista('mewing')">
+        <img src="img/mewing.png">
+      </div>
+      <div class="icono-meme izquierda" onclick="agregarMemeALista('que-bendicion')">
+        <img src="img/que-bendicion.jpg">
+      </div>
+      <div class="icono-meme derecha" onclick="agregarMemeALista('siuu')">
+        <img src="img/siuu.jpeg">
+      </div>
+      <div class="icono-meme abajo" onclick="agregarMemeALista('ibai')">
+        <img src="img/ibai.jpg">
+      </div>
+      <div class="icono-meme arriba" onclick="agregarMemeALista('y-se-marcho')">
+        <img src="img/y-se-marcho.jpg">
+      </div>
+      <div class="icono-meme derecha" onclick="agregarMemeALista('como-tan')">
+        <img src="img/como-tan-muchacho.jpg">
+      </div>
+      <div class="icono-meme izquierda" onclick="agregarMemeALista('mission')">
+        <img src="img/mission.png">
+      </div>
+      <div class="icono-meme arriba" onclick="agregarMemeALista('flauta')">
+        <img src="img/flauta.jpeg">
+      </div>
+    </div>
+  </div>
+
+  <!-- Lista de Reproducción -->
+  <div class="lista-reproduccion">
+    <h2>Ringtone</h2>
+    <div id="lista"></div>
+  </div>
+
+  <!-- Controles -->
+  <div class="botones">
+    <button onclick="reproducirLista()" class="boton-play">
+      <img src="img/boton-play.png" class="icono-play">
+    </button>
+  </div>
+
+</body>
+</html>

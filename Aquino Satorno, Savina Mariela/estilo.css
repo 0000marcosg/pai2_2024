@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+3D&family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Altura completa de la página */
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    position: relative; /* Necesario para posicionar el botón respecto al video */
+    height: 100vh; /* Altura de la ventana del navegador */
+}
+
+#video {
+    position: absolute; /* Posiciona el video de fondo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Oculta cualquier contenido fuera de los límites */
+    z-index: -1; /* Coloca el video detrás de otros elementos */
+}
+
+#video video {
+    width: 100%;
+    height: 100vh;    
+    display: flex;
+    object-fit: cover; /* Asegura que el video cubra el contenedor sin deformarse */
+
+}
+
+.content {
+    position: relative; /* Para que el botón esté por encima del video */
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: flex-start; /* Alinea el contenido en la parte superior */
+    height: 100%; /* Ocupa toda la altura del contenedor */
+    margin-top: 40vh; /* Margen superior para separar el botón del borde superior */
+}
+
+.button {
+    padding: 15px 24px; /* Espaciado interno del botón */
+    font-size: 34px; /* Tamaño de la fuente del botón */
+    line-height: 35px;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    background-color: #cabdd7; /* Fondo para el botón */
+    color: #271043;
+    border-radius: 100px;
+    border-bottom: 0;
+    transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+    transition: all .4s ease-out;
+    align-items: center;
+
+}
+
+.button:hover {
+    border-bottom:5px solid #986ecb;
+    background-color: #ebe7ef;
+        transform: translateY(-3px);
+    -webkit-transform: translateY(-3px);
+}
+
+ /* HASTA ACA DE PANTALLA PRINCIPAL */
+ .pantalla-tarot {
+    width: 100%;
+    height: 100%;
+  }
+  .container-flex-aterrizaje { 
+    background-color: #271043;
+    width: 100%;
+    height: 100%;    
+    display: flex;
+    position: absolute;
+}
+  h1 {
+  font-family:"Rock 3D", system-ui;
+  text-align: center;
+  padding: 40px 20px 20px 20px;
+  color: #cabdd7;
+}
+
+h2 {
+font-family:"Bebas Neue", sans-serif;
+font-weight: 400;
+font-style: normal;
+}
+
+.tarot-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 5vw 10vw;
+  }
+  
+  .carta {
+    width: 198px;
+    height: 338px;
+    cursor: pointer;
+    perspective: 1000px;
+    z-index: 1000;
+    position: relative;
+}
+
+.carta:not(.flipped) {
+    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+    transform: translatey(0px);
+    animation: float 6s ease-in-out infinite;
+  }
+
+  #carta1 {
+    animation-delay: .3s;
+  }
+
+  #carta3 {
+    animation-delay: .15s;
+  }
+
+  @keyframes float {
+    0% {
+        box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+        transform: translatey(0px);
+    }
+    50% {
+        box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+        transform: translatey(-20px);
+    }
+    100% {
+        box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+        transform: translatey(0px);
+    }
+}
+
+
+  
+.carta:not(.flipped):hover {
+    animation: tilt-n-move-shaking 0.25s;
+    animation-iteration-count: 2;
+
+}
+
+ @keyframes tilt-n-move-shaking {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(5px, 5px) rotate(5deg); }
+  50% { transform: translate(0, 0) rotate(0eg); }
+  75% { transform: translate(-5px, 5px) rotate(-5deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.carta .imagen/*, .carta .flip-card-front img*/ {
+    width: 198px;
+    height: auto;
+    transition: all 0.6s;
+    -webkit-transform-style: preserve-3d;
+       -moz-transform-style: preserve-3d;
+         -o-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    -webkit-transform-origin: right center;
+       -moz-transform-origin: right center;
+         -o-transform-origin: right center;
+            transform-origin: right center;
+    scale: 1;
+  }
+
+/* Efecto de rotación */
+.carta.flipped .imagen {
+    -webkit-transform: translateX( -100% ) rotateY( -180deg );
+     -moz-transform: translateX( -100% ) rotateY( -180deg );
+       -o-transform: translateX( -100% ) rotateY( -180deg );
+          transform: translateX( -100% ) rotateY( -180deg ); /* Gira la carta 180 grados en el eje Y */
+    scale: 1.2;
+}
+
+.carta.disabled {
+  pointer-events: none; /* Desactiva el clic */
+  opacity: 0.5; /* Opcional: reduce opacidad para dar efecto de desactivado */
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
+  transition: all .4s ease;
+}
+
+@media only screen and (max-width: 768px) {
+    #carta2, #carta3{
+        position: absolute;
+        z-index: 100;
+        transition: all .6s ease;
+        pointer-events: none;
+    }
+    #carta2 .imagen {
+        transform: translateX( 15% ) translateY( 0 );
+        rotate: 9deg;
+}
+    #carta3 .imagen {
+        transform: translateX( -15% ) translateY( -12% );
+        rotate: -9deg;
+}
+    .carta.flipped .imagen {
+        z-index: 99999;
+}
+
+.tarot-container {
+padding: 20vw 10vw;
+}
+}

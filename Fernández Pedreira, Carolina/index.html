@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>namnamnam</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <script type="text/javascript" src="eventos.js" defer></script>
+</head>
+<body>
+    <video id="background-video" autoplay loop muted>
+        <source src="img/fondo.mp4" type="video/mp4">
+      </video>
+    <div class="flex-container">
+        <p>MOSCAS: <span id="contador">0</span></p> <!--CONTADOR aumenta onclick mosca-->
+        <div id="mosca" onclick="nam()" ondblclick="nam()"></div> <!--MOSCA desaparece en onclick y reaparece 4s desp-->
+        <div id="mosca2" onclick="nami()" ondblclick="nami()"></div>
+        <div id="mosca3" onclick="namii()" ondblclick="namii()"></div>
+        <div id="mosca4" onclick="namiii()" ondblclick="namiii()"></div>
+        <div id="sapo"></div>
+    </div>
+</body>
+</html>

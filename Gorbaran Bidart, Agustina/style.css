@@ -1,0 +1,149 @@
+
+ /*Media queries*/
+
+ @media (max-width: 600px) {
+    #footer
+    {
+        font-size: 1rem;
+        height: 15vh;
+    }
+    
+
+}
+
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+
+    background-image: url(img/tunel.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f0f0f0;
+    min-width: fit-content;
+
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas por defecto */
+    grid-gap: 10px;
+    width: 50vw;
+    padding: 20px;
+    min-width: 50vh;
+    min-height: 50vh;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%); /* Centrado */
+    
+   
+}
+
+/* Media query: Cambia a 3 columnas cuando el ancho sea menor a 600px */
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    }
+
+
+}
+
+.carta {
+    width: 10vw;
+    height: 17vw;
+    perspective: 1000px;
+    min-width: 13vh;
+    min-height: 23vh;
+}
+
+.carta-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    cursor: pointer;
+}
+
+.carta.volteada .carta-inner {
+    transform: rotateY(180deg);
+}
+
+.carta-front,
+.carta-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 1px solid #333;
+    border-radius: 8px;
+}
+
+.carta-front {
+    background-image: url('img/frente1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.carta-back {
+    background-size: cover;
+    background-position: center;
+    transform: rotateY(180deg);
+}
+
+/* Estilo para la capa negra que cubre la pantalla */
+
+#fondoNegro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); 
+    display: none; /* Inicialmente oculta */
+    z-index: 99; /* Asegura que esté encima de todo el contenido */
+    opacity: 0; 
+    transition: opacity 0.5s ease, display 0s 0.5s; /* Transición de opacidad y retraso para display */
+}
+
+
+#footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #378ab9;
+    opacity: 0.60;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 10vh;
+    font-family: "Mountains of Christmas", serif;
+    font-size: 1.3rem;
+    font-style: normal;
+    font-weight: 400;
+}
+
+
+
+
+#victory
+{
+    z-index: 70;
+
+    position: absolute;
+    width: 50vw;
+    height: auto;
+}  

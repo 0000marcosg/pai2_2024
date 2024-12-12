@@ -1,0 +1,353 @@
+/*  Inicio---------------------------------------------------------------------------------------------------------------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Rambla:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/*  Inicio---------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*  Layout General*/
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 50pt;
+  line-height: 0.15;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  cursor: default;
+}
+
+body {
+  background-color: #333;
+  text-align: center;
+  font-family: 'Rambla', sans-serif;
+  color: whitesmoke;
+  padding: 0;
+}
+
+h1 {
+  display: inline-block;
+}
+
+.espaciado {
+  margin: 50px;
+  margin-bottom: 200px;
+}
+
+#refresh-button {
+  position: relative;
+  margin-top: 200px;
+  width: 50px;
+  height: 50px;
+  background-color: #444;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  transform: rotate(0deg);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+#refresh-button:hover {
+  background-color: #555;
+  animation: spin 0.5s linear infinite;
+  -webkit-animation: spin 0.5s linear infinite;
+}
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+
+.material-symbols-outlined {
+  color: whitesmoke;
+  font-size: 24px;
+}
+
+
+.container {
+  margin: 0 0 160px;
+  height: 160px;
+  align-items: start;
+  justify-content: center;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: normal;
+  align-content: normal;
+}
+
+.flex-items {
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+/* Fin de Layout General----------------------------------------------------------------------------------------------*/
+
+/* Botones------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.flex-items:nth-child(1) {
+  background-image: url('img/jaime1.jpg');
+  animation-name: vertical;
+  -webkit-animation-name: vertical;
+  animation-duration: 3.8s;
+  -webkit-animation-duration: 3.8s;
+  position: relative;
+  animation-play-state: paused;
+  -webkit-animation-play-state: paused;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+
+
+.flex-items:nth-child(2) {
+  background-image: url('img/taddei.jpg');
+  animation-name: horizontal;
+  -webkit-animation-name: horizontal;
+  animation-duration: 3.8s;
+  -webkit-animation-duration: 3.8s;
+  position: relative;
+  animation-play-state: paused;
+  -webkit-animation-play-state: paused;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  
+}
+
+.flex-items:nth-child(3) {
+  background-image: url('img/jaime2.jpg');
+  animation-name: diagonales;
+  -webkit-animation-name: diagonales;
+  animation-duration: 5s;
+  -webkit-animation-duration: 5s;
+  position: relative;
+  animation-play-state: paused;
+  -webkit-animation-play-state: paused;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.flex-items:nth-child(4) {
+  background-image: url('img/rubenra.jpg');
+  animation-name: diagonala;
+  -webkit-animation-name: diagonala; 
+  animation-duration: 4s;
+  -webkit-animation-duration: 4s;
+  position: relative;
+  animation-play-state: paused;
+  -webkit-animation-play-state: paused;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  
+}
+
+.flex-items:nth-child(5) {
+  background-image: url('img/mateo.jpg');
+  animation-name: cuadrado;
+  -webkit-animation-name: cuadrado;
+  animation-duration: 4s;
+  -webkit-animation-duration: 4s;
+  position: relative;
+  animation-play-state: paused;
+  -webkit-animation-play-state: paused;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.flex-items:nth-child(6) {
+  background-image: url('img/zitarrosa.png');
+  animation-name: triangulo;
+  -webkit-animation-name: triangulo;
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  position: relative;
+  animation-play-state: paused;
+  -webkit-animation-play-state: paused;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+
+/*  Fin de botones------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*  Media Query*/
+@media (max-width: 768px) {
+  h1 {
+    font-size: 30pt;
+    line-height: 1.2;
+  }
+
+  .flex-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .flex-items {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+  }
+
+  .espaciado {
+    margin: 20px;
+    margin-bottom: 100px;
+  }
+}
+
+/*  Fin de Media Query------------------------------------------------------------------------------------------------------------------------------*/
+
+/*  ANIMACIONES---------------------------------------------------------------------------------------------------------*/
+
+@keyframes vertical {
+
+0% {
+    top: 0px; bottom: 0px;
+  }
+25% {
+    bottom: 300px;
+  }
+50% {
+    top: 600px;
+  }
+75% {
+    bottom: 600px;
+  }
+100% {
+    top: 0px; bottom: 0px;
+  }
+}
+
+/*-------------------------------------------1*/
+
+@keyframes horizontal {
+ 
+0% {
+  left: 0px;right: 0px;
+}
+25% {
+  right: 300px;
+}
+50% {
+  left: 600px;
+}
+75% {
+  right: 600px;
+}
+100% {
+  left: 0px; right: 0px;
+  }
+}
+
+/*-------------------------------------------2*/
+
+@keyframes diagonales {
+
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(200px, 200px);
+  }
+  50% {
+    transform: translate(-200px, -200px);
+  }
+  75% {
+    transform: translate(200px, 200px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+/*-------------------------------------------3*/
+
+@keyframes diagonala {
+  
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-200px, -200px);
+  }
+  50% {
+    transform: translate(200px, 200px);
+  }
+  75% {
+    transform: translate(-200px, -200px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+/*-------------------------------------------4*/
+
+@keyframes cuadrado {
+ 
+  0% {
+    left: 0%; top: 0%;
+  }
+  25% {
+    left: 300px;top: 0px;
+  }
+  50% {
+    left:300px; top: 300px;
+  }
+  75% {
+    left:0px; top: 300px;
+  }
+  100% {
+    left: 0px; top: 0px;
+    }
+  }
+
+/*-------------------------------------------5*/
+
+@keyframes triangulo {
+ 
+ 
+  0% {
+    left: 0%; top: 0%;
+  }
+  25% {
+    left: 300px;top: 0px;
+  }
+  50% {
+    left:300px; top: 300px;
+  }
+  75% {
+    transform: translate(-200px, -200px);
+  }
+  100% {
+    left: 0px; top: 0px;
+    }
+  }
+
+  /*-------------------------------------------6*/
+
+  /*  fin-------------------------------------------------------------------------------------------------------------------------*/
+  /*  fin-------------------------------------------------------------------------------------------------------------------------*/

@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    background-image: url('img/fondo.jpg');
+    background-size: auto;
+    background-repeat: repeat;
+    height: 100vh;
+    width: 100vw;
+}
+
+.pantalla-juego {
+    display: none;
+}
+
+.menu {
+    text-align: center;
+    display: block;
+    margin: auto auto;
+    width: 30%;
+    border: 1px solid black;
+    border-radius: 30px;
+    background-color: white;
+    padding: 20px;
+    margin-top: 20vh;
+}
+
+.boton {
+    padding: 20px 60px;
+    background-color: blue;
+    color: white;
+    font-size: 20px;
+    font-family:sans-serif;
+    border-radius: 20px;
+    width: min-content;
+    margin: 0 auto;
+}
+
+.restartMenu {
+    display: none;
+}
+
+.dragon {
+    background-image: url('img/dragonMalo.gif');
+    height: 250px;
+    width: 250px;
+    position: fixed;
+    bottom: 100;
+    background-repeat: no-repeat;
+    background-size: contain;
+    -webkit-animation:  moverPato 2s 1 normal forwards;
+        animation:  moverPato 2s 1 normal forwards;
+    -webkit-animation-play-state: paused;
+        animation-play-state: paused;
+}
+
+
+.polloBueno {
+    background-image: url('img/gifpollito.gif');
+    height: 150px;
+    width: 150px;
+    position: fixed;
+    background-size: cover;
+}
+
+.mensaje {
+    display: none;
+    text-align: center;
+    margin: 0 auto;
+    color: white;
+    font-size: 30px;
+    font-family: sans-serif;
+    background-color: black;
+}
+
+.mensaje-ganaste, .mensaje-perdiste {
+    display: none;
+}
+
+html {
+    cursor: url("./img/cursorMira.png"), pointer;
+}
+
+.papelitos {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    z-index: -1;
+    left: 0;
+    background-image: url('./img/papelesGanaste.gif');
+}
+
+.timer {
+    background-color: rgba(1,1,1,.7);
+    color: white;
+    font-size: 40px;
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    padding: 12px;
+    border-radius: 10px;
+}

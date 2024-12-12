@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Gloria+Hallelujah&family=Spicy+Rice&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Doto:wght@588&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Gloria+Hallelujah&family=Spicy+Rice&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  height: 100vh;
+  background-color: #fbd6e3;
+
+}
+
+/* Titulo y aclaración */
+.encabezado {
+  font-family: "Spicy Rice", serif;
+  color: #826ec5;
+  grid-column: 1 / span 3;
+  grid-row: 2;
+  text-align: center;
+}
+
+/*  Campo para escribir la pregunta */
+.ask {
+  grid-column: 2;
+  grid-row: 3;
+
+}
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 2px solid #756f87;
+  background-color: #fef9ba;
+  outline: none;
+}
+input {
+  font-family: "Abel", serif;
+  color: #ff5b94;
+  font-size: 16px;
+}
+
+/* Boton patita */
+.icon [type=submit] {
+  border: none;
+}
+.topnav {
+  grid-column: 2;
+  grid-row: 4;
+  text-align: center;
+}
+#botonRespuesta {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* signos de pregunta */
+.signo1,
+.signo2 {
+  font-family: "Spicy Rice", serif;
+  color: #826ec5;
+}
+.signo1 {
+  grid-row: 3;
+  grid-column: 1;
+  text-align: right;
+  font-size: 60px;
+}
+.signo2 {
+  grid-row: 3;
+  grid-column: 3;
+  text-align: left;
+  font-size: 60px;
+}
+
+/* Imagen del gato */
+.srcorbata {
+  grid-column: 2;
+  grid-row: 5;
+  text-align: center;
+}
+
+/* Texto de respuesta */
+.text {
+  grid-column: 2;
+  grid-row: 6;
+  border: 2px solid #ff92b8;
+  background-color: #fef9ba;
+  font-family: "Spicy Rice", serif;
+  color: #ff5b94;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* _________________________________ el gato se mueve_____________________________________ */
+.vibrate-1:hover {
+  -webkit-animation: vibrate-1 0.3s linear infinite both;
+  animation: vibrate-1 0.3s linear infinite both;
+}
+
+@-webkit-keyframes vibrate-1 {
+  0% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+
+  20% {
+    -webkit-transform: translate(-2px, 2px);
+    transform: translate(-2px, 2px);
+  }
+
+  40% {
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px);
+  }
+
+  60% {
+    -webkit-transform: translate(2px, 2px);
+    transform: translate(2px, 2px);
+  }
+
+  80% {
+    -webkit-transform: translate(2px, -2px);
+    transform: translate(2px, -2px);
+  }
+
+  100% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+}
+
+@keyframes vibrate-1 {
+  0% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+
+  20% {
+    -webkit-transform: translate(-2px, 2px);
+    transform: translate(-2px, 2px);
+  }
+
+  40% {
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px);
+  }
+
+  60% {
+    -webkit-transform: translate(2px, 2px);
+    transform: translate(2px, 2px);
+  }
+
+  80% {
+    -webkit-transform: translate(2px, -2px);
+    transform: translate(2px, -2px);
+  }
+
+  100% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+}
+
+/* ______________________________El boton tambien_______________________________ */
+.icon:hover{
+	-webkit-animation: envia 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite;
+	        animation: envia 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite;
+}
+
+ @-webkit-keyframes envia {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+  }
+}
+@keyframes envia {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+  }
+}
+
+
+
+/* ______________________________inicio resolutive______________________________ */
+@media screen and (max-width: 768px) {
+  .encabezado {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: center;
+    padding-top: 50px;
+  }
+  .signo1 {
+  grid-column: 2;
+  grid-row: 2;
+  text-align: center;
+  padding-right: 30px;
+  
+}
+.signo2{
+  grid-column: 2;
+  grid-row: 2;
+  text-align: center;
+  padding-left: 30px;
+}
+.srcorbata {
+  grid-column: 2;
+  grid-row: 4;
+
+}
+.text{
+  grid-column: 2;
+  grid-row: 5;
+
+}
+}

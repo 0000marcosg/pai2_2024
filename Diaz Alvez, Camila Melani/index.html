@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Piero Lagrimetti</title>
+    <link rel="icon" href="img/cebolla2.png" type="image/x-icon">
+    <link rel="stylesheet" href="estilo.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div id="pantallaInicio" class="pantalla-inicio"> 
+        <div class="inicio-mensaje"> 
+            <img src="img/pantalla inicio.JPG" alt="pantalla inicio" class="imagen-inicio" id="imageninicio"> 
+    </div> 
+    <img src="img/cebolla start.png" alt="cebolla start" class="boton-start" id="botonStart">
+</div>
+
+<div id="pantallaReinicio" class="pantalla-reinicio" style="display: none;"> 
+    <div class="reinicio-mensaje"> 
+
+        <img src="img/cebolla otra vez.JPG" alt="cebolla otra vez" class="boton-otravez" id="botonOtraVez">
+    </div> 
+</div>
+
+<div id="contenedorPrincipal" class="flex-container" style="display: none;">
+    <div class="piero"> <!--transición para cambiar los estados de piero-->
+        <img src="img/piero1.png" id="piero1">
+        <img src="img/piero2.png" id="piero2">
+        <img src="img/piero3.png" id="piero3">
+        <img src="img/piero4.png" id="piero4"> 
+        <img src="img/piero5.png" id="pieroGanaste" class="piero-img">
+    </div> 
+
+    <div class="lagrimas-container"> <!--para que llore-->
+        <div class="lagrimas"></div>
+        <div class="lagrimas"></div>
+    </div>
+
+    <div class="cebolla" onclick="playSound()">
+        <div class="cebolla-content">
+        <img src="img/cebolla1.png" id="cebolla1" class="activo">
+        <img src="img/cebolla2.png" id="cebolla2">
+        <img src="img/cebolla3.png" id="cebolla3">
+        <img src="img/cebolla4.png" id="cebolla4">
+        </div>
+    </div>
+
+    <div class="mensajes">
+        <img src="img/ojo el agua.png" id="ojoAgua" alt="imagen de ojo el agua" class="mensajes-img oculta">
+        <img src="img/cuidado.png" id="cuidado" alt="imagen de cuidado" class="mensajes-img oculta">
+        <img src="img/perdiste.png" id="perdiste" alt="imagen de perdiste" class="mensajes-img oculta">
+    </div>
+
+    <img id="imagenGanaste" src="img/ganaste.png" alt="imagen de ganaste" class="oculta">
+    
+    <audio id="sonidoclick"> 
+          <source src="audio/cortarcebolla.mp4" type="audio/mpeg">
+    </audio>
+    
+    <audio id="SonidoGanador">
+        <source src="audio/sonido victoria.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="SonidoPerdedor" src="audio/Sonido Perdiste.mp3"></audio>
+
+
+    <div class="agua"></div>
+</div>
+
+
+</body>
+</html>

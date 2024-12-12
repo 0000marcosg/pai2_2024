@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora</title>
+  <link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body>
+    <!-- Teclado numérico  -->
+    <div class="keyboard">
+      <div id="pantalla-numeros">
+      </div>
+      <div class="attempt-section">
+      </div>
+      <div class="number-display">
+        <div class="div-numeros">
+          <img src="./imagenes/uno.png" onclick="mostrarNumero('./imagenes/uno.png')" alt="Número Actual">
+          <img src="./imagenes/dos.png" onclick="mostrarNumero('./imagenes/dos.png')" alt="Número Actual">
+          <img src="./imagenes/tres.png" onclick="mostrarNumero('./imagenes/tres.png')" alt="Número Actual">
+        </div>
+        <div class="div-numeros">
+          <img src="./imagenes/cuatro.png" onclick="mostrarNumero('./imagenes/cuatro.png')" alt="Número Actual">
+          <img src="./imagenes/cinco.png" onclick="mostrarNumero('./imagenes/cinco.png')" alt="Número Actual">
+          <img src="./imagenes/seis.png" onclick="mostrarNumero('./imagenes/seis.png')" alt="Número Actual">
+        </div>
+        <div class="div-numeros">
+          <img src="./imagenes/siete.png" onclick="mostrarNumero('./imagenes/siete.png')" alt="Número Actual">
+          <img src="./imagenes/ocho.png" onclick="mostrarNumero('./imagenes/ocho.png')" alt="Número Actual">
+          <img src="./imagenes/nueve.png" onclick="mostrarNumero('./imagenes/nueve.png')" alt="Número Actual">
+        </div>
+        <div class="send-button">
+          <img src="./imagenes/vacio.png" alt="Número Actual">
+          <img src="./imagenes/cero.png" onclick="mostrarNumero('./imagenes/cero.png')" alt="Número Actual">
+          <img src="./imagenes/enviar.png" alt="Botón Enviar" onclick="enviarBoton()" />
+        </div>
+      </div>
+    </div>
+  <script type="text/javascript" src="eventos.js"></script>
+</body>
+</html>

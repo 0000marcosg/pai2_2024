@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style></style>
+    <link rel="stylesheet" href="estilos.css">
+    <title>Entrega PAI</title>
+</head>
+<body>
+
+    <!-- PANTALLA DEL JUEGO -->
+    <div class="pantalla-juego">
+
+            <div class="timer" id="timer">00:15</div>
+            
+            <!-- POLLOS BUENOS -->
+            <div class="polloBueno"></div>
+            <div class="polloBueno"></div>
+            <div class="polloBueno"></div>
+            <div class="polloBueno"></div>
+            <div class="polloBueno"></div>
+            <div class="polloBueno"></div>
+            <div class="polloBueno"></div>
+            <div class="polloBueno"></div>
+            
+            <!-- DRAGONES --> 
+            <div class="dragon"></div>  
+            <div class="dragon"></div>  
+            <div class="dragon"></div>  
+            <div class="dragon"></div>  
+            <div class="dragon"></div>  
+            <div class="dragon"></div>  
+    </div>
+
+    <div class="mensaje mensaje-ganaste">
+        <h1>GANASTE!!!</h1>
+    </div>
+    <div class="mensaje-ganaste papelitos">
+    </div>
+    
+    <div class="mensaje mensaje-perdiste">
+        <h1>Perdiste, vuelve a intentarlo!</h1>
+    </div>
+    
+    <!-- MENU -->
+    <div class="menu mainMenu">
+        <div>
+            <h1>Caza a los dragones</h1>
+            <p class="boton" onclick="iniciarJuego()">Jugar</p>
+            <p>Solo debes clickear sobre los dragones para cazarlos, pero si cazas un pollito pierdes</p>
+        </div>
+    </div>
+
+    <!-- REINICIAR MENU-->
+    <div class="menu restartMenu">
+        <div>
+            <h1>Caza a los dragones</h1>
+            <p class="boton" onclick="iniciarJuego()">Reiniciar</p>
+            <p>Solo debes clickear sobre los dragones para cazarlos, pero si cazas un pollito pierdes</p>
+        </div>
+    </div>
+
+    <audio id="audioTiro" src="./audio/tiro.mp3" ></audio>
+    <audio id="audioClick" src="./audio/iniciarJuego.mp3" ></audio>
+    <audio id="audioGanar" src="./audio/sonidoGanar.mp3"></audio>
+    <audio id="audioPerder" src="./audio/sonidoPerder.mp3"></audio>
+    <audio autoplay --autoplay-policy=no-user-gesture-required loop id="audioFondo" src="./audio/musicaFondo.mp3" ></audio>
+
+</body>
+</html>
+
+<script>
+
+    let countdownTime = 15; // Tiempo inicial en segundos
+    let remainingTime = countdownTime;
+    let interval;
+    let isRunning = false;
+    const timerDisplay = document.getElementById('timer');
+
+    function updateDisplay() {
+        const minutes = String(Math.floor(remainingTime / 60)).padStart(2, '0');
+        const seconds = String(remainingTime % 60).padStart(2, '0');
+        timerDisplay.textContent = `${minutes}:${seconds}`;
+    }
+
+    function startTimer() {
+        if (!isRunning && remainingTime > 0) {
+            interval = setInterval(() => {
+            remainingTime--;
+            updateDisplay();
+
+            if (remainingTime <= 0) {
+                clearInterval(interval);
+                isRunning = false;
+                perderPartida();
+            }
+            }, 1000);
+            isRunning = true;
+        }
+    }
+
+    function resetTimer() {
+        clearInterval(interval);
+        isRunning = false;
+        remainingTime = countdownTime;
+        updateDisplay();
+    }
+
+    function perderPartida () {
+        document.querySelector('#audioPerder').play();
+        document.querySelector('.mensaje-perdiste').style.display = "block"
+        document.querySelector('.restartMenu').style.display = 'block'
+        document.querySelector('.pantalla-juego').style.display = 'none'
+        resetTimer()
+    }
+
+    function ganarPartida () {
+        document.querySelector("#audioFondo").pause();
+        document.querySelector("#audioGanar").play();
+        document.querySelector('.papelitos').style.display = "block"
+        document.querySelector('.mensaje-ganaste').style.display = "block"
+        document.querySelector('.restartMenu').style.display = 'block'
+        document.querySelector('.pantalla-juego').style.display = 'none'
+        resetTimer()
+    }
+
+    function matarDragon(dragon) {
+        document.querySelector("#audioTiro").play();
+        dragon.style.backgroundImage = "url('./img/explosionGif.gif')";
+        setTimeout(() => {
+            dragon.style.display = "none"
+            dragones = document.querySelectorAll(".dragon")
+            let dragonesVivos = false;
+            dragones.forEach(dragon => {
+                if (dragon.style.display != "none")
+                    dragonesVivos = true;
+            });
+            if (dragonesVivos == false)
+                ganarPartida()
+        }, 300)
+    }
+
+    function iniciarJuego() {
+        startTimer();
+        dragones = document.querySelectorAll(".dragon")
+        dragones.forEach(dragon => {
+            dragon.style.backgroundImage = "url('./img/dragonMalo.gif')";
+        });
+        document.querySelector('.papelitos').style.display = "none"
+        document.querySelector("#audioFondo").play();
+        document.querySelector("#audioFondo").volume = 0.3
+        document.querySelector("#audioClick").play();
+        document.querySelector(".mainMenu").style.display = "none";
+        document.querySelector(".restartMenu").style.display = "none";
+        document.querySelector(".mensaje-ganaste").style.display = "none";
+        document.querySelector(".mensaje-perdiste").style.display = "none";
+        document.querySelector(".pantalla-juego").style.display = 'block';
+        iniciarMovimientos();
+    }
+
+    function iniciarMovimientos() {
+        let pollos = document.querySelectorAll('.polloBueno');
+        let dragones = document.querySelectorAll('.dragon')
+        pollos.forEach(pollo => {
+            pollo.style.display = "block"
+            pollo.addEventListener('click', () => perderPartida())
+            // Generar posiciones aleatorias dentro de la ventana
+            let posicionXAleatoria = Math.floor(Math.random() * window.innerWidth * 0.6);
+            let posicionYAleatoria = Math.floor(Math.random() * window.innerHeight * 0.6);
+            
+            // Aplicar estilos al elemento
+            pollo.style.position = 'absolute';
+            pollo.style.left = `${posicionXAleatoria}px`;
+            pollo.style.top = `${posicionYAleatoria}px`;
+        });
+        
+        dragones.forEach(dragon => {
+            dragon.style.display = "block"
+            dragon.addEventListener('click', () => matarDragon(dragon))
+            // Generar posiciones aleatorias dentro de la ventana
+            let posicionXAleatoria = Math.floor(Math.random() * window.innerWidth * 0.6);
+            let posicionYAleatoria = Math.floor(Math.random() * window.innerHeight * 0.6);
+
+            // Aplicar estilos al elemento
+            dragon.style.position = 'absolute';
+            dragon.style.left = `${posicionXAleatoria}px`;
+            dragon.style.top = `${posicionYAleatoria}px`;
+        });
+
+        pollos.forEach((pollo, index) => {
+            // Generate random positions for each keyframe
+            const keyframes = `
+                @keyframes randomMove${index} {
+                    0% { top: ${Math.random() * 90}vh; left: ${Math.random() * 90}vw; }
+                    25% { top: ${Math.random() * 90}vh; left: ${Math.random() * 90}vw; }
+                    50% { top: ${Math.random() * 90}vh; left: ${Math.random() * 90}vw; }
+                    75% { top: ${Math.random() * 90}vh; left: ${Math.random() * 90}vw; }
+                    90% { top: ${Math.random() * 90}vh; left: ${Math.random() * 90}vw; }
+                }
+            `;
+
+            // Add the keyframes to the document's stylesheet
+            const styleSheet = document.styleSheets[0];
+            styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+
+            // Apply the unique animation to each element
+            const duration = Math.random() * 3 + 6; // Duration between 6s and 9s
+            pollo.style.animation = `randomMove${index} ${duration}s infinite alternate ease-in-out`;
+            pollo.style.webkitAnimation = `randomMove${index} ${duration}s infinite alternate ease-in-out`;
+        });
+
+        dragones.forEach((dragon, index) => {
+            // Generate random positions for each keyframe
+            const keyframes = `
+                @keyframes randomMoveDragon${index} {
+                    0% { top: ${Math.random() * 90}vh; left: ${Math.random() * 90}vw; }
+                    25% { top: ${Math.random() * 90}vh; left: ${Math.random() * 90}vw; }
+                    50% { top: ${Math.random() * 90}vh; left: ${Math.random() * 90}vw; }
+                    75% { top: ${Math.random() * 90}vh; left: ${Math.random() * 90}vw; }
+                    90% { top: ${Math.random() * 90}vh; left: ${Math.random() * 90}vw; }
+                }
+            `;
+
+            // Add the keyframes to the document's stylesheet
+            const styleSheet = document.styleSheets[0];
+            styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+
+            // Apply the unique animation to each element
+            const duration = Math.random() * 2 + 5; // Duration between 5s and 7s
+            dragon.style.animation = `randomMoveDragon${index} ${duration}s infinite alternate ease-in-out`;
+            dragon.style.webkitAnimation = `randomMoveDragon${index} ${duration}s infinite alternate ease-in-out`;
+        });
+    }
+
+    
+</script>

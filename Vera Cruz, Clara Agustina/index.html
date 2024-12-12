@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="cartel"></div>
+
+<img id="tu_pierdes" src="barbamarcos/marcos_1.png">
+
+<img id="texto_tu_pierdes" src="barbamarcos/texto_tu_pierdes.png">
+
+<img id="texto_marcos_gana" src="barbamarcos/texto_marcos_gana.png">
+
+<img user-select: none; pointer-events: none; id="marcos_gana" src="barbamarcos/marcos_1.png">
+
+<img id="marcos" src="barbamarcos/marcos_1.png" onclick="changeImage()">
+
+<div id="puntaje">0</div>
+<div id="reloj" ></div>
+
+<div>
+    <img id="boton-inicio" src="barbamarcos/marcos_1.png" onclick="empezarPartida()">
+</div>
+
+<script>
+const Boton = document.getElementById("marcos");
+const puntaje = document.getElementById("puntaje");
+const reloj = document.getElementById("reloj");
+const winGif = document.getElementById("tu_pierdes");
+const loseGif = document.getElementById("marcos_gana");
+const empezarBtn = document.getElementById("boton-inicio");
+const textoPerdes = document.getElementById("texto_tu_pierdes")
+const textoMarcosgana = document.getElementById("texto_marcos_gana")
+marcos.style.display = "none";
+
+let puntos = 0;
+const tiempoLimite = 30; 
+let segundosRestantes = tiempoLimite;
+let intervalo;
+let intervaloReloj;
+
+function changeImage() {
+  var image = document.getElementById('marcos');
+  if (image.src.match("marcos_5")) {
+    image.src = "barbamarcos/marcos_1.png";
+  } else if (image.src.match("marcos_1")) {
+    image.src = "barbamarcos/marcos_2.png";
+  } else if (image.src.match("marcos_2")) {
+    image.src = "barbamarcos/marcos_3.png";
+  } else if (image.src.match("marcos_3")) {
+    image.src = "barbamarcos/marcos_4.png";
+  } else {
+    image.src = "barbamarcos/marcos_4.png";
+  }
+}
+
+function mover() {
+  let buttonWidth = Boton.offsetWidth;
+  let buttonHeight = Boton.offsetHeight;
+  let screenWidth = window.innerWidth;
+  let screenHeight = window.innerHeight;
+  let randomX2 = Math.floor(Math.random() * (screenWidth - buttonWidth));
+  let randomY2 = Math.floor(Math.random() * (screenHeight - buttonHeight));
+  Boton.style.left = randomX2 + "px";
+  Boton.style.top = randomY2 + "px";
+  Boton.style.display = "block";
+}
+
+function empezarPartida() {
+  var image = document.getElementById('marcos');
+  image.src = "barbamarcos/marcos_1.png";
+  empezarBtn.style.display = "none";
+  cartel.style.display = "none";
+  puntos = 0;
+  puntaje.innerHTML = puntos;
+  puntaje.style.display = "block"; 
+  reloj.style.display = "block"; 
+  textoMarcosgana.style.display = "none";
+  textoPerdes.style.display = "none";
+  segundosRestantes = tiempoLimite;
+  
+
+  mover();
+  Boton.addEventListener("click", puntosClick);
+  intervalo = setInterval(mover, 650);
+  intervaloReloj = setInterval(actualizarReloj, 400);
+  actualizarReloj();
+    // Reproducir el audio al iniciar el juego
+    var audio = new Audio("audio/empieza_juego.mp3");
+  audio.currentTime = 0;
+  audio.play();
+
+}
+
+function puntosClick() {
+  puntos++;
+  puntaje.innerHTML = puntos;
+  mover();
+
+  if (puntos === 5) {
+    finalizarPartida("win");
+    return;
+  }
+
+  if (segundosRestantes <= 0) {
+    finalizarPartida("lose");
+  }
+}
+
+function finalizarPartida(resultado) {
+  clearInterval(intervalo);
+  clearInterval(intervaloReloj);
+  Boton.removeEventListener("click", puntosClick);
+  setTimeout(reiniciarPartida, 3500); // Reinicia despues de 3 segundos
+
+
+  var audio = new Audio("audio/sonido-risa-malvada.mp3");
+
+    // Reproducir el audio antes de mostrar los resultados.
+    audio.currentTime = 0;
+    audio.play();
+
+
+  if (resultado === "win") {
+    reloj.innerHTML = "Puntos: " + puntos;
+    winGif.style.display = "block";
+    loseGif.style.display = "none";
+    textoPerdes.style.display = "block";
+    textoMarcosgana.style.display = "none";
+  } else {
+    reloj.innerHTML = "Puntos: " + puntos;
+    loseGif.style.display = "block";
+    winGif.style.display = "none";
+    textoMarcosgana.style.display = "block";
+    textoPerdes.style.display = "none";
+
+   
+  }
+
+  marcos.style.display = "none";
+}
+
+function reiniciarPartida() {
+  puntos = 0;
+  puntaje.innerHTML = puntos;
+  puntaje.style.display = "none"; 
+  reloj.style.display = "none";
+  reloj.textContent = "0:30";
+  winGif.style.display = "none";
+  loseGif.style.display = "none";
+  empezarBtn.style.display = "block";
+  textoMarcosgana.style.display = "none";
+  textoPerdes.style.display = "none";
+}
+
+function actualizarReloj() {
+  segundosRestantes--;
+  if (segundosRestantes >= 0) {
+    let minutos = Math.floor(segundosRestantes / 60);
+    let segundos = segundosRestantes % 60;
+    reloj.textContent = minutos + ":" + (segundos < 10 ? "0" : "") + segundos;
+  } else {
+    finalizarPartida("lose");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  reloj.textContent = "0:30"; 
+});
+</script>
+
+</body>
+</html>

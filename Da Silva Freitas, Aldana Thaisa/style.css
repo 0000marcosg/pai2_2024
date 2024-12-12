@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    background: url('./img/casas1.png') no-repeat center center fixed; 
+    background-size: cover; 
+}
+
+.wrapper {
+    width: 80vmin;
+    height: 80vmin;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    background: url('./img/casas1.png') no-repeat center center; 
+    background-size: cover; 
+}
+
+.game-details {
+    color: #b8c6dc;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 20px 27px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.conteopasajeros{
+    color: #dd1414;
+    background: #b8c6dc  ; 
+    padding: 10px 20px; 
+    border-radius: 8px; 
+    font-size: 1.5rem; 
+    font-weight: bold;
+    }
+
+.play-board {
+    flex: 1;
+    background: #b7b7b6;;
+    display: grid;
+    grid-template: repeat(30, 2fr) / repeat(30, 2fr);
+    border: 4px solid #848484;
+}
+
+.play-board .food {
+    width: 150%; 
+    height: 150%; 
+    background-size: cover;
+    justify-content: center;
+}
+
+
+.play-board .head {
+    width: 200%; 
+    height: 200%; 
+    background-size: cover;
+    transform: translate(-25%, -25%); 
+}
+
+
+.play-board .food,
+.play-board .head {
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+.food {
+    animation: bounce 1s infinite;
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+
+
+
+

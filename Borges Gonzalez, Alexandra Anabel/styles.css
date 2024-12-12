@@ -1,0 +1,142 @@
+/* Fuentes de Google */
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+
+/* Estilos generales */
+body {
+    font-family: 'Bubblegum Sans', cursive; 
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; 
+    height: 100vh; 
+    overflow: hidden; 
+}
+
+/* Contenedor principal (el marco que ocupa toda la pantalla) */
+#container {
+    position: relative;
+    width: 100vw;
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; 
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 20px; 
+    border: 5px solid #333; 
+    overflow: hidden;
+}
+
+/* Imagen central */
+#center-image {
+    position: absolute;
+    bottom: 200px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    z-index: 1; 
+}
+
+#center-image img {
+    width: 275px; 
+    height: auto;
+    z-index: 1; 
+}
+
+/* Imagen de la peluca */
+#moving-image {
+    position: absolute;
+    cursor: pointer;
+    z-index: 2; 
+    left: 50%; 
+    transform: translateX(-2%);
+    bottom: 80px; 
+    pointer-events: auto; 
+}
+
+#moving-image img {
+    width: 120px; 
+    height: auto;
+    z-index: 2; 
+}
+
+/* Animación para mover las nubes */
+@keyframes moveClouds {
+    0% {
+        left: -200px;
+        top: 10%;
+    }
+    100% {
+        left: 100vw;
+        top: 20%;
+    }
+}
+
+/* Estilos de los textos en la parte superior */
+#timer, #score, #result, #final-score {
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 2.5em; /* Unificar el tamaño de todos los textos */
+    color: #333;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+/* Ajustes específicos para el temporizador */
+#score {
+    top: 80px;
+    font-size: 2.5em;
+    color: #000000;
+    left: 50%;  
+    transform: translateX(-50%); 
+    z-index: 10; /* Aseguramos que esté por encima de otros elementos */
+    visibility: visible; /* Asegura que esté visible */
+}
+
+
+#result {
+    top: 110px;
+    font-size: 2.5em;
+    color: #f833ff;
+    display: none;
+}
+
+/* Estilo final del puntaje */
+#final-score {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    font-size: 2.5em; /* Tamaño consistente */
+    font-weight: bold; 
+    color: #FF6347; 
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 9999; 
+    text-align: center;
+}
+/* Estilos para el temporizador */
+#timer {
+    position: absolute; /* Asegura que permanezca en su lugar */
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%); /* Centra el temporizador */
+    font-size: 2.5em; 
+    color: #eb2ac1; 
+    z-index: 10; /* Asegura que esté por encima de otros elementos */
+}
+/* Responsividad */
+@media (max-width: 768px) {
+    #center-image img {
+        width: 150px; 
+    }
+
+    #moving-image img {
+        width: 80px; 
+    }
+
+    #timer, #score, #result, #final-score {
+        font-size: 2em; /* Ajuste de tamaño para pantallas más pequeñas */
+    }
+}

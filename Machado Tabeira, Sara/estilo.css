@@ -1,0 +1,209 @@
+/* Estilos Generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+}
+
+body {
+    overflow: hidden;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* Pantalla de Inicio */
+#start-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.start-content {
+    text-align: center;
+    color: rgb(221, 219, 219);
+}
+
+.start-content h1 {
+    font-family: 'Bungee Spice', cursive;
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #f1c40f;
+}
+
+.start-content p {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+#start-button {
+    position: fixed;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    font-size: 24px;
+    border: none;
+    background: #c5c5c5;
+    color: rgb(0, 0, 0);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+}
+
+#start-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: #ff7474;
+}
+
+#start-button i {
+    margin: 0;
+}
+
+/* Contenedor Principal del Juego */
+#game-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: #c5c5c5;
+    position: relative;
+}
+
+/* Estadísticas del Juego */
+#stats {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+}
+
+#hearts {
+    margin-bottom: 10px;
+}
+
+.heart {
+    color: red;
+    font-size: 24px;
+    margin-right: 5px;
+}
+
+#score {
+    font-size: 18px;
+    font-weight: medium;
+}
+
+/* Jugador */
+#player {
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    z-index: 10;
+    transition: width 0.3s, height 0.3s;
+}
+
+#player.size-2 {
+    width: 210px;
+    height: 210px;
+}
+
+#player.size-1 {
+    width: 260px;
+    height: 260px;
+}
+
+#player img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Enemigo */
+#enemy {
+    width: 220px;
+    height: 220px;
+    position: absolute;
+    z-index: 5;
+}
+
+#enemy img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Pantalla de Game Over */
+#game-over {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.game-over-content {
+    text-align: center;
+    color: rgb(188, 188, 188);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-over-content h1 {
+    font-family: 'Bungee Spice', cursive;
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.final-score {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#restart-button {
+    background-color: rgb(175, 175, 175);
+    border: none;
+    color: black;
+    padding: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    transition: transform 0.3s ease;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+#restart-button:hover {
+    transform: rotate(180deg);
+    background: #cbcbcb;
+}
+
+#restart-button i {
+    margin: 0;
+}

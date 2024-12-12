@@ -1,0 +1,88 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000000;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+img {
+    width: 150px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+#animationContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    z-index: 999;
+    overflow: hidden; /* Ocultar todo lo que se salga del contenedor */
+    display: flex;
+    justify-content: flex-start; /* Asegurarse que las imágenes estén alineadas a la izquierda */
+}
+
+/* Estilo para cada imagen animada */
+.animatedImage {
+    width: 100px; /* Tamaño de las imágenes */
+    height: auto;
+    position: absolute;
+    animation: moveLeftRight 5s linear infinite;
+}
+
+/* Animación para mover las imágenes de izquierda a derecha */
+@keyframes moveLeftRight {
+    0% {
+        transform: translateX(-100%); /* Empieza fuera de la pantalla por la izquierda */
+    }
+    50% {
+        transform: translateX(100vw); /* Llega al borde derecho de la pantalla */
+    }
+    100% {
+        transform: translateX(-100%); /* Regresa al borde izquierdo */
+    }
+}
+
+/* Animación para movimiento vertical (subir y bajar) */
+@keyframes floatVertical {
+    0%, 100% {
+        transform: translateY(0); /* Posición inicial */
+    }
+    50% {
+        transform: translateY(-30px); /* Subir */
+    }
+}
+
+/* Posiciones específicas para cada imagen */
+.animatedImage:nth-child(1) {
+    top: 30%; /* Imagen en la parte superior */
+    animation-delay: 0s; /* Sin retraso */
+}
+
+.animatedImage:nth-child(2) {
+    top: 50%; /* Imagen en el centro */
+    animation-delay: 0.5s; /* Retraso medio */
+}
+
+.animatedImage:nth-child(3) {
+    top: 70%; /* Imagen en la parte inferior */
+    animation-delay: 1s; /* Retraso mayor */
+}

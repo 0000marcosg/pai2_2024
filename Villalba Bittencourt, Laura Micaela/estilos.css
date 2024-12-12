@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    background-image: url("img/fondo.gif");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.objeto {
+    position: absolute;
+}
+#mate-responsive {
+    display: none;
+}
+#termo-responsive{
+    display: none;
+}
+#agua_mate-responsive {
+    display: none;
+}
+#agua_termo-responsive{
+    display: none;
+}
+#mate {
+    left: calc(50% - 600px);
+    bottom: calc(50% - 290px);
+}
+
+#termo {
+    left: calc(50% + 400px);
+}
+
+#mate, #termo {
+    animation: none;
+}
+
+#termo:hover {
+    animation: temblor 0.3s infinite;
+    cursor: pointer;
+}
+
+#termo.animar {
+    animation: cebar 4s forwards;
+    transform-origin: center;
+}
+
+#agua_mate {
+    position: absolute;
+    left: calc(50% - 615px);
+    bottom: calc(50% - 340px);
+}
+
+#agua_termo {
+    position: absolute;
+    left: calc(50% + 395px);
+    bottom: calc(50% - 340px);
+}
+
+@keyframes temblor {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    50% { transform: translateX(6px); }
+    75% { transform: translateX(-6px); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes cebar {
+    0% { transform: translate(0, 0) rotate(0deg);}
+    10% { transform: translate(-700px, 75px) rotate(-70deg);}
+    50% { transform: translate(-700px, 65px) rotate(-70deg);}
+    60% { transform: translate(-700px, 75px) rotate(-70deg);}
+    90% { transform: translate(-700px, 70px) rotate(-70deg);/}
+    100% { transform: translate(0, 0) rotate(0deg);}
+}
+
+@keyframes tomar {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+
+#mate.tomar {
+    animation: tomar 0.1s ease-in-out;
+}
+
+@keyframes rellenar {
+    0% {transform: translateX(0);}
+    40% {transform: translateX(-100vw);}
+    41% {transform: translateX(100vw);}
+    100% {transform: translateX(0);}
+}
+
+#termo.rellenar {
+    animation : rellenar 1.5s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+    #mate, #termo, #agua_mate, #agua_termo {
+        display: none;
+    }
+    #mate-responsive {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: calc(50% - 300px);
+        bottom: calc(60% - 150px);
+    }
+
+    #termo-responsive {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: calc(50% + 200px);
+        bottom: calc(60% - 150px);
+    }
+    #agua_mate-responsive {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: calc(50% - 310px);
+        bottom: calc(72% - 280px);
+    }
+
+    #agua_termo-responsive {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: calc(50% + 200px);
+        bottom: calc(72% - 280px);
+    }
+}
+
+.boton_termo {
+    position: absolute;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #a44e14;
+    font-size: 18px;
+    margin-bottom: 20px;
+    top: calc(50% - 370px);
+    left: calc(50% + 420px);
+
+}
+
+.boton_termo:hover {
+    background-color: #d46012;
+}
+
+.boton_termo:active {
+    transform: scale(0.9);
+}

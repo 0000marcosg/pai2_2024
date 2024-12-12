@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camaleon´t</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div id="game-container">
+        <button id="start-button" onclick="iniciarJuego()">Camaleon't</button>
+        
+        <div id="squares-container">
+            <div class="color-square" id="red" data-color="red" onclick="verificarColor('red')"></div>
+            <div class="color-square" id="yellow" data-color="yellow" onclick="verificarColor('yellow')"></div>
+            <div class="color-square" id="blue" data-color="blue" onclick="verificarColor('blue')"></div>
+        </div>
+
+        <div id="instruction">
+            <span id="color-text"></span>
+        </div>
+        
+        <div id="game-over" style="display: none;">Aciertos:</div>
+
+    </div>
+
+    <!-- Audio para el clic -->
+    <audio id="correct-sound" src="Correcto.mp3"></audio>
+    <audio id="incorrect-sound" src="incorrecto.mp3"></audio>
+
+    <script src="eventos.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+/* Estilos generales */
+body {
+  background-color: #ffffff;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Teclado numérico */
+.keyboard {
+  background-image: url(./imagenes/teclado.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#pantalla-numeros {
+  background-image: url(./imagenes/pantalla.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  height: 15vh; /* Más espacio para números grandes */
+  width: 25vw;
+  font-size: 5rem; /* Tamaño del número grande */
+  font-weight: bold;
+  color: #e60b78;
+}
+
+/* Campo de intentos */
+.attempt-section {
+  background-image: url(./imagenes/intentos.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  height: 7vh;
+  width: 25vw;
+  margin: 2%;
+}
+
+/* Número grande */
+.number-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.number-display img {
+  width: 7vw;
+}
+
+.div-numeros {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 25vw;
+}
+
+/* Botón de enviar en la parte inferior */
+.send-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Estilos para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+  .keyboard {
+    width: 70vw;
+    height: 90vh;
+  }
+
+  #pantalla-numeros {
+    height: 10vh;
+    width: 40vw;
+    font-size: 3rem; /* Tamaño del número ajustado para pantallas pequeñas */
+  }
+
+  .attempt-section {
+    height: 5vh;
+    width: 40vw;
+  }
+
+  .number-display img {
+    width: 10vw;
+  }
+
+  .div-numeros {
+    width: 15vw;
+  }
+}

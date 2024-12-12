@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imágenes en Posiciones Aleatorias</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+
+<body id="pantalla-interaccion">
+    <!-- Contenedor para las imágenes -->
+    <div id="imageContainer">
+        <img src="Objetos/Globo.png" alt="" class="random-image" id="globoganador"
+            onclick="changeskin(this); playaudio()" >
+
+        <img src="Objetos/victoria.png" alt="Haz encontrado el Globo Ganador" class="oculto" id="mostrar-objeto">
+    </div>
+
+    <script>
+        // Función para generar múltiples imágenes en posiciones aleatorias
+        function generateRandomImages(count) {
+            const container = document.getElementById("imageContainer"); // Contenedor de las imágenes
+
+            for (let i = 0; i < count; i++) {
+                // Crea un nuevo elemento de imagen
+                const image = document.createElement("img");
+                image.src = "Objetos/Globo.png"; // Ruta de la imagen
+                image.alt = "Globo " + (i + 1);
+                image.className = "random-image"; // Asigna la clase para estilo
+
+                image.addEventListener('click', function () {
+                    changeskin(image);
+                    playaudio();
+                }); // Debemos asignar la función 'changeskin' también a las imágenes que no son el globo ganador.
+
+                container.appendChild(image); // Añade la imagen al contenedor
+            }
+
+            // Asignar posiciones iniciales
+            positionImagesRandomly();
+        }
+
+        // Función para posicionar las imágenes aleatoriamente
+        function positionImagesRandomly() {
+            const container = document.getElementById("imageContainer");
+            const images = document.querySelectorAll("#imageContainer .random-image");
+
+            images.forEach((image) => {
+                const containerWidth = container.offsetWidth;
+                const containerHeight = container.offsetHeight;
+
+                const imageWidth = image.offsetWidth || 100; // Asegurarse de usar un tamaño predeterminado si no se ha renderizado
+                const imageHeight = image.offsetHeight || 100;
+
+                const randomX = Math.random() * (containerWidth - imageWidth);
+                const randomY = Math.random() * (containerHeight - imageHeight);
+
+                image.style.position = "absolute"; // Asegurar que sea posicionamiento absoluto
+                image.style.left = `${randomX}px`;
+                image.style.top = `${randomY}px`;
+            });
+
+            const globoganador = document.getElementById("globoganador");
+            if (globoganador) {
+                const maxWidth = container.clientWidth - globoganador.offsetWidth;
+                const maxHeight = container.clientHeight - globoganador.offsetHeight;
+                const randomX = Math.random() * maxWidth;
+                const randomY = Math.random() * maxHeight;
+
+                globoganador.style.position = "absolute";
+                globoganador.style.left = `${randomX}px`;
+                globoganador.style.top = `${randomY}px`;
+            }
+        }
+
+        // Llama a la función al cargar la página, generando 50 imágenes
+        window.onload = function () {
+            generateRandomImages(50);
+        };
+
+        // Reposicionar las imágenes al cambiar el tamaño de la ventana
+        window.onresize = function () {
+            positionImagesRandomly();
+        };
+
+        function changeskin(elemento) {
+            var Globo = document.getElementsByClassName('random-image');
+
+            console.log('elemento', elemento);
+
+            if (elemento.id === "globoganador") {
+                victoria(elemento);
+                elemento.src = 'Objetos/nada.png';
+            }
+            else {
+                elemento.src = 'Objetos/Globoboom.png'; //Cambiamos la source(src) de la imagen por la del globo roto 
+            }
+
+            setTimeout(() => {
+            elemento.classList.add("oculto");
+            }, 500);
+
+        }
+        function playaudio() {
+        const audio = new Audio("sonido/balloonpop.mp3");
+        audio.currentTime = 0;
+        audio.play();
+    }
+
+        function victoria(globoganador) {
+            // Obtiene el elemento que quieres hacer visible
+            const objetoVisible = document.getElementById("mostrar-objeto");
+            redireccionfinal();
+
+            // Obtiene las coordenadas del globo ganador
+            const rect = globoganador.getBoundingClientRect();
+            const x = rect.left + window.scrollX;
+            const y = rect.top + window.scrollY;
+
+            // Posiciona el objeto visible en las mismas coordenadas del globo ganador
+            objetoVisible.style.left = `${x}px`;
+            objetoVisible.style.top = `${y}px`;
+
+            // Muestra el objeto visible quitando la clase "oculto"
+            objetoVisible.classList.remove("oculto");
+        }
+
+        function redireccionfinal() {
+            setTimeout(function() {
+                window.location.href = "Paginafinal.html"; // Reemplaza con la URL de tu página
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>

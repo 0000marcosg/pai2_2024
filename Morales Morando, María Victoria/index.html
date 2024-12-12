@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanar el Corazón</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+        <!--Imagen de vidas y corazones-->
+        <div class="vidas">
+            <img src="img/corazonsano.png" alt="Corazón" class="icono-vida"><span id="life-count">0</span>
+        </div>
+
+        <!--Imagen del corazón roto-->
+        <div class="corazon-container">
+            <img id="corazon" src="img/corazonroto.png" alt="Corazón roto">
+        </div>
+
+        <!--Curitas para pegar en el corazón-->
+        <div class="curitas-container">
+             <div class="curita" onclick="apllyBandage(this)">
+                    <img src="img/curita.png" alt="curita">
+             </div>
+                <div class="curita" onclick="apllyBandage(this)">
+                    <img src="img/curita.png" alt="curita">
+                </div>
+                 <div class="curita" onclick="apllyBandage(this)">
+                    <img src="img/curita.png" alt="curita">
+              </div>
+        </div>
+
+        <button id="startButton">Prestar Oido</button>
+        <audio id="musicaRoto" src="img/audiocorazonroto.mp3" loop></audio>
+        <audio id="musicaSano" src="img/audiocorazonsano.mp3"></audio>
+
+        <script src="script.js"></script>
+    </body>
+</html>

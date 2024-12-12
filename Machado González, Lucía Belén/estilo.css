@@ -1,0 +1,404 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Bowlby+One+SC&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Racing+Sans+One&display=swap');
+
+body {
+    font-family: "Racing Sans One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    background-color: #D2C1B3;
+}
+
+img {
+    cursor: pointer;
+    max-width: 100%; 
+    height: auto;
+}
+
+a {
+    text-decoration: none; 
+    color: black;
+}
+      
+a:visited {
+    text-decoration: none;  
+    color: black;
+}
+      
+a:hover {
+    text-decoration: none; 
+    color: black;
+}
+      
+a:active {
+    text-decoration: none;    
+    color: black; 
+}
+
+/*INICIO*/
+
+.titulo {
+    grid-column: 4 / span 2;
+    grid-row: 2;
+    font-size: 100%;
+    justify-self: center; 
+    align-self: center;
+}
+
+.boton-inicio {
+    grid-column: 4 / span 2;
+    grid-row: 4;
+    text-align: center;
+    justify-self: center; 
+    align-self: center;
+}
+
+.inicio {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    font-size: 80px;
+    background-color: transparent;
+    color: black;
+    border: none; 
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boton-inicio :hover {
+    border: 2px solid black;
+}
+
+
+/*GENEROS*/
+
+.container {
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr;
+    height: 100vh
+}
+
+.generosmusicales {
+    grid-column: 3 / span 4 ;
+    grid-row: 1; 
+    text-align: center;
+    text-decoration: none; 
+    color: black;    
+}
+
+.generosmusicales :visited {
+    text-decoration: none;  
+    color: black;
+}
+      
+.generosmusicales :hover {
+    text-decoration: none;
+    color: black;
+}
+      
+.generosmusicales :active {
+    text-decoration: none;  
+    color: black;   
+}
+
+.botones-generos {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 50px;
+    background-color: transparent;
+    color: black;
+    border: none; 
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.urbano {
+    grid-column: 5 ;
+    grid-row: 2; 
+    text-align: center;
+}
+
+.urbano-boton {
+    grid-column: 4 ;
+    grid-row: 2;
+}
+
+.urbano-boton :hover {
+    border: 2px solid black;
+}
+
+.reggaeton {
+    grid-column: 5 ;
+    grid-row: 3 ; 
+    text-align: center;
+}
+
+.reggaeton-boton {
+    grid-column: 4 ;
+    grid-row: 3 ;
+}
+
+.reggaeton-boton :hover {
+    border: 2px solid black;
+}
+
+.pop {
+    grid-column: 5 ;
+    grid-row: 4 ; 
+    text-align: center;
+}
+
+.pop-boton {
+    grid-column: 4 ;
+    grid-row: 4 ;
+}
+
+.pop-boton :hover {
+    border: 2px solid black;
+}
+
+.rock {
+    grid-column: 5 ;
+    grid-row: 5 ; 
+    text-align: center;
+}
+
+.rock-boton {
+    grid-column: 4 ;
+    grid-row: 5 ;
+}
+
+.rock-boton :hover {
+    border: 2px solid black;
+}
+
+.cumbia {
+    grid-column: 5 ;
+    grid-row: 6 ; 
+    text-align: center;
+}
+
+.cumbia-boton {
+    grid-column: 4 ;
+    grid-row: 6 ;
+}
+
+.cumbia-boton :hover {
+    border: 2px solid black;
+}
+
+/*REPRODUCTORES*/
+
+.linea {
+    grid-column: 2 / span 6 ;
+    grid-row: 5; 
+}
+
+hr {
+    height: 6px; 
+    background-color: black; 
+    border: none;
+}
+
+#cronometro {
+    grid-column: 6 / span 8 ;
+    grid-row: 1 ; 
+    font-size: 50px;
+    text-align: center;
+}
+
+.botones {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 50px;
+    background-color:transparent;
+    color: black;
+    border-color: white;
+    border-radius: 50%;
+    border: none; 
+    outline: none;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botones1 {
+    grid-column: 6 / span 2 ;
+    grid-row: 5 / span 2 ; 
+    justify-self: center; 
+    align-self: center;
+}
+
+.botones2 {
+    grid-column: 2 / span 2 ;
+    grid-row: 5 / span 2 ; 
+    justify-self: center; 
+    align-self: center;
+}
+
+.botones-reproductores {
+    grid-column: 4 / span 2 ;
+    grid-row: 5 / span 2 ; 
+    justify-self: center; 
+    align-self: center;
+}
+
+.botones-reproductores2 {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 50px;
+    background-color:transparent;
+    color: black;
+    border-color: white;
+    border-radius: 50%;
+    border: none; 
+    outline: none;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botones-reproductores :hover {
+    border: 2px solid black;
+}
+
+/*URBANO*/
+
+.urbano1 {
+    grid-column: 2 / span 2 ;
+    grid-row: 2 / span 2; 
+    text-align: center;
+    margin: 2em
+}
+
+.urbano2 {
+    grid-column: 4 / span 2;
+    grid-row: 2 / span 2; 
+    text-align: center;
+    margin: 2em
+}
+
+.urbano3 {
+    grid-column: 6 / span 2 ;
+    grid-row: 2 / span 2; 
+    text-align: center;
+    margin: 2em
+}
+
+/*REGGAETON*/
+
+.reggaeton1 {
+    grid-column: 2 / span 2 ;
+    grid-row: 2 / span 2; 
+    text-align: center;
+    margin: 2em
+}
+
+.reggaeton2 {
+    grid-column: 4 / span 2;
+    grid-row: 2 / span 2; 
+    text-align: center;
+    margin: 2em
+}
+
+.reggaeton3 {
+    grid-column: 6 / span 2 ;
+    grid-row: 2 / span 2; 
+    text-align: center;
+    margin: 2em
+}
+
+/*POP*/
+
+.pop1 {
+    grid-column: 2 / span 2 ;
+    grid-row: 2 / span 2; 
+    text-align: center;
+    margin: 2em
+}
+
+.pop2 {
+    grid-column: 4 / span 2;
+    grid-row: 2 / span 2; 
+    text-align: center;
+    margin: 2em
+}
+
+.pop3 {
+    grid-column: 6 / span 2 ;
+    grid-row: 2 / span 2; 
+    text-align: center;
+    margin: 2em
+}
+
+
+/*ROCK*/
+
+.rock1 {
+    grid-column: 2 / span 2 ;
+    grid-row: 2 / span 2; 
+    text-align: center;
+    margin: 2em
+}
+
+.rock2 {
+    grid-column: 4 / span 2;
+    grid-row: 2 / span 2; 
+    text-align: center;
+    margin: 2em
+}
+
+.rock3 {
+    grid-column: 6 / span 2 ;
+    grid-row: 2 / span 2; 
+    text-align: center;
+    margin: 2em
+}
+
+/*CUMBIA*/
+
+.cumbia1 {
+    grid-column: 2 / span 2 ;
+    grid-row: 2 / span 2; 
+    text-align: center;
+    margin: 2em
+}
+
+.cumbia2 {
+    grid-column: 4 / span 2;
+    grid-row: 2 / span 2; 
+    text-align: center;
+    margin: 2em
+}
+
+.cumbia3 {
+    grid-column: 6 / span 2 ;
+    grid-row: 2 / span 2; 
+    text-align: center;
+    margin: 2em
+}
+
+/*ADAPTABILIDAD A PANTALLAS CELULARES*/
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; 
+    }
+}

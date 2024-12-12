@@ -1,0 +1,64 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#tituloPrincipal {
+    margin-left: 250px;
+}
+
+#game-container {
+    text-align: center;
+}
+
+#titulo {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#botondificultad button {
+    padding: 10px;
+    font-size: 18px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+#facil { background-color: #a8e6cf; }
+#normal { background-color: #ffd3b6; }
+#dificil { background-color: #ff8b94; }
+
+#game-screen, #result-screen {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#coco {
+    width: 50px;
+    position: absolute;
+    cursor: pointer;
+}
+
+#contador {
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#result-message {
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}

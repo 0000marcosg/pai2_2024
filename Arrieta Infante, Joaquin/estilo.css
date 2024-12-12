@@ -1,0 +1,501 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/*Layout general - Estilos comunes a todas las páginas*/
+
+html,
+body {
+  height: 100%;
+  background-image: url("img/background.jpg");
+  overflow: hidden;
+  font-family: Montserrat;
+  color: #0b6a23;
+}
+
+/*Definición de la grilla base para todo el sitio*/
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+.container {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 100vh;
+}
+
+/* sonido */
+#sonidoFondo {
+  color: rgb(94, 155, 87);
+  font-size: 24px;
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  right: 60px;
+}
+#activaSonido {
+  grid-area: 1 / 3 / span 1 / span 1;
+  position: fixed;
+  height: 100px;
+  color: rgb(94, 155, 87);
+  font-weight: bold;
+}
+
+/*Luciernagas en movimiento */
+.aparecer {
+  width: 40px;
+  height: 40px;
+  background-size: 100% 100%;
+  cursor: pointer;
+}
+.l1 {
+  grid-area: 1 / 1 / span 1 / span 1;
+  background-image: url("img/luciernaga_1.png");
+}
+
+.l2 {
+  grid-area: 2 / 1 / span 1 / span 1;
+  background-image: url("img/luciernaga_2.png");
+}
+.l3 {
+  grid-area: 3 / 1 / span 1 / span 1;
+  background-image: url("img/luciernaga_3.png");
+}
+.l4 {
+  grid-area: 1 / 2 / span 1 / span 1;
+  background-image: url("img/luciernaga_4.png");
+}
+.espaciol {
+  grid-area: 2 / 2 / span 1 / span 1;
+}
+.l5 {
+  background-image: url("img/luciernaga_1.png");
+}
+.l6 {
+  grid-area: 3 / 2 / span 1 / span 1;
+  background-image: url("img/luciernaga_2.png");
+}
+.l7 {
+  grid-area: 1 / 3 / span 1 / span 1;
+  background-image: url("img/luciernaga_3.png");
+}
+.l8 {
+  grid-area: 2 / 3 / span 1 / span 1;
+  background-image: url("img/luciernaga_4.png");
+}
+.l9 {
+  grid-area: 3 / 3 / span 1 / span 1;
+  background-image: url("img/luciernaga_2.png");
+}
+/*Movimientos de las luciérnagas por la pantalla*/
+#l1 {
+  animation: movimiento1 20s infinite linear;
+}
+#l2 {
+  animation: movimiento2 15s infinite linear;
+}
+#l3 {
+  animation: movimiento3 39s infinite linear;
+}
+#l4 {
+  animation: movimiento1 15s infinite linear;
+}
+#l5 {
+  animation: movimiento2 31s infinite linear;
+}
+#l6 {
+  animation: movimiento3 20s infinite linear;
+}
+#l7 {
+  animation: movimiento1 25s infinite linear;
+}
+#l8 {
+  animation: movimiento2 20s infinite linear;
+}
+#l9 {
+  animation: movimiento3 30s infinite linear;
+}
+@keyframes movimiento1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(50vw, 20vh);
+  }
+  50% {
+    transform: translate(10vw, 5vh);
+  }
+  75% {
+    transform: translate(3vw, 30vh);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes movimiento2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(4vw, 30vh);
+  }
+  50% {
+    transform: translate(20vw, 40vh);
+  }
+  75% {
+    transform: translate(1vw, 2vh);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes movimiento3 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(30vw, 3vh);
+  }
+  50% {
+    transform: translate(2vw, 50vh);
+  }
+  75% {
+    transform: translate(20vw, 1vh);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* frasco*/
+#frascoContainer {
+  grid-column: 3 / span 1;
+}
+#frascoContainer {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  height: 180px;
+  width: 80px;
+  padding-left: 100px;
+}
+#frasco {
+  background-image: url("img/frasco.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 150px;
+  width: 150px;
+  cursor: pointer;
+  grid-column: 1 / span 1;
+}
+
+#frasco div {
+  background-image: url("img/luciernaga_1.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+}
+#frasco div {
+  animation: movimientoFrasco 10s infinite;
+}
+
+/* Animación de movimiento aleatorio de las luciérnagas dentro del frasco */
+@keyframes movimientoFrasco {
+  0% {
+    transform: translate(3vw, 3vh);
+  }
+  25% {
+    transform: translate(5vw, 6vh);
+  }
+  35% {
+    transform: translate(6vw, 9vh);
+  }
+  50% {
+    transform: translate(4vw, 11vh);
+  }
+  75% {
+    transform: translate(3vw, 7vh);
+  }
+  85% {
+    transform: translate(2vw, 8vh);
+  }
+  100% {
+    transform: translate(3vw, 3vh);
+  }
+}
+#atrapadas {
+  grid-column: 1 / span 1;
+  color: #ebdb1f;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+}
+#reinicio {
+  grid-column: 2 / span 1;
+  background-image: url("img/quieresSoltarlas.png");
+  background-size: 100% 100%;
+  margin-left: -50px;
+  margin-top: -20px;
+  cursor: pointer;
+  width: 150px;
+  height: 100px;
+  display: none;
+}
+/*animación cuando se atrapa la luciérnaga*/
+#brillosContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.brillos {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(
+    circle,
+    rgb(219, 198, 78) 0%,
+    rgba(255, 200, 0, 0) 70%
+  );
+  border-radius: 50%;
+  animation: brillosAnimation 0.5s ease-out forwards;
+}
+
+@keyframes brillosAnimation {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3);
+  }
+}
+
+.brillosPolilla {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(
+    circle,
+    rgb(219, 198, 78) 0%,
+    rgba(255, 200, 0, 0) 70%
+  );
+  border-radius: 50%;
+  animation: brillosAnimationPolilla 0.5s ease-out forwards;
+}
+
+@keyframes brillosAnimationPolilla {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  33% {
+    opacity: 0;
+    transform: scale(5);
+  }
+  66% {
+    opacity: 1;
+    transform: scale(8);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(15);
+  }
+}
+/* polilla*/
+#contadorGiganteContainer {
+  color: #ebdb1f;
+  text-align: center;
+  font-weight: bold;
+  position: fixed;
+  top: 50px;
+  right: 20px;
+  display: none;
+  text-decoration: none;
+}
+.gigante {
+  width: 300px;
+  height: 238px;
+  background-image: url("img/polilla.png");
+  background-size: 100% 100%;
+  z-index: 1000; /* Asegura que esté sobre otros elementos */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  cursor: pointer;
+  animation: moverGigante 5s infinite alternate;
+  display: none;
+}
+
+/* Animación de movimiento aleatorio de la polilla */
+@keyframes moverGigante {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  25% {
+    transform: translate(20vw, -30vh);
+  }
+  50% {
+    transform: translate(-40vw, -40vh);
+  }
+  75% {
+    transform: translate(30vw, 10vh);
+  }
+  100% {
+    transform: translate(-30vw, 30vh);
+  }
+}
+
+/*cartel salvados*/
+#salvados {
+  background-image: url("img/salvados.png");
+  background-size: 100% 100%;
+  width: 400px;
+  height: 400px;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/*cartel aparece la polilla y hay inactividad*/
+#tiempo {
+  background-image: url("img/tiempoPasado.png");
+  background-size: 100% 100%;
+  width: 400px;
+  height: 400px;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+/*para pantallas chicas*/
+@media screen and (max-width: 768px) {
+  #frascoContainer {
+    padding: 10px 0 0 0;
+    width: 100px;
+    height: 150;
+  }
+  #atrapadas {
+    grid-column: 1 / span2;
+    text-align: left;
+  }
+  #frasco {
+    height: 100px;
+    width: 100px;
+  }
+  #reinicio {
+    width: 100px;
+    height: 61px;
+  }
+  #frasco div {
+    height: 10px;
+    margin-left: 15px;
+    margin-top: 5px;
+  }
+  #salvados {
+    width: 200px;
+    height: 200px;
+    display: none;
+  }
+  #tiempo {
+    width: 200px;
+    height: 200px;
+    display: none;
+  }
+  /* Animación de movimiento aleatorio de las luciérnagas dentro del frasco */
+  @keyframes movimientoFrasco {
+    0% {
+      transform: translate(0vw, 3vh);
+    }
+    25% {
+      transform: translate(4vw, 4vh);
+    }
+    35% {
+      transform: translate(6vw, 5vh);
+    }
+    50% {
+      transform: translate(4vw, 6vh);
+    }
+    75% {
+      transform: translate(4vw, 5vh);
+    }
+    85% {
+      transform: translate(2vw, 6vh);
+    }
+    100% {
+      transform: translate(0vw, 3vh);
+    }
+  }
+  #luciernagaGigante {
+    height: 158px;
+    width: 200px;
+  }
+}
+/*para pantallas grandes*/
+@media screen and (min-width: 1920px) {
+  #frascoContainer {
+    height: 250px;
+    width: 200px;
+  }
+  #frasco {
+    height: 200px;
+    width: 200px;
+  }
+  .aparecer {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+  }
+  #frasco div {
+    background-image: url("img/luciernaga_1.png");
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+  }
+  #luciernagaGigante {
+    height: 396px;
+    width: 500px;
+  }
+  @keyframes movimientoFrasco {
+    0% {
+      transform: translate(3vw, 3vh);
+    }
+    25% {
+      transform: translate(7vw, 10vh);
+    }
+    35% {
+      transform: translate(5vw, 10vh);
+    }
+    50% {
+      transform: translate(6vw, 15vh);
+    }
+    75% {
+      transform: translate(1vw, 9vh);
+    }
+    85% {
+      transform: translate(2vw, 9vh);
+    }
+    100% {
+      transform: translate(3vw, 3vh);
+    }
+  }
+}

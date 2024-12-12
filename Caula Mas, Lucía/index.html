@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pecera Musical</title>
+        <link rel="stylesheet" type="text/css" href="estilooo.css">
+    </head>
+    <body>
+
+        <video autoplay muted loop id="fondo1">
+            <source src="imagenes/fondo1.mov" type="video/mp4"> 
+        </video>
+        
+        <div class="flex-container pulsate-bck">
+            <div class="pez pez1" id="pez1" onclick="alternar_pez('pez1', 'audio/bom.mp3')"></div>
+            <div class="pez pez2" id="pez2" onclick="alternar_pez('pez2', 'audio/fa.mp3')"></div> 
+            <div class="pez pez3" id="pez3" onclick="alternar_pez('pez3', 'audio/do.mp3')"></div> 
+            <div class="pez pez4" id="pez4" onclick="alternar_pez('pez4', 'audio/pa.mp3')"></div>    
+            <div class="pez pez5" id="pez5" onclick="alternar_pez('pez5', 'audio/bom.mp3')"></div>  
+            <div class="pez pez6" id="pez6" onclick="alternar_pez('pez6', 'audio/do.mp3')"></div> 
+            <div class="pez pez9" id="pez9" onclick="alternar_pez('pez9', 'audio/pa.mp3')"></div>
+            <div class="pez pez10" id="pez10" onclick="alternar_pez('pez10', 'audio/fa.mp3')"></div> 
+        </div>
+
+        <script>
+            
+            // Variable para almacenar el estado de cada pez
+            const estado_pez = {};
+
+            // Función para alternar la animación y el sonido del pez
+            function alternar_pez(id_pez, ruta_audio) {
+
+                // Si no se conoce el estado del pez (movimiento y audio correspondiente), se lo agregamos al diccionario y completmos los datos 
+                if (!estado_pez[id_pez]) {
+                    estado_pez[id_pez] = { en_movimiento: false, audio: new Audio(ruta_audio) }
+                } 
+
+                const pez = document.getElementById(id_pez);
+                const datos_pez = estado_pez[id_pez];
+
+                if (datos_pez.en_movimiento) {
+                    // Si el pez está en movimiento, se detiene la animación y el sonido
+                    pez.style.animationPlayState = 'paused';
+                    datos_pez.audio.pause();
+                    datos_pez.audio.currentTime = 0; // Reinicia el audio
+                } else {
+                    // Si el pez está detenido, se activa la animación y el sonido
+                    pez.style.animationPlayState = 'running';
+                    datos_pez.audio.play();
+                }
+
+                // Alterna el estado de movimiento del pez
+                datos_pez.en_movimiento = !datos_pez.en_movimiento;
+            }
+        </script>
+    </body>
+</html>

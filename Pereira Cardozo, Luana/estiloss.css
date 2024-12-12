@@ -1,0 +1,113 @@
+/* Fondo  del juego */
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("fondo.jpg"); 
+    background-size: cover;
+    background-position: center;
+    z-index: -2; 
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: rgba(244, 244, 249, 0.0); 
+    position: relative;
+    z-index: 10; 
+}
+
+#game-container.blackout {
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20; 
+    visibility: visible; 
+}
+
+/* tablro */
+.board {
+    display: grid;
+    grid-gap: 3px; 
+    margin-top: 10px;
+    width: 90vw; 
+    max-width: 600px; 
+    height: auto;
+    grid-template-columns: repeat(auto-fill, minmax(30px, 1fr)); 
+}
+
+/* celdas */
+.cell {
+    background-color: rgb(255, 0, 187);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.5s ease; 
+    width: 100%; 
+    aspect-ratio: 1; 
+    perspective: 1000px; 
+}
+
+.cell.revealed {
+    transform: rotateY(180deg); 
+    background-size: cover; 
+    background-position: center;
+}
+
+
+.cell.mine {
+    background-image: url("tostadora.jpg");
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.cell.nearby {
+    background-image: url("cuchillo.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+
+.cell.empty {
+    background-image: url("MIAMI.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+#win-gif-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+}
+
+#win-gif-container img {
+    max-width: 600px; 
+    max-height: 600px;
+}
+
+#win-gif-container.show {
+    display: flex; 
+}

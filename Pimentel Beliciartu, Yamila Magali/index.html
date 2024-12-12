@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="responsivo.css"> <!-- Estilos responsivos -->
+</head>
+<body>
+
+  <div class="background-container">
+    <div class="grid-container">
+      <!-- Araña en la ventana -->
+      <img src="img/Araña1.png" alt="Araña" class="araña" id="araña">
+
+      <!-- Osito sobre la cama -->
+      <img src="img/oso.png" alt="oso" id="rotacionosito">
+      <audio id="audioOsito" src="mp3/grito_osito.mp3" preload="auto"></audio>
+
+      <!-- Cuadro en la pared -->
+      <img src="img/Cuadro.png" alt="Cuadro"class="vibratable" id="vibracioncuadro">
+      <audio id="audiocuadro" src="mp3/cuadro.mp3" preload="auto"></audio>
+
+      <!-- Sangre al lado de la puerta -->
+      <img src="img/Sangre.png" alt="Sangre" class="sangre">
+
+        <!-- Imagen del papel para hacer clic -->
+        <img src="img/papel_piso.png" alt="Papel en el piso" class="papel" id="papelZoom">
+
+        <!-- Zoom del papel que se muestra al hacer clic -->
+        <div class="vista-zoom" id="vistazoom" style="display: none;">
+            <span class="cruz" id="cruz">&times;</span>
+            <img src="img/carta.png" alt="Zoom del papel" class="imagen-zoom">
+        </div>
+  
+        <!-- Debajo de la cama -->
+        <div id="debajodelacama"></div>
+
+        <!-- Ojos debajo de la cama -->
+        <img id="ojos" src="img/ojos.gif" alt="Ojos debajo de la cama">
+        
+        <!-- Parpadeo de la luz en pantalla -->
+        <div id="parpadeo"></div>
+
+        <!-- Click puerta -->
+        <div id="clickpuerta"></div>
+
+        <!-- Texto "toctoc" -->
+        <div id="textopuerta">Toc-Toc</div>
+
+        <!-- Audios de golpe alternados -->
+        <audio id="sonido1" src="mp3/golpe1.mp3" preload="auto"></audio>
+        <audio id="sonido2" src="mp3/golpe2.mp3" preload="auto"></audio>
+        
+        <!-- Audio garras -->
+        <div id="garras"></div>
+        <audio id="garrasaudio" src="mp3/rasguño.mp3" preload="auto"></audio>
+    </div>
+  </div>
+  <script src="evento.js"></script>
+
+
+</body>
+</html>
+
+
+

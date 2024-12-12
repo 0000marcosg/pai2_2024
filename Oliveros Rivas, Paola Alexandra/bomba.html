@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desactivar la Bomba</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div id="imagenFlotante"></div>
+    <div class="bomba-container">
+        <!-- Imagen de la bomba de fondo -->
+        <div id="fondo">
+            <div id="cronometro">08:00</div> <!-- Cronómetro en la imagen de la bomba -->
+            <div class="cables">
+                <!-- Cada cable como imagen interactiva -->
+                <img src="img/cable az.png" class="cable" id="cableazul" onclick="cortarCable(1)">
+                <img src="img/cable am.png" class="cable" id="cableamarillo" onclick="cortarCable(2)">
+                <img src="img/cable ro.png" class="cable" id="cablerojo" onclick="cortarCable(3)">
+                <img src="img/cable ve.png" class="cable" id="cableverde" onclick="cortarCable(4)">
+                <img src="img/cable vi.png" class="cable" id="cablevioleta" onclick="cortarCable(5)">
+            </div>
+        </div>
+        
+        
+    </div>
+
+    <!-- Resultado al ganar o perder -->
+    <div id="resultado" style="display:none;">
+        <h2 id="mensajeResultado"></h2>
+        <button onclick="reiniciarJuego()">Reintentar</button>
+    </div>
+
+    <!-- Audio -->
+    <audio id="audioCorte" src="audio/tijeras.mpeg"></audio>
+    <audio id="audioExplosion" src="audio/explosion.mpeg"></audio>
+    <audio id="audioVictoria" src="audio/victoria.mp4"></audio>
+    <audio id="audioTemporizador" src="audio/temporizador.mpeg" loop></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

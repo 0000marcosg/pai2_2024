@@ -1,0 +1,160 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Cabin+Sketch:wght@400;700&family=Rubik+Distressed&family=Rubik+Gemstones&family=Rubik+Moonrocks&display=swap');
+
+.letras {
+    font-family: "Cabin Sketch";
+    color: rgb(254, 226, 124);
+    font-size: 100px;
+    margin: 1vw;
+    padding: 1vw;
+}
+
+.letras2 {
+    font-family: "Cabin Sketch";
+    color: rgb(254, 226, 124);
+    font-size: 25px;
+    margin: 1vw;
+    padding: 1vw;
+}
+
+body {
+    background-image: url(img/galaxia.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#inicio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: fixed;
+    width: 100vw; 
+    height: 100vh;
+    background-color:rgba(135, 58, 140, 0.651);
+}
+
+#alien-inicio {
+    width: 25vw;
+    cursor: pointer;
+}
+
+#planeta {
+    display: none;
+    width: 70vw;
+    height: 50vw;
+    background-image: url('img/planeta.png');
+    background-size: cover;
+    position: relative;
+    align-self: flex-end;
+}
+
+.crater { /*posicion*/
+    width: 13vw;
+    height: 9vw;
+    position: absolute;
+    background-size: cover;
+}
+
+#crater1 { 
+    top: 15vw; left: 20vw; 
+    background-image: url("img/crater.png"); 
+}
+
+#crater2 { 
+    top: 15vw; right: 20vw; 
+    background-image: url("img/crater.png"); 
+}
+
+#crater3 { 
+    bottom: 2vw; left: 4vw; 
+    background-image: url("img/crater.png"); 
+}
+
+#crater4 { 
+    bottom: 2vw; right: 4vw; 
+    background-image: url("img/crater.png"); 
+}
+
+#crater5 { 
+    top: 25vw; left: 10vw; 
+    background-image: url("img/crater.png"); 
+}
+
+#crater6 { 
+    top: 25vw; right: 10vw; 
+    background-image: url("img/crater.png"); 
+}
+
+#alien {
+    width: 13vw;
+    position: absolute;
+    cursor: pointer;
+    transform: translate(0%, -37%);
+}
+
+@media screen and (max-width: 768px) {
+
+.letras {
+    font-size: 7vh;
+    margin: 1vh;
+    padding: 1vh;
+}
+
+.letras2 {
+    font-size: 3vh;
+    margin: 1vh;
+    padding: 1vh;
+}
+
+#alien-inicio {
+    width: 20vh;
+}
+
+body {
+background-image: url(img/galaxiaresponsive.png);
+}
+
+#planeta {
+    display: none;
+    width: 100vw;
+    height: 100vw;
+    margin: auto;
+    background-image: url('img/planetaresponsive.png');
+    background-size: cover;
+}
+.crater { /*posicion*/
+    width: 25vw;
+    height: 20vw;
+    position: absolute;
+    background-size: cover;
+}
+#crater1 { 
+    top: 10vw; left: 15vw; 
+}
+#crater2 { 
+    top: 10vw; right: 15vw; 
+}
+#crater3 { 
+    bottom: 10vw; left: 16vw;  
+}
+#crater4 { 
+    bottom: 10vw; right: 16vw; 
+}
+#crater5 { 
+    top: 38vw; left: 3vw; 
+}
+#crater6 { 
+    top: 38vw; right: 3vw; 
+}
+
+#alien {
+    width: 26vw;
+    transform: translate(0%, -36%);
+}
+}

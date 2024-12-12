@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.mySlides {
+ display: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Titan One', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(barbamarcos/fondo.jpg) ;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    cursor: url('barbamarcos/maquina_de_afeitar.png'), auto 
+    ;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    height: 100vh; 
+  }
+  
+  #marcos {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    width: 75px;
+    height: auto;
+  }
+  
+  #puntaje {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    padding: 10px 20px;
+    background-color: black;
+    border-radius: 10px;
+    color: white;
+  }
+  
+  #reloj {
+    display: none;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    padding: 10px 20px;
+    background-color: black;
+    border-radius: 10px;
+    color: white;
+  }
+  
+  #boton-inicio {
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    height: 80%;
+    width: 20%;
+    transform: translateX(-50%);
+    animation-name: inicio;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }
+  
+  /* Animación de inicio */
+  @keyframes inicio {
+    0%   { height: 100%; width: 25%; }
+    25%  { height: 80%; width: 20%; }
+    50%  { height: 100%; width: 25%; }
+    100% { height: 80%; width: 20%; }
+  }
+  
+  /* Animación shake para "tu pierdes" */
+  #tu_pierdes {
+    display: none;
+    animation: shake 0.5s infinite;
+  }
+  
+  @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+  
+  #marcos_gana {
+    display: none;
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    transform: translateX(-50%);
+    animation-name: marcos_gana;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes marcos_gana {
+    0%   { height: 60%; width: 17%; }
+    25%  { height: 70%; width: 19%; }
+    50%  { height: 60%; width: 17%; }
+    100% { height: 70%; width: 19%; }
+  }
+  
+  #texto_tu_pierdes {
+    display: none;
+    bottom: -5%;
+    left: 50%;
+  }
+  
+  #texto_marcos_gana {
+    display: none;
+    position: absolute;
+    top: 35%;
+    left: 35%;
+  }
+  
+
+
+  /* Estilo responsivo */
+  @media screen and (max-width: 768px) {
+    body {
+      background-size: cover;
+    }
+  
+    #boton-inicio {
+      bottom: 20%;
+      left: 50%;
+      height: 50%;
+      width: 40%;
+    }
+  
+    @keyframes inicio {
+      0% { height: 55%; width: 45%; }
+      50% { height: 50%; width: 40%; }
+      100% { height: 55%; width: 45%; }
+    }
+  
+    #marcos_gana {
+      top: 28%;
+      left: 25%;
+    }
+  
+    #tu_pierdes {
+      height: 40%;
+      width: 30%;
+    }
+  
+    #texto_tu_pierdes {
+      bottom: -5%;
+      left: 50%;
+      height: 30%;
+      width: 50%;
+    }
+  }
+
+ 

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+   <head>
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Aliens</title>
+      <link rel="stylesheet" type="text/css" href="css.css">
+      <link rel="icon" href="img/logo.png" type="image/png">
+      <script type="text/javascript" src="js.js"></script>
+       
+   </head>
+          
+    
+   <body class="bodyplay" class="flex-container">
+
+      <div id="score">Puntos: 0</div>
+
+      <div id="timer">Tiempo: 30</div>
+
+       
+      <div id="areadejuego">
+             
+         <div class="alien">
+
+            <img id="alien1" src="img/alien.png" onclick="cambiarPosicion1()" width="100%">
+
+         </div>
+
+         <div class="alien2" >
+
+            <img id="alien2" src="img/alien2.png" onclick="cambiarPosicion2()" width="100%">
+
+         </div>
+
+         
+      </div>
+
+
+      <div class="nave">
+
+         <img src="img/nave.png" width="100%">
+
+      </div>
+
+      <audio id="disparo" src="sonidos/laser.mp3"></audio>
+      <audio id="acierto" src="sonidos/acierto.mp3"></audio>
+
+      <button id="reiniciar" onclick="recargarpagina()">Reiniciar</button>
+            
+   </body>
+
+</html>

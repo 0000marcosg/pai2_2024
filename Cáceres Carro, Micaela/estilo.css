@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Fondo del juego */
+body {
+  background-color: #6bbbde;
+  background-size: cover;
+  margin: 0;  /* Saca la barras de desplazamiento */
+  overflow: hidden; 
+}
+  
+ /* 
+ 
+ FONDO ANIMADO, ATARDECER y NOCHE
+PARTE DEL BODY
+
+ transform: fondobucle;   
+  animation: fondobucle 20s infinite; 
+
+
+@keyframes fondobucle {
+  0% { background-image: url(./img/fondo1.jpg); }
+  50% { background-image: url(./img/fondo2.jpg); }
+  100% { background-image: url(./img/fondo1.jpg); }
+}
+
+
+
+*/
+
+/* Avión________________________________________________________ */
+#objeto1 {
+  width: 100px;
+  height: 75px;
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  cursor: grabbing;
+  background-image: url('./img/avion1.png');
+  background-size: contain;
+  z-index: -1;
+  user-select: none;
+}
+
+.contenedor {
+  display: flex;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Rotación del avión al ser agarrado */
+#objeto1.inclinacion {
+  transition: transform 0.2s ease; 
+  transform: rotate(10deg); 
+}
+
+
+/* Pájaros__________________________________________________________ */
+
+.pajaro1 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: pajaro1move 4s linear infinite;
+  background-image: url('./img/pajaro1.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  max-width: 100%;
+  max-height: 100%;
+  z-index: -2;
+  user-select: none; /*Para no seleccionarlo */
+ 
+}
+
+.pajaro2 {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-140%);
+  animation: pajaro2move 5s linear infinite;
+  animation-delay: 2s;
+  background-image: url('./img/pajaro2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  z-index: -2;
+  user-select: none;
+ 
+}
+
+/* Animaciones de los pájaros_______________________________________________________ */
+@keyframes pajaro1move {
+  0% { left: 100%; }
+  100% { left: -100%; }
+}
+
+@keyframes pajaro2move {
+  0% { left: 100%; }
+  100% { left: -100%; }
+}
+
+
+/* Estilo para las nubes ______________________________________________________*/
+.nube {
+  position: absolute;
+  top: -100px; /* Comienza fuera de la pantalla */
+  width: 250px;
+  height: 200px;
+  background-image: url('./img/nubes.png'); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 1; 
+  z-index: 0; 
+  animation: caerNube 12s linear infinite;
+}
+
+/* Animación de caída de las nubes */
+@keyframes caerNube {
+  0% {  top: 100vh;}
+  100% { top: -100px;} 
+}
+
+/* Temporizador___________________________________________________ */
+#timer {
+  position: absolute;
+  font-family: "Sour Gummy", sans-serif;
+  top: 90%;
+  left: 85%;
+  font-size: 24px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 10;
+  user-select: none;
+}
+
+
+/* Adaptaciones para tablets ___________________________*/
+@media (max-width: 1024px) {
+
+  body {
+    background-color: rgb(106, 187, 222);
+    background-size: auto;
+    margin: 0;
+    overflow: hidden;
+
+  }
+  
+    /*
+    
+    transform: fondobucle;
+    animation: fondobucle 20s infinite;       
+  
+  @keyframes fondobucle {
+    0% { background-image: url(./img/fondo1.jpg); }
+    50% { background-image: url(./img/fondo2.jpg); }
+    100% { background-image: url(./img/fondo1.jpg); }
+  }
+  
+*/
+
+  #objeto1 {
+    width: 68px;
+    height: 50px;
+  }
+
+  .pajaro1,
+  .pajaro2 {
+    width: 30px;
+    height: 30px;
+  }
+
+  .nube {
+    width: 150px;
+    height: 120px;
+  }
+
+  #timer {
+    font-size: 18px;
+    padding: 8px;
+  }
+}

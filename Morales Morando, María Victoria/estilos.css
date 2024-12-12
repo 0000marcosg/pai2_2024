@@ -1,0 +1,137 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+}
+
+#startButton {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: rgb(182, 0, 0);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#startButton:hover {
+    background-color: rgb(182, 0, 0);
+}
+
+.vidas {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    font-size: 5vw;
+    display: flex;
+    align-items: center;
+    color: #333;
+}
+
+.icono-vida {
+    width: 5vw;
+    max-width: 150px;
+    margin-right: 1vw;
+}
+
+.corazon-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+
+#corazon {
+    width: 50vw;
+    max-width: 600px;
+    height: auto;
+}
+
+.curitas-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.curita {
+    width: 25vw;
+    max-width: 300px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.curita img {
+    width: 100%;
+}
+
+.curita:hover {
+    transform: scale(1.1);
+}
+
+/* Pantalla pequeña */
+@media (max-width: 800px) {
+    .vidas {
+        font-size: 8vw;
+    }
+    .icono-vida {
+        width: 15vw;
+    }
+    #corazon {
+        width: 75vw;
+    }
+    .curitas-container {
+        flex-direction: row;
+        justify-content: center;
+        gap: 12px;
+    }
+    .curita {
+        width: 30vw;
+    }
+}
+
+/* Pantalla grande */
+@media (min-width: 801px) {
+    .curitas-container {
+        position: absolute;
+        right: 3%;
+        top: 50%;
+        transform: translateY(-50%);
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .vidas {
+        font-size: 4vw;
+    }
+
+    #corazon {
+        width: 40vw;
+        max-width: 700px;
+    }
+
+    .curita {
+        width: 18vw;
+        max-width: 300px;
+    }
+
+    .icono-vida {
+        width: 7vw;
+        max-width: 140px;
+    }
+}

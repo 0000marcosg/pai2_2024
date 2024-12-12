@@ -1,0 +1,152 @@
+/* Estilo básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    cursor: url('img/tjera.png'), auto; /* Cursor personalizado */
+}
+
+.bomba-container {
+    position: relative;
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#fondo {
+    width: 100%;
+    height: 100%;
+    background: url('img/bomba.png') no-repeat center center;
+    background-size: contain;
+    position: relative;
+}
+
+#cronometro {
+    position: absolute;
+    top: 31%;
+    left: 44.4%;
+    font-size: 2em;
+    color: #ff0000;
+}
+
+.cables {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 15%;  /* Ajustar según la imagen de fondo */
+    left: 50%;
+    transform: translateX(100%);
+    width: 10%;
+}
+
+.cable {
+    width: 10px; /* Ajusta el tamaño de los cables según tus imágenes */
+    height: 220px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.cable:hover {
+    transform: scale(1.2);
+}
+
+#resultado {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    display: none; /* Oculto por defecto */
+}
+
+#resultado h2 {
+    color: #fff;
+    font-size: 24px;
+}
+
+#resultado button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#resultado button:hover {
+    background-color: #cc0000;
+}
+@keyframes moverCable {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-13vw); } /* Mueve el cable hasta el borde izquierdo */
+    100% { transform: translateX(0); } /* Vuelve a la posición inicial */
+}
+
+.mover {
+    animation: moverCable 10s ease-in-out infinite; /* Ajusta la duración para un movimiento más lento */
+}
+#imagenFlotante {
+    position: absolute;
+    display: none; /* Hidden by default until the blue cable is cut */
+    width: 100px; /* Adjust size as needed */
+    height: 100px;
+    background-image: url('img/dog.png'); /* Link to dog.png */
+    background-size: cover;
+    border-radius: 50%; /* Optional: Make it circular */
+}
+
+/* Animation for continuous bouncing */
+@keyframes naturalBounce {
+    0% {
+        transform: translate(0, 0);
+    }
+    20% {
+        transform: translate(30vw, 10vh);
+    }
+    40% {
+        transform: translate(23vw, 70vh);
+    }
+    60% {
+        transform: translate(10vw, 50vh);
+    }
+    80% {
+        transform: translate(21vw, 90vh);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+#imagenFlotante {
+    position: absolute;
+    display: none;
+    width: 100px;
+    height: 100px;
+    background-image: url('img/dog.png');
+    background-size: cover;
+    border-radius: 50%;
+    z-index: 1000;
+}
+
+/* Applies a smoother, random-like bouncing motion */
+#imagenFlotante.moving {
+    display: block;
+    animation: naturalBounce 10s linear infinite; /* Adjust speed here */
+}

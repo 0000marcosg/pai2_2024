@@ -1,0 +1,212 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("img/arboles.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  user-select: none;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  justify-content: space-around;
+  font-family: "Patrick Hand", cursive;
+}
+
+#auto {
+  position: fixed;
+  width: 20.83%;
+  transition: left 0.3s;
+  padding-top: 6.94%;
+}
+
+#contador {
+  background-color: black;
+  color: white;
+  padding: 0.78vw 2.78vh;
+  font-size: 1.5vw;
+  border-radius: 0.52vw;
+  text-align: center;
+  position: relative;
+  width: 11%;
+  top: 280px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#mensaje {
+  display: none;
+  background-color: red;
+  color: white;
+  font-size: 2vw;
+  padding: 2vw;
+  border-radius: 0.52vw;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+#frase {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 60%;
+  height: auto;
+}
+
+#bola-disco {
+  display: none;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  width: 700px;
+  height: auto;
+  transform-origin: top center;
+  animation: pendulo 2s infinite ease-in-out;
+  z-index: 2000;
+  transform: translateX(-50%);
+}
+
+#destellos {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1500;
+}
+
+.destello {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: destelloAnimacion 1s infinite ease-in-out;
+}
+
+@keyframes destelloAnimacion {
+  0%,
+  100% {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+
+@keyframes pendulo {
+  0%,
+  100% {
+    transform: translateX(-50%) rotate(-15deg);
+  }
+  50% {
+    transform: translateX(-50%) rotate(15deg);
+  }
+}
+
+@keyframes titilar {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.no-select {
+  user-select: none;
+}
+
+/*RESPONSIVE*/
+
+@media screen and (max-width: 768px) {
+  body {
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    justify-content: space-around;
+    font-family: "Patrick Hand", cursive;
+  }
+
+  #auto {
+    width: 27vw;
+    height: auto;
+    padding-top: 20vh;
+  }
+
+  #contador {
+    background-color: black;
+    color: white;
+    border-radius: 1vw;
+    text-align: center;
+    position: relative;
+    width: 25vw;
+    font-size: 4vw;
+    padding: 2vw 4vh;
+    top: 40vh;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #mensaje {
+    display: none;
+    background-color: red;
+    color: white;
+    font-size: 4vw;
+    padding: 2vw;
+    border-radius: 0.5vw;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+  }
+
+  #frase {
+    width: 80%;
+    height: auto;
+    top: 30%;
+  }
+
+  #bola-disco {
+    width: 500px;
+    top: 5%;
+  }
+
+  #destellos {
+    width: 100%;
+    height: 100%;
+  }
+
+  .destello {
+    width: 5px;
+    height: 5px;
+  }
+}

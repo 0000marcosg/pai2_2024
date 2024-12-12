@@ -1,0 +1,246 @@
+/*Google Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@700&display=swap');
+
+/*Define los márgenes*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body { 
+    height: 100%; 
+    overflow: hidden; /*Evita el scroll*/
+}
+
+body {
+    background-color: grey;
+    background-size: 92%;
+    background-repeat: no-repeat; 
+    background-position: center 95%;
+    animation: cambiarFondo 4s infinite alternate;
+    -webkit-animation: cambiarFondo 4s infinite alternate;
+}
+
+/*Animacion para cambiar el fondo*/
+@keyframes cambiarFondo {
+    0% { background-image: url(img/payaso_compu1.png); }
+    25% { background-image: url(img/payaso_compu2.png); }
+    50% { background-image: url(img/payaso_compu3.png); }
+    75% { background-image: url(img/payaso_compu4.png); }
+    100% { background-image: url(img/payaso_compu5.png); }
+}
+
+@-webkit-keyframes cambiarFondo {
+    0% { background-image: url(img/payaso_compu1.png); }
+    25% { background-image: url(img/payaso_compu2.png); }
+    50% { background-image: url(img/payaso_compu3.png); }
+    75% { background-image: url(img/payaso_compu4.png); }
+    100% { background-image: url(img/payaso_compu5.png); }
+}
+
+/*Contenedor*/
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/*Estilo para el contador*/
+#contador {
+    color: #ffff;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-family: "DynaPuff", Arial, system-ui;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 45px;
+}
+
+/*Estilo para los globos*/
+.globo {
+    width: 175px;
+    height: auto;
+    cursor: crosshair;
+    transition: transform 0.2s ease-in-out;
+    -webkit-transition: transform 0.2s ease-in-out;
+}
+
+/*Contenedor individual para cada globo*/
+.globo-container {
+    position: relative;
+    animation: subida 5s linear infinite;
+    -webkit-animation: subida 5s linear infinite;
+}
+
+/*Agranda al pasar el mouse*/
+.globo:hover {
+    animation: agrandar 0.3s ease-in-out forwards;
+    -webkit-animation: agrandar 0.3s ease-in-out forwards;
+}
+
+/*Animacion agrandar*/
+@keyframes agrandar {
+    from {
+        transform: scale(1);
+        -webkit-transform: scale(1); 
+    }
+    to {
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1); 
+    }
+}
+
+@-webkit-keyframes agrandar {
+    from {
+        -webkit-transform: scale(1);
+    }
+    to {
+        -webkit-transform: scale(1.1);
+    }
+}
+
+/*Animacion explosion*/
+@keyframes explotar {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.15);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes explotar {
+    0% {
+        -webkit-transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        -webkit-transform: scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        -webkit-transform: scale(1.15);
+        opacity: 0;
+    }
+}
+
+/*Explosion vinculada a Js*/
+.globo.explosion {
+    animation: explotar 0.5s ease-out forwards;
+    -webkit-animation: explotar 0.5s ease-out forwards;
+    pointer-events: none;
+}
+
+/*Subida*/
+@keyframes subida {
+    0% {
+        transform: translateY(110vh); /*Comienza fuera de la pantalla en la parte inferior*/
+    }
+    100% {
+        transform: translateY(-100vh); /*Termina en la parte superior*/
+    }
+}
+
+@-webkit-keyframes subida {
+    0% {
+        -webkit-transform: translateY(110vh);
+    }
+    100% {
+        -webkit-transform: translateY(-100vh);
+    }
+}
+
+/*Seleccion y duracion de animacion de cada globo*/
+.globo-container:nth-child(1) { 
+    animation-delay: 1s; 
+    animation-duration: 5s; 
+    -webkit-animation-delay: 1s; 
+    -webkit-animation-duration: 5s;
+}
+
+.globo-container:nth-child(2) { 
+    animation-delay: 1.5s; 
+    animation-duration: 7s; 
+    -webkit-animation-delay: 1.5s;
+    -webkit-animation-duration: 7s;
+}
+
+.globo-container:nth-child(3) { 
+    animation-delay: 3s; 
+    animation-duration: 5.5s; 
+    -webkit-animation-delay: 3s;
+    -webkit-animation-duration: 5.5s;
+}
+
+.globo-container:nth-child(4) {  
+    animation-delay: 2s; 
+    animation-duration: 6.5s; 
+    -webkit-animation-delay: 2s;
+    -webkit-animation-duration: 6.5s;
+}
+
+.globo-container:nth-child(5) { 
+    animation-delay: 1s; 
+    animation-duration: 8s; 
+    -webkit-animation-delay: 1s;
+    -webkit-animation-duration: 8s;
+}
+
+/*Ocultar globo vinculado a Js*/
+.globo.oculto {
+    visibility: hidden;
+}
+
+/*Reaparecen los globos vinculados a Js*/
+.globo.reaparecer {
+    visibility: visible;
+}
+
+/*Responsividad celulares*/
+@media (max-width: 480px) {
+    #contador {
+        font-size: 20px;
+        top: 2px;
+        right: 5px;
+    }
+
+    .globo { width: 69px; }
+
+    .container { padding: 0 7%; }
+
+    body {
+        background-color: grey;
+        background-size: 100%;
+        background-repeat: no-repeat; 
+        background-position: center;
+    }
+
+    /*Animacion para cambiar el fondo*/
+    @keyframes cambiarFondo {
+        0% { background-image: url(img/payaso_celu1.png); }
+        25% { background-image: url(img/payaso_celu2.png); }
+        50% { background-image: url(img/payaso_celu3.png); }
+        75% { background-image: url(img/payaso_celu4.png); }
+        100% { background-image: url(img/payaso_celu5.png); } 
+    }
+
+    @-webkit-keyframes cambiarFondo {
+        0% { background-image: url(img/payaso_celu1.png); }
+        25% { background-image: url(img/payaso_celu2.png); }
+        50% { background-image: url(img/payaso_celu3.png); }
+        75% { background-image: url(img/payaso_celu4.png); }
+        100% { background-image: url(img/payaso_celu5.png); }
+    }
+}

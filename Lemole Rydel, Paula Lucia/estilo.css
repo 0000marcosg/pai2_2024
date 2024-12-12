@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&display=swap');
+
+.delius-swash-caps-regular {
+  font-family: "Delius Swash Caps", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("img/fondo.png");
+  background-size: cover;
+  overflow: hidden;
+  font-family: "Delius Swash Caps";
+  cursor: url('img/regadera.cur'), auto;
+}
+
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+#myImage {
+  max-width: 80%;
+  height: auto;
+  position: relative;
+  z-index: 9999;
+}
+
+#mijardin {
+  position: absolute;
+  top: 5px;                
+  left: 20px;    
+  font-weight: bold;        
+  padding: 5px;           
+  z-index: 9999; 
+}
+
+#contadorDisplay {
+  position: absolute;       
+  top: 80px;                
+  left: 20px;              
+  font-size: 18px;          
+  font-weight: bold;        
+  padding: 5px;           
+  z-index: 9999;
+}
+
+
+@media screen and (max-width: 768px) {
+.delius-swash-caps-regular {
+  font-family: "Delius Swash Caps", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("img/fondo.png");
+  background-position: fixed;
+  background-size: cover;
+  overflow: hidden;
+  font-family: "Delius Swash Caps";
+  cursor: url('img/regadera.cur'), auto;
+}
+
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+#myImage {
+  height: auto;
+  position: relative;
+  z-index: 9999;
+  max-width: 768px;
+  max-height: 600px;
+}
+
+#mijardin {
+  position: absolute;
+  top: 5px;                
+  left: 20px;    
+  font-weight: bold;        
+  padding: 5px;           
+  z-index: 9999; 
+}
+
+#contadorDisplay {
+  position: absolute;       
+  top: 80px;                
+  left: 20px;              
+  font-size: 18px;          
+  font-weight: bold;        
+  padding: 5px;           
+  z-index: 9999;
+}

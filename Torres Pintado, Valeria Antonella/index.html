@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PAI 2</title>
+        <link rel="stylesheet" type="text/css" href="estilo.css">
+        <link href="https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Doto:wght@100..900&display=swap" rel="stylesheet">
+		<script type="text/javascript" src="eventos.js"></script>
+    </head>
+    <body>
+             
+        <h1>El twister de los impostores</h1>
+       <!-- Objetos /* -->
+        <div class="flex-container" id="gridContainer">
+            
+                        	
+            <div id="cambiarColor" class="color-box" ondblclick="cambiarPosiciones()" ondblclick="cambiarColorConAnimacion()" ondblclick="eventoAcierto()"></div> 
+
+            <div id="amarillo"  class="color-random" ondblclick="startShake(this)"></div> 
+
+            <div id="verde"  class="color-random" ondblclick="startShake(this)"></div> 
+
+            <div id="azul"  class="color-random" ondblclick="startShake(this)"></div>    
+
+            <div id="amarillo2"  class="color-random" ondblclick="startShake(this)"></div>  
+
+            <div id="verde2"  class="color-random" ondblclick="startShake(this)"></div>  
+
+            <div id="rojo2"  class="color-random" ondblclick="startShake(this)"></div>  
+
+            <div id="azul2"  class="color-random" ondblclick="startShake(this)"></div>  
+
+            <div id="azul3"  class="color-random" ondblclick="startShake(this)"></div>  
+
+            <div id="rojo3"  class="color-random" ondblclick="startShake(this)"></div>  
+
+            <div id="verde3"  class="color-random" ondblclick="startShake(this)"></div>  
+
+            <div id="amarillo3"  class="color-random" ondblclick="startShake(this)"></div>  
+
+           </div>
+           
+<script>
+   // Rutas de los sonidos
+   const sonidos = {
+      amarillo: "amarillo.mpeg",
+      rojo: "rojo.mpeg",
+      verde: "verde.mpeg",
+      azul: "azul.mpeg",
+      
+    };
+
+    // Función para reproducir un sonido aleatorio, excluyendo uno específico
+    function reproducirSonidoExcluyendo(colorExcluido) {
+      const sonidosDisponibles = Object.keys(sonidos).filter(color => color !== colorExcluido);
+      const sonidoAleatorio = sonidosDisponibles[Math.floor(Math.random() * sonidosDisponibles.length)];
+      const audio = new Audio(sonidos[sonidoAleatorio]);
+      audio.play();
+    }
+
+    // Asigna eventos de onclick a cada circulo de color
+   
+
+    document.getElementById("verde").addEventListener("click", () => {
+      reproducirSonidoExcluyendo("verde");
+    });
+
+    document.getElementById("verde2").addEventListener("click", () => {
+      reproducirSonidoExcluyendo("verde");
+    });
+
+    document.getElementById("verde3").addEventListener("click", () => {
+      reproducirSonidoExcluyendo("verde");
+    });
+
+
+    document.getElementById("azul").addEventListener("click", () => {
+      reproducirSonidoExcluyendo("azul");
+    });
+
+    document.getElementById("azul2").addEventListener("click", () => {
+      reproducirSonidoExcluyendo("azul");
+    });
+
+    document.getElementById("azul3").addEventListener("click", () => {
+      reproducirSonidoExcluyendo("azul");
+    });
+
+
+    document.getElementById("amarillo").addEventListener("click", () => {
+      reproducirSonidoExcluyendo("amarillo");
+    });
+
+    document.getElementById("amarillo2").addEventListener("click", () => {
+      reproducirSonidoExcluyendo("amarillo");
+    });
+
+    document.getElementById("amarillo3").addEventListener("click", () => {
+      reproducirSonidoExcluyendo("amarillo");
+    });
+
+
+    document.getElementById("rojo2").addEventListener("click", () => {
+      reproducirSonidoExcluyendo("rojo");
+    });
+
+    document.getElementById("rojo3").addEventListener("click", () => {
+      reproducirSonidoExcluyendo("rojo");
+    });
+
+ 
+// Colores posibles
+const colores = ["blue", "green", "yellow", "red"];
+
+const colorBox = document.getElementById("cambiarColor");
+
+// Función para cambiar el color al azar con delay de 1,5seg
+function cambiarColor() {
+    setTimeout(() => {
+        const colorAleatorio = colores[Math.floor(Math.random() * colores.length)];
+        colorBox.style.backgroundColor = colorAleatorio;
+    }, 1500); 
+}
+
+// Función para reproducir el sonido dependiendo del color
+function reproducirSonido() {
+    const colorActual = colorBox.style.backgroundColor;
+
+    let sonido;
+    switch(colorActual) {
+        case "red":
+            sonido = new Audio("rojo.mpeg");
+            break;
+        case "blue":
+            sonido = new Audio("azul.mpeg");
+            break;
+        case "green":
+            sonido = new Audio("verde.mpeg");
+            break;
+        case "yellow":
+            sonido = new Audio("amarillo.mpeg");
+            break;
+        default:
+            return; 
+    }
+
+  
+    sonido.play();
+}
+
+// Asigna el evento dblclick al elemento para cambiar el color
+colorBox.addEventListener("dblclick", cambiarColor);
+
+// Asigna el evento click al elemento para reproducir el sonido
+colorBox.addEventListener("click", reproducirSonido);
+
+let permitirReproducirSonido = true;
+
+// Función para reproducir el sonido "rojo.mpeg"
+function reproducirSonido0() {
+    if (permitirReproducirSonido) { 
+        const sonidoRojo = new Audio("rojo.mpeg");
+        sonidoRojo.play().catch(error => console.log("Error al reproducir el sonido: ", error));
+    }
+}
+
+// Asigna el evento "click" para reproducir el sonido cuando se hace clic
+colorBox.addEventListener("click", reproducirSonido0);
+
+// Modifica el evento "ondblclick" para cambiar el color y desactivar el sonido
+colorBox.addEventListener("dblclick", () => {
+    cambiarColor();  
+    permitirReproducirSonido = false;  
+});
+
+
+// Evento acierto, delay 0.6seg
+const cambiarColorDiv = document.getElementById("cambiarColor");
+
+function eventoAcierto() {
+    setTimeout(() => {
+        // Reproduce el sonido "acierto.mp3" con un delay de 0.6 segundos
+        const sonidoAcierto = new Audio("acierto.mp3");
+        sonidoAcierto.play().catch(error => console.log("Error al reproducir el sonido:", error));
+
+        // Coloca el símbolo de verificación 
+        cambiarColorDiv.innerHTML = "✔️"; 
+        cambiarColorDiv.style.textAlign = "center";  
+        cambiarColorDiv.style.fontSize = "3rem";  
+        cambiarColorDiv.style.lineHeight = "120px";  
+    }, 600); 
+}
+
+cambiarColorDiv.addEventListener("dblclick", eventoAcierto);
+
+
+
+  </script>
+
+     </body>
+</html>

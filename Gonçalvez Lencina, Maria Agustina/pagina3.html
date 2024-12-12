@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <title>trabajopai</title>
+</head>
+    
+    <button id="botonInvisible" class="shaky"></button> <!-- Añadido la clase shaky -->
+    <button id="botonEnlace" style="display: none;" class="shaky"></button> <!-- Añadido la clase shaky -->
+    <img id="imagenTransicion" class="img33" src="img/spidermantrestercero.png" alt="Seguí Jugando!" style="display: none;">
+    
+    <audio id="audio" src="audio/aparicionspiderman.mp3"></audio>
+
+    <script>
+        const botonInvisible = document.getElementById("botonInvisible");
+        const imagenTransicion = document.getElementById("imagenTransicion");
+        const botonEnlace = document.getElementById("botonEnlace");
+        const audio = document.getElementById("audio");
+
+        function posicionAleatoria(element) {
+            const ancho = window.innerWidth - element.offsetWidth;
+            const alto = window.innerHeight - element.offsetHeight;
+            const posX = Math.floor(Math.random() * ancho);
+            const posY = Math.floor(Math.random() * alto);
+            element.style.position = "absolute";
+            element.style.left = posX + "px";
+            element.style.top = posY + "px";
+        }
+
+        botonInvisible.addEventListener("click", () => {
+            imagenTransicion.style.display = "block"; // Muestra la imagen
+            posicionAleatoria(imagenTransicion); // Posiciona la imagen aleatoriamente
+            botonInvisible.style.display = "none"; // Oculta el botón
+            audio.currentTime = 0; // Reinicia el audio
+            audio.play(); // Reproduce el sonido
+
+            setTimeout(() => {
+                audio.pause(); // Detiene el sonido
+                audio.currentTime = 0; // Reinicia el tiempo del audio si es necesario
+                imagenTransicion.style.display = "none"; // Oculta la imagen
+                botonInvisible.style.display = "none"; // Oculta el botón
+                
+                botonEnlace.style.display = "block"; // Muestra el botón de enlace
+                botonEnlace.classList.add("shaky"); // Añade la clase para la animación shake
+                botonEnlace.classList.remove("shaky"); // Elimina la sacudida al mostrarlo
+                setTimeout(() => {
+                    botonEnlace.classList.add("shaky"); // Añade nuevamente la sacudida después de un breve retraso
+                }, 10);
+                
+            }, 4000); // segundos que queda la imagen antes de mostrar el botón
+        });
+
+        botonEnlace.addEventListener("click", () => {
+            window.location.href = "pagina4.html"; 
+        });
+
+        // Eliminar la clase 'shaky' al pasar el ratón sobre los botones
+        botonEnlace.addEventListener("mouseover", () => {
+            botonEnlace.classList.remove("shaky");
+        });
+
+        botonInvisible.addEventListener("mouseover", () => {
+            botonInvisible.classList.remove("shaky");
+        });
+
+        // Volver a agregar la clase 'shaky' cuando no está sobre los botones
+        botonEnlace.addEventListener("mouseout", () => {
+            botonEnlace.classList.add("shaky");
+        });
+
+        botonInvisible.addEventListener("mouseout", () => {
+            botonInvisible.classList.add("shaky");
+        });
+
+        posicionAleatoria(botonInvisible);
+    </script>
+</body>
+</html>

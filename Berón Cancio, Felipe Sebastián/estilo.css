@@ -1,0 +1,94 @@
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100vw;
+    position: relative;
+    }
+
+    .flex-container > .personabase {
+        height: 500px;
+        width: 500px;
+        margin: 50px;
+        align-self: center;
+        display: block;
+      } 
+
+      .flex-container > img[class^="persona"] 
+       {
+        display: none; 
+        height: 500px;
+        width: 500px;
+        margin: 50px;
+        align-self: center;
+        position: absolute;
+      }
+
+
+      .flex-container > .redoblante {
+        height: 180px;
+        width: 140px;
+        position: absolute; 
+        left: 49%; 
+        transform: translateX(-50%); 
+        margin-top: 355px;
+      
+
+      } 
+
+      .flex-container > .conga {
+        height: 180px;
+        width: 140px;
+        position: absolute; 
+        left: 60%; 
+        transform: translateX(-50%); 
+        margin-top: 355px;
+        
+
+      } 
+
+      .flex-container > .platillo {
+        height: 180px;
+        width: 140px;
+        position: absolute; 
+        right: 52%; 
+        transform: translateX(-50%); 
+        margin-top: 355px;
+       
+
+      } 
+
+      .flex-container > .cowbell {
+        height: 160px;
+        width: 130px;
+        position: absolute; 
+        left: 62%; 
+        transform: translateX(-50%); 
+        margin-top: 195px;
+        
+
+      } 
+
+      .flex-container > .bombo {
+        height: 200px;
+        width: 200px;
+        position: absolute; 
+        right: 53%; 
+        transform: translateX(-50%); 
+        margin-top: 170px;
+        } 
+
+        .flex-container > .espacio {
+          height: 100px;
+          width: 150px;
+          position: absolute; 
+          align-self: center;
+          right: 41%;
+          transform: translateX(-50%); 
+          margin-top: -5px;
+          display: none;
+          
+  
+        } 
+
+      

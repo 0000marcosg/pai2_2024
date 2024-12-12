@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+
+.gugi-regular {
+  font-family: "Gugi", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-image: url(img/fondo.jpg);
+      background-size: cover;
+    }
+
+    #barra {
+      width: 100%;
+      background-color: #452764;
+      color: white;
+      padding: 10px 20px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #logo {
+      display: flex;
+      font-size: 30px;
+      align-items: center;
+    }
+
+    #logi {
+      width: 70px;
+      height: 70px;
+      padding-right: 10px;
+    }
+
+    #contador {
+      visibility: hidden;
+      font-size: 30px;
+    }
+
+    #contador.visible {
+      visibility: visible;
+    }
+
+    #cuadrado {
+      width: 150px;
+      height: 150px;
+      position: absolute;
+      cursor: pointer;
+      transition: left 0.2s, top 0.2s;
+      background-image: url(img/logo.png);
+      background-size: cover;
+    }
+
+    #cuadrado:hover {
+      background-image: url(img/logo_hover.png);
+    }
+
+    @media screen and (max-width: 768px) {
+
+      #barra {
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+      }
+
+      #cuadrado {
+        width: 150px;
+        height: 150px;
+      }
+
+      #logi {
+        display: flex;
+        justify-content: center; 
+        align-items: center;     
+        width: 70px;             
+        height: 70px;
+        margin-bottom: 10px; 
+      }
+
+      #logo {
+        font-size: 20px;
+      }
+
+      #contador {
+        font-size: 18px;
+       margin: 5px 0;
+      }
+    }

@@ -1,0 +1,331 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; 
+}
+
+  #fondo1 {
+    position: fixed; /* Video fijo */
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    z-index: -1; /* Envía el video al fondo detrás de los peces */
+    pointer-events: none; /* Permite que los elementos superiores sean interactivos */
+}
+
+.flex-container {
+  position: relative; 
+  width: 100%;
+  height: 100%; 
+  overflow: hidden; 
+}
+
+/* Animación: peces respirando */
+
+.pulsate-bck {
+  -webkit-animation: pulsate-bck 6s infinite; 
+    animation: pulsate-bck 6s infinite;
+    position: relative;
+}
+
+@keyframes pulsate-bck {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.pez {
+  position: absolute;
+  width: 10vw; 
+  height: 10vw; 
+  animation: pulsate-bck 3s infinite;
+  background-size: contain; 
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Peces con imágenes y posiciones */
+.pez1 {
+  background-image: url("imagenes/pez1.png");
+  top: 10%;
+  left: 10%;
+}
+
+.pez2 {
+  background-image: url("imagenes/pez2.png");
+  top: 50%;
+  left: 13%;
+}
+
+.pez3 {
+  background-image: url("imagenes/pez3.png");
+  top: -5%;
+  left: 30%;
+}
+
+.pez4 {
+  background-image: url("imagenes/pez4.png");
+  top: -3%;
+  left: 46%;
+}
+
+.pez5 {
+  background-image: url("imagenes/pez5.png");
+  top: -50%;
+  left: 60%;
+}
+
+.pez6 {
+  background-image: url("imagenes/pez6.png");
+  top: -100%;
+  left: 45%;
+}
+
+.pez9 {
+  background-image: url("imagenes/pez9.png");
+  top: -62%;
+  left: 80%;
+}
+
+.pez10 {
+  background-image: url("imagenes/pez10.png");
+  top: -145%;
+  left: 70%;
+}
+
+/* Animaciones de movimiento */
+#pez1 {
+  position: relative;
+  animation: movepez1 5s ease-in-out infinite; 
+  animation-play-state: paused; 
+}
+
+@keyframes movepez1 {
+  0% { transform: translateY(0); }                 
+  50% { transform: translateY(calc(100vh - 150px)); } 
+  100% { transform: translateY(0); }               
+}
+
+#pez2 {
+  position: relative;
+  animation: movepez2 5s ease-in-out infinite;
+  animation-play-state: paused; 
+}
+
+@keyframes movepez2 {
+  0% { transform: translateY(0); }               
+  50% { transform: translateY(calc(-80vh + 150px)); } 
+  100% { transform: translateY(0); }              
+}
+
+#pez3 {
+    position: relative;
+    animation: movepez3 5s linear infinite;
+    animation-play-state: paused;
+    box-sizing: border-box; 
+}
+
+@keyframes movepez3 {
+    0% { left: 45; }
+    90% { left: calc(100vw - 100px); }
+}
+
+#pez4 {
+  position: relative;
+  animation: movepez4 7s ease-in-out infinite; 
+  animation-play-state: paused;  
+  box-sizing: border-box; 
+}
+
+@keyframes movepez4 {
+  0% { transform: translateX(0); }     
+  50% { transform: translateX(-90vw); } 
+  100% { transform: translateX(0); }
+}
+
+#pez5 {
+  position: relative;
+  animation: movepez5 5s ease-in-out infinite;
+  animation-play-state: paused; 
+}
+
+@keyframes movepez5 {
+  0% { transform: translateY(0); }               
+  50% { transform: translateY(calc(100vh - 150px)); } 
+  100% { transform: translateY(0); }               
+}
+
+#pez6 {
+    position: relative;
+    animation: movepez6 10s linear infinite;
+    animation-play-state: paused;
+    box-sizing: border-box; 
+}
+
+@keyframes movepez6 {
+    0% { left: 35; }
+    90% { left: calc(100vw - 100px); }
+}
+
+#pez9 {
+  position: relative;
+  animation: movepez9 8s ease-in-out infinite; 
+  animation-play-state: paused;  
+  box-sizing: border-box; 
+}
+
+@keyframes movepez9 {
+  0% { transform: translateX(0); }     
+  50% { transform: translateX(-90vw); } 
+  100% { transform: translateX(0); }
+}
+
+#pez10 {
+  position: relative;
+  animation: movepez10 5s ease-in-out infinite;
+  animation-play-state: paused; 
+}
+
+@keyframes movepez10 {
+  0% { transform: translateY(0); }               
+  50% { transform: translateY(calc(-80vh + 150px)); } 
+  100% { transform: translateY(0); }             
+}
+
+/* Pantallas intermedias (de 1024px a 1200px) */
+@media (min-width: 1025px) and (max-width: 1200px) {
+
+  body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .flex-container {
+    width: 100%;
+    height: 100%; 
+  }
+
+  .pez {
+    width: 15vw; 
+    height: 15vw; 
+  }
+
+  /* Ajuste de las posiciones de los peces */
+  .pez1 {
+    top: 10%;
+    left: 10%;
+  }
+
+  .pez2 {
+    top: 35%;
+    left: 10%;
+  }
+
+  .pez3 {
+    top: -10%;
+    left: 30%;
+  }
+
+  .pez4 {
+    top: -8%;
+    left: 45%;
+  }
+
+  .pez5 {
+    top: -60%;
+    left: 75%;
+  }
+
+  .pez6 {
+    top: -90%;
+    left: 55%;
+  }
+
+  .pez9 {
+    top: -80%;
+    left: 75%;
+  }
+
+  .pez10 {
+    top: -160%;
+    left: 80%;
+  }
+
+}
+
+/* Pantallas pequeñas (responsivo) */
+
+@media (max-width: 768px) {
+
+  body, html {
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Permite el scroll general */
+  }
+
+  .pez {
+    position: absolute;
+    width: 30vw; 
+    height: 30vw; 
+  }
+
+.flex-container {
+  width: 100%;
+  height: 180%; 
+  position: relative;
+  }
+
+  .pez8, .pez9, .pez10 {
+    display: none; 
+  }
+
+.pez1 {
+  top: 6%; 
+  left: 5%;
+}
+
+.pez2 {
+  top: 10%; 
+  left: 60%;
+}
+
+.pez3 {
+  top: 13%; 
+  left: 10%;
+}
+
+.pez4 {
+  top: 15%; 
+  left: 70%;
+}
+
+.pez5 {
+  top: 18%; 
+  left: 10%;
+}
+
+.pez6 {
+  top: 25%; 
+  left: 70%;
+}
+
+}
+

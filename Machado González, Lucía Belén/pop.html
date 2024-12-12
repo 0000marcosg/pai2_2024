@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body>
+    
+<div class="container">
+
+<div class="linea">
+<hr>
+</div>
+
+<div class="botones1">
+<button class="botones">▶▶</button>
+</div>
+        
+<div class="botones2">
+<button class="botones">◀◀</button>
+</div>
+              
+<div id="cronometro">00:10</div>
+
+<div class="botones-reproductores">
+<button onclick="document.getElementById('Audio3').play()" class="botones-reproductores2">▶</button>
+                
+<audio id="Audio3" src="img/billie.mp3"></audio>
+</div>
+
+<div class="pop1">
+<img src="img/billie2.png" onclick="document.getElementById('Incorrecto').play()">
+
+<audio id="Incorrecto" src="img/incorrecto.mp3"></audio>
+</div>
+        
+<div class="pop2">
+<a href="generos.html"><img src="img/billie.jpg" onclick="playAudio(event)"></a>
+
+<audio id="Correcto" src="img/correcto.mp3" ></audio>
+</div>
+        
+<div class="pop3">
+<img src="img/billie3.png" onclick="document.getElementById('Incorrecto').play()">
+
+<audio id="Incorrecto" src="img/incorrecto.mp3"></audio>
+</div>
+
+</div>
+
+<script>
+
+/*AUDIO ELECCION CORRECTA*/
+
+function playAudio(event) {
+     
+event.preventDefault();
+               
+const audio = document.getElementById('Correcto');
+audio.play();
+               
+audio.addEventListener('ended', () => {
+window.location.href = "generos.html";
+});
+}
+               
+/*CRONOMETRO*/ 
+
+const audio = document.getElementById("Audio3");
+const timerDisplay = document.getElementById("cronometro");
+let countdownInterval;
+        
+function startCountdown(durationInSeconds, redirectUrl) {
+clearInterval(countdownInterval);
+let remainingTime = durationInSeconds;
+        
+countdownInterval = setInterval(() => {
+const minutes = Math.floor(remainingTime / 60);
+const seconds = remainingTime % 60;
+timerDisplay.textContent = 
+`${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+        
+if (remainingTime <= 0) {
+clearInterval(countdownInterval);
+window.location.href = redirectUrl;
+} else {
+remainingTime--;
+}
+}, 1000);
+}
+        
+audio.addEventListener("ended", () => {
+startCountdown(10, "generos.html"); 
+});
+        
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,286 @@
+
+
+* {
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0; 
+    padding: 0; 
+    background-image: url('img/desierto.jpg');
+    background-repeat: no-repeat; 
+    background-size: cover;
+    background-position: center; 
+    width: 100vw; 
+    height: 100vh; 
+    overflow: hidden; 
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    height: 100%;
+}
+
+.arbusto {
+    position: absolute;
+    bottom: 0; 
+    right: 0px; 
+    z-index: -1; 
+}
+
+.arbusto-img {
+    width: 120px; 
+    height: auto;
+}
+.chameleon-img {
+    width: 300px;
+    height: auto;
+}
+
+.fly {
+    position: absolute;
+    width: 60px;
+    z-index: 5;
+    filter: hue-rotate(0deg); /* cambio de color */
+    transition: filter 0.3s; /* color suave */
+}
+
+
+
+
+/* Estilos para el cartel de inicio */
+.start-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.start-content {
+    background-color: rgb(248, 212, 171);
+    padding: 2em;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.start-content h2 {
+    font-size: 2em;
+    font-family: 'Chewy', sans-serif;
+    
+}
+
+.start-content p {
+    font-size: 1em;
+    margin: 1em 0;
+   
+    font-family: 'Chewy', sans-serif;
+}
+
+#startButton {
+    font-size: 1.2em;
+    padding: 0.5em 2em;
+    cursor: pointer;
+    border: none;
+    background-color: #669627;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-family: 'Chewy', sans-serif; 
+}
+
+#startButton:hover {
+    background-color: #6b4981;
+    color: black;
+    font-family: 'Chewy', sans-serif; 
+}
+
+#moscaContainer {
+    position: relative;
+    width: 100%; /* La mosca puede moverse dentro de todo el contenedor */
+    height: 100%;
+    overflow: hidden;
+}
+
+#randomObject {
+    position: absolute;
+    width: 40px;
+    z-index: 3;
+    cursor: pointer;
+}
+#randomObject2 {
+    position: absolute;
+    width: 40px;
+    z-index: 3;
+    cursor: pointer;
+}
+#randomObject3 {
+    position: absolute;
+    width: 40px;
+    z-index: 3;
+    cursor: pointer;
+}
+#randomObject4 {
+    position: absolute;
+    width: 40px;
+    z-index: 3;
+    cursor: pointer;
+}
+#randomObject5 {
+    position: absolute;
+    width: 40px;
+    z-index: 3;
+    cursor: pointer;
+}
+#randomObject6 {
+    position: absolute;
+    width: 40px;
+    z-index: 3;
+    cursor: pointer;
+}
+#randomObject7 {
+    position: absolute;
+    width: 40px;
+    z-index: 3;
+    cursor: pointer;
+}
+#randomObject8 {
+    position: absolute;
+    width: 40px;
+    z-index: 3;
+    cursor: pointer;
+}
+#randomObject9 {
+    position: absolute;
+    width: 40px;
+    z-index: 3;
+    cursor: pointer;
+}
+#randomObject10 {
+    position: absolute;
+    width: 40px;
+    z-index: 3;
+    cursor: pointer;
+}
+#randomObject11 {
+    position: absolute;
+    width: 40px;
+    z-index: 3;
+    cursor: pointer;
+}
+#randomObject12 {
+    position: absolute;
+    width: 40px;
+    z-index: 3;
+    cursor: pointer;
+}
+#randomObject13 {
+    position: absolute;
+    width: 40px;
+    z-index: 3;
+    cursor: pointer;
+}
+#randomObject14{
+    position: absolute;
+    width: 40px;
+    z-index: 3;
+    cursor: pointer;
+}
+#randomObject15 {
+    position: absolute;
+    width: 40px;
+    z-index: 3;
+    cursor: pointer;
+}
+
+
+.chameleon {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.chameleon-img {
+    width: 150px;
+    height: auto;
+}
+
+#counter {
+    position: absolute;
+    display: flex;
+    bottom: 30px;
+    right: 25px;
+    font-size: 30px;
+    font-family: 'Chewy', sans-serif; 
+    color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+
+    body {
+        background-image: url('img/desiertoresponsive.jpg');
+     
+    }
+    .start-screen {
+        padding: 1em; 
+    }
+
+    .start-content {
+        padding: 1em; 
+        border-radius: 5px; 
+        width: 60%; 
+        height: 60%;
+    }
+
+    .start-content h2 {
+        font-size: 1,5em;
+    }
+
+    .start-content p {
+        font-size: 1.5em; 
+    }
+
+
+}
+
+/* Estilo para los confeti */
+.confetti {
+    position: absolute;
+    width: 5px;
+    height: 7px;
+    background-color: rgb(245, 182, 182);
+    border-radius: 100%;
+    animation: confetti-explosion 1s ease-out forwards;
+    opacity: -4;
+}
+
+/* Animación de explosión */
+@keyframes confetti-explosion {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(calc(var(--x) * 1px), calc(var(--y) * 1px)) scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(calc(var(--x) * 2px), calc(var(--y) * 2px)) scale(0.8);
+        opacity: 0;
+    }
+}

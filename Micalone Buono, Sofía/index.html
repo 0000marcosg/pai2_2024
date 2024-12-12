@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patitos en Fila</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Patitos en fila</h1>
+    <div class="linea-medio"></div>
+    <div class="pato pato1" onclick="pararAnimacion1()" ondblclick="activarAnimacion1()"></div>
+    <div class="pato pato2" onclick="pararAnimacion2()" ondblclick="activarAnimacion2()"></div>
+    <div class="pato pato3 ocultar" onclick="pararAnimacion3()" ondblclick="activarAnimacion3()"></div>
+    <div class="pato pato4" onclick="pararAnimacion4()" ondblclick="activarAnimacion4()"></div>
+    <div class="patoquieto pato5 ocultar"></div>
+    <div class="patoquieto pato6 ocultar"></div>
+    <div class="patoquieto pato7 ocultar" ocultar></div>
+  </div>
+
+  <audio id="Cuack" src="audio/Cuack.mp3"></audio>
+
+  <script type="text/javascript">
+    
+    /*Sonido*/
+
+    function reproducirSonido() {
+      const sonido = document.getElementById("Cuack");
+      sonido.currentTime = 0;
+      sonido.play();
+     }
+
+   
+    /*MOVIMIENTO PARAR*/
+
+    function pararAnimacion1() {
+      reproducirSonido();
+      const pato1 = document.getElementsByClassName("pato1")[0].style.WebkitAnimationPlayState = "paused";
+      pato1.classList.add("mover1")
+  }
+
+  function pararAnimacion2() {
+    reproducirSonido();
+      const pato2 = document.getElementsByClassName("pato2")[0].style.WebkitAnimationPlayState = "paused";
+      pato2.classList.add("mover2");
+  }
+  
+  function pararAnimacion3() {
+    reproducirSonido();
+      const pato3 = document.getElementsByClassName("pato3")[0].style.WebkitAnimationPlayState = "paused";
+      pato2.classList.add("mover1");
+  }
+
+  function pararAnimacion4() {
+    reproducirSonido();
+      const pato4 = document.getElementsByClassName("pato4")[0].style.WebkitAnimationPlayState = "paused";
+      pato2.classList.add("mover2");
+  }
+
+
+
+  /*MOVIMIENTO MOVER*/
+
+  function activarAnimacion1() {
+    reproducirSonido();
+      const pato1 = document.getElementsByClassName("pato1")[0].style.WebkitAnimationPlayState = "running";
+      pato1.classList.add("mover1");
+  }
+
+  function activarAnimacion2() {
+    reproducirSonido();
+      const pato2 = document.getElementsByClassName("pato2")[0].style.WebkitAnimationPlayState = "running";
+      pato2.classList.add("mover2");
+  }
+
+  function activarAnimacion3() {
+    reproducirSonido();
+      const pato3 = document.getElementsByClassName("pato3")[0].style.WebkitAnimationPlayState = "running";
+      pato3.classList.add("mover1");
+  }
+
+  function activarAnimacion4() {
+    reproducirSonido();
+      const pato4 = document.getElementsByClassName("pato4")[0].style.WebkitAnimationPlayState = "running";
+      pato4.classList.add("mover2");
+  }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+
+
+#water-button:hover {
+    transform: scale(1.1);  
+    transition: transform 0.3s ease;  
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.pacifico-regular {
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100vh;
+    background-image: url('../img/p_ts.png');
+    background-size: 256px 256px;
+    background-repeat: repeat;
+    font-family: "Pacifico", cursive;
+    position: relative;
+    
+}
+
+.container {
+    text-align: center;
+    position: relative;
+}
+
+#season-text {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 42px;
+    font-weight: bold;
+    color: #fff;
+    z-index: 1000;
+}
+
+#tree {
+    width: 350px;
+    height: 350px;
+    margin: 20px auto;
+    background-image: url('../img/fase0.png');
+    background-size: 128px 128px;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#button-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+#health-bar {
+    width: 200px;
+    height: 20px;
+    background-color: #ccc;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#health {
+    width: 100%;
+    height: 100%;
+    background-color: green;
+    transition: background-color 0.5s ease, width 0.5s ease;
+}
+
+button {
+    border: none;  
+    background: none;  
+    padding: 0;
+}
+
+img.icon {
+    width: 64px;
+    height: 64px;
+    image-rendering: pixelated;
+    cursor: pointer;
+    transition: transform 0.3s ease;  /* Transición para la rotación */
+}
+
+img.icon.rotating {
+    transform: rotate(-45deg);  /* Rotación de 45 grados hacia la izquierda */
+}
+
+
+img.icon.grow {
+    transition: transform 0.2s ease;  /* Transición de 0.2 s*/
+    transform: scale(1.2);  /* Agrandar el botón a 1.2 veces su tamaño */
+}
+
+#tree.shake {
+    transition: transform 0.1s ease;  /* Transición de 0.1 segundos */
+    transform: translateX(5px);  /* Mover el árbol a la derecha */
+}
+
+#tree.shake-back {
+    transform: translateX(-5px);  
+}
+
+
+#water-button {
+    transition: transform 0.3s ease;  
+}
+#water-button:hover {
+    transform: scale(1.1);  
+}
+
+
+.summer-body {
+    background-image: url('../img/v_ts.png');
+    background-size: 256px 256px;  
+    background-repeat: repeat;    
+}
+
+
+.autumn-body {
+    background-image: url('../img/o_ts.png');
+    background-size: 256px 256px;
+    background-repeat: repeat;
+}
+
+
+.winter-body {
+    background-image: url('../img/i_ts.png');
+    background-size: 256px 256px;
+    background-repeat: repeat;
+}
+
+#black-screen {
+    position: fixed;
+    top: 0;
+    left: 0; /* Cubre toda la pantalla */
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 9999; /* Asegúrate de que esté por encima de todo */
+    animation: slide-out-right 1.5s ease-in-out forwards;
+}
+
+/* Animación para mover el div negro hacia la derecha */
+@keyframes slide-out-right {
+    0% {
+        left: 0; /* Comienza cubriendo toda la pantalla */
+    }
+    100% {
+        left: 100%; /* Se mueve completamente hacia la derecha */
+    }
+}
+

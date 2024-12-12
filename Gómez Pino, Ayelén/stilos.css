@@ -1,0 +1,213 @@
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-size: cover; /* Ajusta la imagen para cubrir toda la pantalla */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+.fondo-afuera {
+  background-image: url('img/fondo\ afuera.jpg'); /* Ruta de la imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: grid;
+}
+
+.fondo-adentro {
+  background-image: url('img/fondo\ adentro.jpg'); /* Ruta de la imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: grid;
+}
+/* Contenedor del botón */
+.button-container {
+  display: flex;
+  justify-content: center; /* Asegura que el botón esté centrado */
+  align-items: center; /* Alinea el botón verticalmente */
+}
+
+/* Estilos para el botón */
+button {
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  background-color: #ff6f61; /* Color de fondo del botón */
+  border: none;
+  border-radius: 5px;
+  color: white; /* Color del texto */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Efecto al pasar el mouse sobre el botón */
+button:hover {
+  background-color: #ff9f8c;
+}
+
+.level-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Contenedor del helado */
+.ice-cream {
+  position: relative;
+  width: 100px;
+  height: 200px;
+}
+
+/* Cono */
+.cone {
+  position: absolute;
+  bottom: 0;
+  width: 100px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cone img {
+  width: 100%;
+  height: auto;
+}
+
+/* Bocha de helado */
+.scoop {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  bottom: 250px;
+  left: 0;
+  cursor: pointer;
+  transition: background-color 0.5s;
+  animation: moveScoop 30s linear infinite alternate;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scoop img {
+  width: auto;
+  height: auto;
+  object-fit: cover; /* Para que la imagen se ajuste sin deformarse */
+}
+
+
+/* Div invisible */
+.invisible-div {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 200px;
+  height: 100vh;
+  transform: translateX(-50%);
+  background-color: transparent;  /* Transparente para que no se vea */
+}
+
+/* Animación de movimiento lateral de la bocha */
+@keyframes moveScoop {
+  0% {
+    transform: translateX(-40vw); /* Empieza desde la izquierda */
+  }
+  100% {
+    transform: translateX(40vw); /* Se mueve hacia la derecha */
+  }
+}
+
+/* Animación de caída de la bocha */
+@keyframes fallAndBounce {
+  0% {
+    transform: translateY(0); /* Comienza en la posición original */
+  }
+  100% {
+    transform: translateY(150px); /* La bocha cae y rebota ligeramente */
+  }
+}
+
+
+/* RESPONSIVE DESIGN */
+/* Dispositivos medianos (exactamente 768px) */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column; /* Cambia el flujo si hay más contenido */
+    padding: 10px;
+  }
+
+  .button-container {
+    justify-content: center;
+    align-items: center;
+  }
+
+  button {
+    font-size: 1.2rem; /* Reduce el tamaño del texto del botón */
+    padding: 8px 16px; /* Ajusta el espacio interno */
+  }
+}
+
+
+/* RESPONSIVE DESIGN */
+/* Dispositivos medianos (exactamente 768px) */
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+    flex-direction: column;
+  }
+
+  @keyframes moveScoop {
+    0% {
+      transform: translateX(-30vw); /* Recorrido reducido para pantallas pequeñas */
+    }
+    100% {
+      transform: translateX(30vw);
+    }
+  }
+
+  .level-container {
+    font-size: 1.2rem; /* Reduce el tamaño del texto */
+    padding: 8px 16px; /* Ajusta el espacio interno */
+    top: 10px;
+    left: 10px; /* Mueve el contador para mejor visualización */
+  }
+
+  .ice-cream {
+    width: 80px; /* Reduce el tamaño del helado */
+    height: 160px;
+  }
+
+  .cone img {
+    width: 100%;
+  }
+
+  .scoop {
+    width: 80px; /* Tamaño más pequeño para la bocha */
+    height: 80px;
+    animation-duration: 15s; /* Reducir aún más la duración en pantallas pequeñas */
+  }
+
+  .invisible-div {
+    width: 150px; /* Ajusta el ancho de la zona invisible */
+  }
+}
+

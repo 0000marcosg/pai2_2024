@@ -1,0 +1,229 @@
+.grid{
+display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    height: 100vh;
+ }
+
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ body{
+    background-color: #faebd7;
+    padding: 1em;
+    overflow: hidden;
+ }
+
+ .mueble {
+    grid-column: 2 /span 3;
+    grid-row: 1 /span 4;
+    position: relative;
+    margin-top: 2em;
+    height: 90vh;
+    background-image: url(img/blanco.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+}
+
+button {
+    background-color: #ffd09b;
+    border: none;
+    cursor: pointer;
+    border-radius: 12px;
+    margin: 4px;
+    height: 100px;
+    width: 200px;
+    font-size: 20px;
+    transition-duration: 0.4s;
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  button:hover {
+    background-color: #f5f5dc;
+  }
+
+  #muteButton {
+    background-color: #ffd09b;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 4px;
+    height: 100px;
+    width: 100px;
+    font-size: 20px;
+    transition-duration: 0.4s;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  #muteButton img {
+    width: 40%;
+    object-fit: contain;
+  }
+
+  #muteButton:hover {
+    background-color: beige;
+  }
+
+.items {
+    grid-column: 4 /span 5;
+    grid-row: 1 /span 4;
+    height: 94vh;
+    background-color: #ffb0b0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    z-index: 0;
+}
+
+
+
+ .item1,.item2,.item3,.item4,.item5,.item6,.item7,.item8{ 
+    padding: 1em;
+    width: 100px;
+    height: 100px;
+    z-index: 1;
+    position: relative;
+    cursor: pointer;
+    object-position: center;
+  } 
+
+.item1 {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.item2 {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.item3 {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.item4 {
+    grid-column: 1;
+    grid-row: 4;
+}
+
+.item5 {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.item6 {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.item7 {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.item8 {
+    grid-column: 2;
+    grid-row: 4;
+}
+
+/*esta esperiencia esta adaptada pensando que se use unicamente de forma horizontal*/
+@media screen and (max-width: 768px) {
+
+  .grid {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+ }
+
+ .mueble {
+    grid-column: 2/ span 3;
+    grid-row: 1 /span 3;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+#muteButton{grid-column: 1;
+grid-row: 1;
+width: 80px;
+height: 80px;
+margin-top: 1em;
+}
+button {
+  grid-column: 1;
+  grid-row: 3;
+  margin-top: 1em;
+}
+
+ .items {
+    grid-column: 5 /span 6;
+    grid-row: 1/span 3;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    z-index: 0;
+    margin-top: 2em;
+
+ }
+ img{align-items: center;
+    width: 50px;
+}
+    .item1,.item2,.item3,.item4,.item5,.item6,.item7,.item8 { 
+        position: relative;
+        height: 30px;
+        width: 30px;
+        margin: 1em;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      } 
+    
+    .item1 {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    
+    .item2 {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    
+    .item3 {
+        grid-column: 1;
+        grid-row: 3;
+    }
+    
+    .item4 {
+        grid-column: 1;
+        grid-row: 4;
+    }
+    
+    .item5 {
+        grid-column: 2;
+        grid-row: 1;
+    }
+    
+    .item6 {
+        grid-column: 2;
+        grid-row: 2;
+    }
+    
+    .item7 {
+        grid-column: 2;
+        grid-row: 3;
+    }
+    
+    .item8 {
+        grid-column: 2;
+        grid-row: 4;
+    }
+
+}
+

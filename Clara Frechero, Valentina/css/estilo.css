@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(30, 37, 100);
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.gota {
+    position: absolute;
+    top: -10%;
+    width: 100px; 
+    height: auto; 
+    animation: caer 3s linear infinite;
+    cursor: pointer;
+    filter: drop-shadow(0 0 5px rgba(121, 133, 213, 0.256));
+}
+
+/* Animación de caída */
+@keyframes caer {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+/* Efecto de explosión */
+.gota.explota {
+    animation: explotar 0.3s ease-out forwards;
+    background-color:transparent;
+}
+
+@keyframes explotar {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(10); /* Aumenta el tamaño final */
+        opacity: 0;
+    }
+}
+
+/* Estilo para la mancha */
+.mancha {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.5;
+    transform: translate(-50%, -50%);
+    animation: desvanecer 2s ease-out forwards;
+}
+
+/* Animación de desvanecimiento para la mancha */
+@keyframes desvanecer {
+    0% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(2);
+    }
+}

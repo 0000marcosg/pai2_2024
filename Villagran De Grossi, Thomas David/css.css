@@ -1,0 +1,127 @@
+* {
+  margin: 3px;
+  padding: 3px;
+  box-sizing: border-box;
+}
+
+body {
+  cursor: url('img/hand.png'), auto; /*Cambio de cursor para que sea mas facil darle click a los cuadrados.*/
+  background-image: url('img/imagen.calle.png');
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+
+.cuadrado{
+  width: 150;
+  height: 150px;
+  position: relative;
+  background-position: center;
+  animation-play-state: running;
+}
+
+/*Cuadrados marcados como ID para que sea mas facil poder*/
+
+#cuadrado1 {
+  animation-delay: 2s; /*Retraso de la animación antes de que empiece.*/
+  animation: moveLeftFast 3s infinite linear; /*Velocidad y direccion en la que se mueve el cuadrado.*/
+  background-image: url(img/imagenómnibus1.png); /*Imagen del "cuadrado" siendo un bondi*/
+  cursor: url('img/transaction.png'),pointer; /*Cambia el cursor en todos los cuadrados al momento de hacerle click*/
+}
+
+#cuadrado2 {
+  animation-delay: 4s;
+  animation: moveRight 4s infinite linear;
+  background-image: url(img/imagenómnibus2.png);
+  cursor: url('img/transaction.png'),pointer;
+}
+
+#cuadrado3 {
+  animation-delay: 6s;
+  animation: moveLeft 6s infinite linear;
+  background-image: url(img/imagenómnibus3.png);
+  cursor: url('img/transaction.png'),pointer;
+}
+
+#cuadrado4 {
+  animation-delay: 8s;
+  animation: moveRight 5s infinite linear;
+  background-image: url(img/imagenómnibus4.png);
+  cursor: url('img/transaction.png'),pointer;
+}
+
+/*Keyframes para la traslación de movimientos de los bondis.*/
+
+@keyframes moveLeftFast {
+  from {
+    transform: translateX(100vw);
+  }
+  to{
+    transform: translateX(-100vw);
+  }
+}
+
+@keyframes moveLeft {
+  from {
+    transform: translateX(100vw);
+  }
+  to{
+    transform: translateX(-100vw);
+  }
+}
+
+@keyframes moveRight {
+  from {
+    transform: translateX(-100vw);
+  }
+  to {
+    transform: translateX(100vw);
+  }
+}
+
+/* Estilos media Query para pantallas chicas. */
+
+@media (max-width: 768px) {
+
+  .cuadrado {
+    width: 150px;
+    height: 100px;
+  }
+
+.container {
+  flex-direction: column;
+  gap: 10px;
+}
+
+* {
+  margin: 18px;
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+}
+
+/* Estilo media query para pantallas aun mas chicas */
+@media (max-width: 488px) {
+  * {
+    margin: 3px;
+    padding: 3px;
+    box-sizing: border-box;
+  }
+
+body {
+  background-size: cover;
+  background-position: center;
+}
+
+.cuadrado {
+  width: 90px;
+  height: 90px;
+}
+
+}

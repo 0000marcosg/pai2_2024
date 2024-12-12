@@ -1,0 +1,113 @@
+/* cielo */
+.cielo {
+    background-color: #87CEEB;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#contenedor-globos {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+	display: flex;
+}
+
+
+.globo {
+    position: absolute;
+    width: 150px;
+    height: 200px;
+    cursor: pointer;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.2s;
+    z-index: 10; /* para que los globos estén encima de las nubes */
+}
+
+.globo hover {
+	image-orientation: subida 5s linear infinite, agrandear 0.3s
+		ease-in-out forwards
+		}
+
+
+
+#marcador {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 20px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.icono-globo {
+    width: 30px;
+    height: auto;
+    margin-right: 5px;
+}
+
+
+
+.nube {
+    position: absolute;
+    width: 500px;
+    height: 400px;
+    background-size: contain;
+    opacity: 0.8;
+    z-index: 1; /* Las nubes pasan por atrás de los globos */
+    background-repeat: no-repeat;
+    animation: moverNube 20s linear infinite;
+}
+
+/* Animación de las nubes (se mueven de izquierda a derecha) */
+@keyframes moverNube {
+    0% { transform: translateX(-500px); } /* Empieza fuera de la pantalla a la izquierda */
+    100% { transform: translateX(100vw); } /* Se mueve hasta fuera de la pantalla a la derecha */
+}
+
+
+/* Animación de flotación para globos */
+@keyframes flotar {
+    0% { transform: translateY(100vh); }
+    100% { transform: translateY(-10vh); }
+}
+
+/* Media query para pantallas celulares */
+@media (max-width: 600px) {
+    /* Ajustes para el contenedor de los globos */
+    #contenedor-globos {
+        width: 100vw;
+    }
+
+    /* Ajustes para los globos en pantallas chicsa */
+    .globo {
+        width: 80px; /* Reduce el tamaño del globo */
+        height: 100px; /* Reduce el tamaño del globo */
+    }
+
+    /* Ajustes para las nubes en pantallas pequeñas */
+    .nube {
+        width: 200px; /* Reduce el tamaño de las nubes */
+        height: 150px; /* Reduce el tamaño de las nubes */
+    }
+
+    /* Ajustes para el marcador en pantallas chicas */
+    #marcador {
+        font-size: 16px;
+        top: 10px;
+        left: 10px;
+    }
+
+    .icono-globo {
+        width: 20px;
+    }
+}

@@ -1,0 +1,148 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#container-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#container {
+    width: 40vw;
+    aspect-ratio: 3 / 2; 
+    position: absolute;
+    overflow: hidden;
+    background-image: url('img/laptop.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.sticker {
+    position: absolute;
+    max-width: 110px;
+    max-height: 110px;
+    object-fit: contain;
+    object-position: center;
+}
+
+/*---------------contador y timer---------------*/
+#contador {
+    position: fixed;
+    text-align: center;
+    top: 0%;
+    left: 50%;  
+    margin-top: 50px;
+    transform: translateX(-50%); /*centrar correctamente*/
+    font-size: 18px;
+    font-weight: bold;
+    color: #3E3F43;
+    background-color: #D4D5D7;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+#timer {
+    position: fixed;
+    bottom: 0%; 
+    left: 50%; 
+    margin-bottom: 50px;
+    transform: translateX(-50%); /*centrar correctamente*/
+    font-size: 18px;
+    font-weight: bold;
+    color: red; /*el timer es inicialmente rojo*/
+    background-color: #D4D5D7;
+    padding: 15px;
+    border-radius: 10px;
+    animation: none; /*inicialmente no se aplica la animacion*/
+}
+
+#timer.no-shake {
+    animation: none; 
+}
+
+#timer.victoria {
+    color: green; /*el timer se vuelve verde si el usuario es exitoso*/
+    animation: shake 0.5s, cambioColor 1s; /*y se sacude levemente y cambia de color*/
+}
+
+#timer.falla {
+    color: red; /*el timer se mantiene rojo si el usuario falla*/
+    animation: shake 0.5s ease 0s 1; /*y solo se sacude, no cambia de color*/
+}
+
+/*animacion de la sacudida*/
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(10px); }
+    50% { transform: translateX(-90px); }
+    100% { transform: translateX(0); }
+}
+
+/*animacion para la transicion de color*/
+@keyframes cambioColor {
+    0% { color: red; }
+    100% { color: green; }
+}
+
+#mouseImg {
+    display: none; 
+    position: fixed;  
+    right: 550px;
+    bottom: 25px;
+    max-width: 80px; 
+    height: auto;
+}
+/*---------------contador y timer---------------*/
+
+/*---------------responsive intermedio---------------*/
+@media (max-width: 1300px) {
+    .sticker { /*se achican un poco los stickers*/
+        max-width: 95px; 
+        max-height: 95px;
+    }
+    #mouseImg { /*cambia la ubicacion de la imagen*/
+        left: 750px;
+        bottom: 60px;
+    }
+    #timer {
+        margin-bottom: 80px; 
+        animation: none;
+    }
+    #contador {
+        margin-top: 80px; 
+    }
+}
+/*---------------responsive intermedio---------------*/
+
+/*---------------responsive mobil---------------*/
+@media (max-width: 768px) {
+    #container {
+        width: 60vw; /*se achica un poco la laptop*/
+    }
+    .sticker { /*se achican un poco los stickers*/
+        max-width: 45px; 
+        max-height: 45px;
+    }
+    #mouseImg { /*cambia la ubicacion de la imagen*/
+        bottom: 120px;
+        left: 50%;
+        transform: translateX(-50%); /*centra la imagen en relacion a la pantalla*/
+        max-width: 70px;
+    }
+    #timer { 
+        animation: none;
+    }
+}
+/*---------------responsive mobil---------------*/
+

@@ -1,0 +1,55 @@
+html, body {
+  background-image: url("img/fondo1.jpg"); /* Imagen inicial */
+  background-size: contain;
+  background-position: center;
+  height: 100vh;
+  margin: 0;
+  background-attachment: fixed;
+}
+.mouse, .cat {
+  position: absolute;
+}
+
+.mouse {
+  width: 80px;
+  height: 80px;
+  transform: translate(-50%, -50%);
+}
+
+.cat {
+  width: 500px;
+  height: 500px;
+  transform: translate(-50%, -50%);
+  transition: all 0.2s linear;
+}
+@media (max-width: 768px) {
+  .mouse {
+    width: 60px;  /* Reduce el tamaño del ratón */
+    height: 60px;
+  }
+
+  .cat {
+    width: 300px;  /* Reduce el tamaño del gato */
+    height: 300px;
+  }
+
+  html, body {
+    background-attachment: scroll; /* El fondo será fijo en pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .mouse {
+    width: 50px;  /* Reduce aún más el tamaño del ratón */
+    height: 50px;
+  }
+
+  .cat {
+    width: 250px;  /* Reduce aún más el tamaño del gato */
+    height: 250px;
+  }
+
+  html, body {
+    background-size: 100% 100%; /* Asegura que el fondo cubra todo el área */
+  }
+}

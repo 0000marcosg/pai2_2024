@@ -1,0 +1,150 @@
+body {
+  background-color: #FFDFC4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Al final seguimos con el flex container en vez de un grid para posiscionar exactamente a la altura que queriamos los objetos */
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  gap: -10px;
+}
+
+.ojos {
+  position: absolute;
+  top: -115%; /* Ubicamos con porcentaje y se ve de igual manera en diferentes pantallas */
+  width: 130%;
+  object-fit: contain;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.ojo {
+  width: 70%;
+  object-fit: contain; 
+  pointer-events: none;
+  display: none;
+  z-index: 2;
+  position: absolute;
+  margin-bottom: 220px;
+}
+
+.boca {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 420px;
+  height: 225px;
+  background-color: rgb(238, 134, 151);
+  border-radius: 100px;
+  padding: 15px;
+  position: relative;
+}
+
+.diente {
+  width: 45px;
+  height: 60px;
+  background-color: white;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.boca > .top {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.boca > .top .diente {
+  border-radius: 15px 15px 0 0;
+}
+
+.boca > .bottom {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.boca > .bottom .diente {
+  border-radius: 0 0 15px 15px;
+}
+
+.diente.roto {
+  transform: translateY(10px) rotate(10deg);
+  background-color: gray;
+  box-shadow: none;
+  cursor: default;
+}
+
+.diente.roto-inverso {
+  transform: translateY(10px) rotate(-10deg);
+  background-color: gray;
+  box-shadow: none;
+  cursor: default;
+}
+
+/* Animacíon para caer */
+@keyframes caer {
+  to {
+    transform: translateY(500px) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+.diente.caer {
+  background-color: gray;
+  animation: caer 1.5s forwards;
+  cursor: default;
+}
+
+/* Responsivo: Darle un aspecto de mounstrito */
+@media screen and (max-width: 768px) {
+  body {
+    background-color: #198CB8;
+  }
+
+  .flex-container {
+    height: 100vh;
+    padding: 10px;
+  }
+
+  
+  .ojos {
+    display: none;
+  }
+
+  .ojo {
+    display: block;  /* Mostrar el otro ojo */
+  }
+
+  .boca {
+    width: 250px; /* Cambios de tamaño y color */
+    height: 130px;
+    border-radius: 60px;
+    padding: 8px;
+    background-color: #8A2BE3;
+  }
+
+  .boca > .top,
+  .boca > .bottom {
+    margin-bottom: 8px; /* Menos espacio entre dientes */
+  }
+
+  .diente {
+    width: 25px; /* Cambios de tamaño y color */
+    height: 40px;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+    background-color: #CBCC16;
+  }
+}

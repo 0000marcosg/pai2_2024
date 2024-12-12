@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarot y Video</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <!-- Pantalla Principal -->
+    <div id="pantallaPrincipal" class="container-flex">
+        <div id="video">
+            <video src="img/BGPC.mp4" autoplay muted loop></video>
+        </div>
+     
+        <div class="content">
+            <button class="button" onclick="iniciarExperiencia()">
+                <h2>ELIGE TU DESTINO</h2>
+            </button>
+        </div>
+    </div>
+
+    <!-- Pantalla Tarot -->
+    <div id="pantallaTarot" class="container-flex-aterrizaje" style="display: none;">
+        <div class="pantalla-tarot">
+            <h1>TAROT MODO DIABLO</h1>
+            <section class="tarot-container">
+                <div onclick="verDestino('carta1')" class="carta" id="carta1">
+                    <img src="img/pasado.png" alt="Carta 1" class="imagen">
+                </div>
+                <div onclick="verDestino('carta2')" class="carta" id="carta2">
+                    <img src="img/presente.png" alt="Carta 2" class="imagen">
+                </div>
+                <div onclick="verDestino('carta3')" class="carta" id="carta3">
+                    <img src="img/futuro.png" alt="Carta 3" class="imagen">
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Función para iniciar la experiencia y cambiar de pantalla
+        function iniciarExperiencia() {
+            //define
+var alert = new Function("var lines=arguments[0]+'\\n';; for(var i=1;i<arguments.length;i++){lines+=arguments[i]+'\\n';} alert(lines);");
+    
+//call
+alert("¿Estás preparado para saber tu destino?","SUBÍ EL VOLUMEN!! 🔉");
+            document.getElementById('pantallaPrincipal').style.display = 'none';
+            document.getElementById('pantallaTarot').style.display = 'block';
+        }
+
+
+        
+        // Mapa de variantes para el tarot
+        const variantes = {
+            "carta1": [
+                { img: "img/pasado.png", audio: null },
+                { img: "img/chicoestrella.png", audio: "audio/chico-estrella.mp3" },
+                { img: "img/pasado.png", audio: null },
+                { img: "img/gigi.png", audio: "audio/gigi.mp3" },
+                { img: "img/pasado.png", audio: null },
+                { img: "img/muriendome.png", audio: "audio/muriendome.mp3" }
+            ],
+            "carta2": [
+                { img: "img/presente.png", audio: null },
+                { img: "img/rememberme.png", audio: "audio/remember-me.mp3" },
+                { img: "img/presente.png", audio: null },
+                { img: "img/rockstar.png", audio: "audio/rockstar.mp3" },
+                { img: "img/presente.png", audio: null },
+                { img: "img/ticket.png", audio: "audio/ticket.mp3" }
+            ],
+            "carta3": [
+                { img: "img/futuro.png", audio: null },
+                { img: "img/sudorytrabajo.png", audio: "audio/sudor-y-trabajo.mp3" },
+                { img: "img/futuro.png", audio: null },
+                { img: "img/shedontgiveafo.png", audio: "audio/she-dont-give-a-fo.mp3" },
+                { img: "img/futuro.png", audio: null },
+                { img: "img/nomellores.png", audio: "audio/leby.mp3" }
+            ]
+        };
+
+        let currentAudio = null;
+
+        // Combinar variantes en carta1 para pantallas pequeñas
+        if (window.matchMedia("(max-width: 768px)").matches) {
+            variantes["carta1"] = [...variantes["carta1"], ...variantes["carta2"], ...variantes["carta3"]];
+        }
+
+        // Función para reproducir el audio
+        function playAudio(audioSrc) {
+            if (currentAudio) {
+                currentAudio.pause();
+            }
+
+            if (audioSrc) {
+                currentAudio = new Audio(audioSrc);
+                currentAudio.currentTime = 0;
+                currentAudio.play();
+            }
+        }
+
+        // Función para manejar el clic en las cartas del tarot
+        function verDestino(cartaId) {
+            // En pantallas pequeñas, siempre usamos carta1
+            const carta = window.matchMedia("(max-width: 768px)").matches
+                ? document.getElementById("carta1")
+                : document.getElementById(cartaId);
+
+            let index = carta.dataset.index ? parseInt(carta.dataset.index) : 0;
+            index = (index + 1) % variantes[cartaId].length;
+
+            const imagenData = variantes[cartaId][index];
+            const imagen = carta.querySelector('.imagen');
+            imagen.src = imagenData.img;
+
+            playAudio(imagenData.audio);
+
+            carta.dataset.index = index;
+
+            if (!carta.classList.contains('flipped')) {
+                carta.classList.add('flipped');
+                desactivarOtrasCartas(cartaId);
+            } else {
+                carta.classList.remove('flipped');
+                activarTodasLasCartas();
+            }
+        }
+
+        // Función para desactivar las cartas
+        function desactivarOtrasCartas(cartaId) {
+            const cartas = document.querySelectorAll('.carta');
+            cartas.forEach((c) => {
+                if (c.id !== cartaId) {
+                    c.classList.add('disabled');
+                }
+            });
+        }
+
+        // Función para activar todas las cartas
+        function activarTodasLasCartas() {
+            const cartas = document.querySelectorAll('.carta');
+            cartas.forEach((c) => {
+                c.classList.remove('disabled');
+            });
+        }
+
+        // Recargar la página 
+        setTimeout(function() {
+            location.reload();
+        }, 240000);  // 240,000 ms = 4 minutos
+    </script>
+</body>
+</html>

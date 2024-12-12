@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    
+
+    <div class="flex-container">
+
+    <!--Persona-->
+    <img class="personabase" src="img/personabase-pai.png" width="250" height="300" onclick="changeImage()">
+    <img class="personaconga" src="img/personaconga.png" width="250" height="300" >
+    <img class="personaplatillo" src="img/personaplatillo.png" width="250" height="300" >
+    <img class="personaredoblante" src="img/personaredoblante.png" width="250" height="300" >
+    <img class="personabombo" src="img/personabombo.png" width="250" height="300" >
+    <img class="personacowbell" src="img/personacowbell.png" width="250" height="300" >
+
+
+    <!--Redoblante-->
+    <img class="personaredoblanteconga" src="img/personaredoblanteconga.png" width="250" height="300" >
+    <img class="personaredoblanteplatillo" src="img/personaredoblanteplatillo.png" width="250" height="300" >
+    <img class="personaredoblantebombo" src="img/personaredoblantebombo.png" width="250" height="300" >
+    <img class="personaredoblantecowbell" src="img/personaredoblantecowbell.png" width="250" height="300" >
+
+    <!--Bombo-->
+    <img class="personabomboconga" src="img/personabomboconga.png" width="250" height="300" >
+    <img class="personabomboplatillo" src="img/personabomboplatillo.png" width="250" height="300" >
+    <img class="personabomboredoblante" src="img/personaredoblantebombo.png" width="250" height="300" >
+    <img class="personabombocowbell" src="img/personacowbellbombo.png" width="250" height="300" >
+
+    <!--Conga-->
+    <img class="personacongaplatillo" src="img/personacongaplatillo.png" width="250" height="300" >
+    <img class="personacongabombo" src="img/personabomboconga.png" width="250" height="300" >
+    <img class="personacongacowbell" src="img/personacongacowbell.png" width="250" height="300" >
+    <img class="personacongaredoblante" src="img/personaredoblanteconga.png" width="250" height="300" >
+
+    <!--Cowbell-->
+    <img class="personacowbellplatillo" src="img/personacowbellplatillo.png" width="250" height="300" >
+    <img class="personacowbellbombo" src="img/personacowbellbombo.png" width="250" height="300" >
+    <img class="personacowbellconga" src="img/personacongacowbell.png" width="250" height="300" >
+    <img class="personacowbellredoblante" src="img/personaredoblantecowbell.png" width="250" height="300" >
+
+    <!--Platillo-->
+    <img class="personaplatilloredoblante"  src="img/personaredoblanteplatillo.png" width="250" height="300" >
+    <img class="personaplatillocowbell" src="img/personacowbellplatillo.png" width="250" height="300" >
+    <img class="personaplatillobombo" src="img/personabomboplatillo.png" width="250" height="300" >
+    <img class="personaplatilloconga" src="img/personacongaplatillo.png" width="250" height="300" >
+    
+
+    <!--Percusión-->
+    <img class="redoblante" src="img/redoblante.png" width="50" height="50" onclick= "playSound('redoblante'); changeImage('personaredoblante')">
+    <img class="conga" src="img/conga.png" width="50" height="50" onclick="playSound('conga'); changeImage('personaconga')">
+    <img class="platillo" src="img/platillo.png" width="50" height="50" onclick="playSound('platillo'); changeImage('personaplatillo')">
+    <img class="cowbell" src="img/cowbell.png" width="50" height="50" onclick="playSound('cowbell'); changeImage('personacowbell')">
+    <img class="bombo" src="img/bombo.png" width="50" height="50" onclick="playSound('bombo'); changeImage('personabombo')">
+   
+    <!--Barra de espacio-->
+    <img class="espacio" src="img/botondeespacio.png" width="250" height="300"> 
+    
+
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const baseImage = document.querySelector('.personabase');
+    baseImage.style.display = "block"; // Mostrar la imagen base al cargar
+});
+
+let currentInstruments = []; // Lista de instrumentos activos
+let isSpaceActive = false;   // Indica si la barra espaciadora está activa
+let soundInterval = null;    // Intervalo para el modo continuo
+let clickCount = 0;          // Contador de clics en tambores
+let hasSpaceImageShown = false; // Bandera para controlar si la imagen ya se mostró
+const spaceImage = document.querySelector('.espacio'); // Imagen de la barra de espacio
+
+function changeImage(personaClass) {
+    const baseImage = document.querySelector('.personabase');
+
+    if (isSpaceActive && currentInstruments.length > 0) {
+        // Si la barra espaciadora está activa, combinar imágenes
+        const secondInstrument = personaClass.replace('persona', '');
+        const combinedClass = `persona${currentInstruments[0]}${secondInstrument}`;
+        const combinedImage = document.querySelector(`.${combinedClass}`);
+
+        if (combinedImage) {
+            // Ocultar todas las imágenes y mostrar la combinada
+            document.querySelectorAll('.flex-container > img[class^="persona"]').forEach(img => {
+                img.style.display = "none";
+            });
+
+            baseImage.style.display = "none";
+            combinedImage.style.display = "block";
+
+            // Actualizar los instrumentos activos
+            currentInstruments = [currentInstruments[0], secondInstrument];
+        }
+    } else {
+        // Comportamiento normal cuando la barra espaciadora no está activa
+        const activeImage = document.querySelector(`.${personaClass}`);
+        if (activeImage) {
+            // Ocultar todas las imágenes
+            document.querySelectorAll('.flex-container > img[class^="persona"]').forEach(img => {
+                img.style.display = "none";
+            });
+
+            baseImage.style.display = "none";
+            activeImage.style.display = "block";
+
+            // Actualizar el tambor activo
+            currentInstruments = [personaClass.replace('persona', '')];
+
+            // Incrementar el contador de clics y verificar
+            clickCount++;
+            if (clickCount === 3 && !hasSpaceImageShown) {
+                spaceImage.style.display = "block"; // Mostrar la imagen de la barra de espacio
+                hasSpaceImageShown = true; // Marcar como mostrada
+            }
+
+            // Restablecer a la imagen base si la barra espaciadora no está activa
+            if (!isSpaceActive) {
+                setTimeout(() => {
+                    activeImage.style.display = "none";
+                    baseImage.style.display = "block";
+                }, 1000);
+            }
+        }
+    }
+}
+
+document.addEventListener("keydown", function (event) {
+    if (event.code === "Space") {
+        event.preventDefault();
+        toggleSpaceAction();
+
+        // Ocultar la imagen de la barra de espacio al presionar la barra espaciadora
+        if (spaceImage.style.display === "block") {
+            spaceImage.style.display = "none";
+        }
+    }
+});
+
+function toggleSpaceAction() {
+    isSpaceActive = !isSpaceActive;
+
+    if (isSpaceActive) {
+        console.log("Modo continuo activado");
+        startContinuousSound();
+    } else {
+        console.log("Modo continuo desactivado");
+        stopContinuousSound();
+        resetImages();
+    }
+}
+
+function startContinuousSound() {
+    if (currentInstruments.length > 0) {
+        soundInterval = setInterval(() => {
+            currentInstruments.forEach(instrument => {
+                playSound(instrument);
+            });
+        }, 500); // Ajusta el intervalo según el ritmo deseado
+    }
+}
+
+function stopContinuousSound() {
+    clearInterval(soundInterval);
+    soundInterval = null;
+}
+
+function resetImages() {
+    const baseImage = document.querySelector('.personabase');
+
+    document.querySelectorAll('.flex-container > img[class^="persona"]').forEach(img => {
+        img.style.display = "none";
+    });
+
+    baseImage.style.display = "block";
+    currentInstruments = [];
+}
+
+function playSound(instrument) {
+    const audio = new Audio(`aud/${instrument}.mp3`);
+    audio.play();
+}
+
+
+
+</script>
+</body>
+</html>

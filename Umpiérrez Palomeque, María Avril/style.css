@@ -1,0 +1,48 @@
+
+body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: url("img/fondo.jpeg") no-repeat center center fixed;
+    background-size: cover;
+    cursor: none;
+}
+
+
+#custom-cursor {
+    width: 113px;
+    height: 49px;
+    position: absolute;
+    background: url('img/palo.png') no-repeat center center;
+    background-size: cover;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+.point {
+    width: 150px;
+    height: 150px;
+    background-image: url("img/pngegg.png");
+    background-size: cover;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1000;
+    transition: transform 0.5s, top 0.5s, left 0.5s;
+}
+
+.ceramic-ball {
+    width: 150px;
+    height: 150px;
+    background-color: #d4af37;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset -10px -10px 20px rgba(0, 0, 0, 0.3), inset 10px 10px 20px rgba(255, 255, 255, 0.3);
+    transition: transform 0.2s ease;
+    position: relative;
+}

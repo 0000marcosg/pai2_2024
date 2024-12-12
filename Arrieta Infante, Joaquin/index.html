@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="estilo.css" />
+    <script type="text/javascript" src="eventos.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="icon" type="image/x-icon" href="img/favicon.png" />
+    <title>Caza Luciérnagas</title>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <!-- sonido -->
+        <div id="activaSonido">
+          <i
+            id="sonidoFondo"
+            onclick="activarAudioFondo()"
+            class="fa fa-volume-mute"
+          ></i>
+        </div>
+        <div
+          id="luciernagaGigante"
+          class="gigante"
+          onclick="atraparLuciernagaGigante(event)"
+        ></div>
+        <div
+          id="l1"
+          class="l1 aparecer"
+          onclick="activarAnimacion('l1', event)"
+        ></div>
+      </div>
+
+      <div>
+        <div
+          id="l2"
+          onclick="activarAnimacion('l2', event)"
+          class="l2 aparecer"
+        ></div>
+      </div>
+      <div>
+        <div
+          id="l3"
+          onclick="activarAnimacion('l3', event)"
+          class="l3 aparecer"
+        ></div>
+      </div>
+      <div>
+        <div
+          id="l4"
+          onclick="activarAnimacion('l4', event)"
+          class="l4 aparecer"
+        ></div>
+      </div>
+      <div class="espaciol">
+        <div
+          id="l5"
+          onclick="activarAnimacion('l5', event)"
+          class="l5 aparecer"
+        ></div>
+        <div
+          id="salvados"
+          class="cartelSalvados"
+          onclick="liberarLuciernagas()"
+        ></div>
+        <div id="tiempo" class="tiempoPasado"></div>
+      </div>
+      <div>
+        <div
+          id="l6"
+          onclick="activarAnimacion('l6', event)"
+          class="l6 aparecer"
+        ></div>
+      </div>
+      <div>
+        <div
+          id="l7"
+          onclick="activarAnimacion('l7', event)"
+          class="l7 aparecer"
+        ></div>
+      </div>
+      <div>
+        <div
+          id="l8"
+          onclick="activarAnimacion('l8', event)"
+          class="l8 aparecer"
+        ></div>
+      </div>
+      <div>
+        <div
+          id="l9"
+          onclick="activarAnimacion('l9', event)"
+          class="l9 aparecer"
+        ></div>
+      </div>
+
+      <div id="frascoContainer">
+        <div class="frasco" onclick="liberarLuciernagas()" id="frasco"></div>
+        <div id="reinicio" onclick="liberarLuciernagas()"></div>
+        <div id="atrapadas">
+          Luciérnagas:
+          <span id="contador">0</span>
+          <div id="contadorGiganteContainer">
+            Atrapa a la polilla:
+            <span id="contadorGigante">15</span>
+          </div>
+        </div>
+      </div>
+      <div id="brillosContainer"></div>
+    </div>
+  </body>
+</html>

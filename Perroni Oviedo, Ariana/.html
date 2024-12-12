@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foco Interactivo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tick tack</h1>
+        <img id="lightbulb" src="imagenes/Apagado.jpg" alt="Foco apagado" onclick="toggleLight()">
+        <audio id="clickSound" src="sonidos/Mouse Click Sound Effect.mp3"></audio>
+        <audio id="brokenSound" src="sonidos/Sonido Siren Head ---Siren Head Sound Effect.mp3"></audio>
+    </div>
+    <div id="animationContainer" style="display: none;">
+        <img class="animatedImage" src="imagenes/1.png" alt="Imagen 1">
+        <img class="animatedImage" src="imagenes/2.png" alt="Imagen 2">
+        <img class="animatedImage" src="imagenes/3.png" alt="Imagen 3">
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

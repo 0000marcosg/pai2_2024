@@ -1,0 +1,130 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #5fcce7;
+    background-image: url(img/fondo.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    place-items: center;
+    color: #0A3812
+  }
+  
+  h1 {
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    font-family: 'Comic Neue', sans-serif;
+    font-size: 50px;
+    color: 	#FFFF00;
+  }
+
+  .pato {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-image: url(img/PatoMove.png);
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .patoquieto {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-image: url(img/PatoStill.png);
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .pato1 { top: 9%; left: 10%; 
+    -webkit-animation: mover1 2.0s linear infinite;
+    animation: mover1 8s linear infinite;
+  }
+
+  .pato2 { top: 35%; left: 10%; 
+    -webkit-animation: mover2 2.1s linear infinite;
+    animation: mover2 7s linear infinite;
+  }
+  .pato3 { top: 60%; right: 10%; 
+    -webkit-animation: mover1 2.2s linear infinite;
+    animation: mover1 5s linear infinite;
+  }
+  .pato4 { top: 85%; right: 10%; 
+  -webkit-animation: mover2 2.3s linear infinite;
+  animation: mover2 7s linear infinite;
+  }
+
+  .pato5 { top: 72%; right: 52%;}
+
+  .pato6 { top: 22%; right: 52%;}
+
+  .pato7 { top: 45%; right: 52%;}
+
+  /*ANIMACION*/
+
+  @-webkit-keyframes mover1 {
+    0% { left: 10%; transform: rotate(0);}
+  50% { left: 90%; transform: rotate(80deg);}
+  100% { left: 10%; transform: rotate(0deg);}
+  }
+  
+  @keyframes mover1 {
+    0% { left: 10%; transform: rotate(0);}
+  50% { left: 90%; transform: rotate(80deg);}
+  100% { left: 10%; transform: rotate(0deg);}
+  }
+
+
+
+  @-webkit-keyframes mover2 {
+    0% { left: 90%; transform: rotate(0);}
+  50% { left: 10%; transform: rotate(80deg);}
+  100% { left: 90%; transform: rotate(0);}
+  }
+  
+  @keyframes mover2 {
+    0% { left: 90%; transform: rotate(0deg);}
+  50% { left: 10%; transform: rotate(80deg);}
+  100% { left: 90%; transform: rotate(0deg);}
+  }
+
+/*VISTA RESPONSIVE*/
+
+  @media only screen and (max-width: 768px) { 
+   .ocultar {display: none;}
+   .pato1 { top: 20%; left: 10%; 
+    -webkit-animation: mover1 1.3s linear infinite;
+    animation: mover1 3s linear infinite;
+  }
+
+  .pato2 { top: 45%; left: 10%; 
+    -webkit-animation: mover2 1.5s linear infinite;
+    animation: mover2 2.5s linear infinite;
+  }
+
+  .pato4 { top: 75%; right: 10%; 
+    -webkit-animation: mover2 2.3s linear infinite;
+    animation: mover2 3.2s linear infinite;
+    }
+
+
+}

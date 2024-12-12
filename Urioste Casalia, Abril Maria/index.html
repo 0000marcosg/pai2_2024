@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca al Pollito</title>
+    <link rel="stylesheet" href="estilo.css"> 
+</head>
+<body>
+
+    <div class="contenedorboton">
+       
+        <div id="timer"><span id="time"></span> segundos</div>
+        <div id="message"></div>
+    </div>
+   
+    <div class="container">
+        <!-- Generamos los huevos con data-index en vez de ids únicos -->
+        <div class="item"><img src="imagenes/huevo.png" class="huevo" data-index="0"></div>
+        <div class="item"><img src="imagenes/huevo.png" class="huevo" data-index="1"></div>
+        <div class="item"><img src="imagenes/huevo.png" class="huevo" data-index="2"></div>
+        <div class="item"><img src="imagenes/huevo.png" class="huevo" data-index="3"></div>
+        <div class="item"><img src="imagenes/huevo.png" class="huevo" data-index="4"></div>
+        <div class="item"><img src="imagenes/huevo.png" class="huevo" data-index="5"></div>
+        <div class="item"><img src="imagenes/huevo.png" class="huevo" data-index="6"></div>
+        <div class="item"><img src="imagenes/huevo.png" class="huevo" data-index="7"></div>
+        <div class="item"><img src="imagenes/huevo.png" class="huevo" data-index="8"></div>
+        <div class="item"><img src="imagenes/huevo.png" class="huevo" data-index="9"></div>
+        <div class="item"><img src="imagenes/huevo.png" class="huevo" data-index="10"></div>
+        <div class="item"><img src="imagenes/huevo.png" class="huevo" data-index="11"></div>
+    </div>
+    
+    
+   <!-- Superposición para el tiempo agotado -->
+<div id="overlay2" class="overlay">
+    <img id="gif-triste" src="imagenes/triste.gif" style="display: none;">
+</div>
+
+<!-- Superposición para la victoria -->
+<div id="overlay" class="overlay">
+    <img id="gif-feliz" src="imagenes/contento.gif" style="display: none;">
+</div>
+
+    
+
+
+
+<audio id="miSonido" src="sonidohuevo.mp3"></audio>
+
+ </div>
+ <script src="eventos.js"></script>
+
+</body>
+</html>

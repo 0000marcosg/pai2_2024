@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="estilo.css">
+        <script type="text/javascript" src="eventos.js"></script> 
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>
+    </head>
+    <body>
+        <div class="grid">
+ 
+            <div class="mueble"></div>   
+
+            <button onclick="changeBackground()"><img src="img/boton.png"></button>
+
+            <audio id="backgroundMusic" loop>
+                <source src="sonido/background-music.mp3" type="audio/mp3">
+              </audio>
+              <!--Music by <a href="https://pixabay.com/users/faespencer-31790355/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=207886">Fae Spencer</a> from <a href="https://pixabay.com/music//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=207886">Pixabay</a>-->
+            
+              <button id="muteButton"><img src="img/volume.png"></button>
+              <!--<a href="https://www.flaticon.com/free-icons/speaker" title="speaker icons">Speaker icons created by Pixel perfect - Flaticon</a>-->
+              <!--<a href="https://www.flaticon.com/free-icons/mute" title="mute icons">Mute icons created by pictranoosa - Flaticon</a>-->
+
+            <div class="items">
+
+                <div class="item1" id="item01" draggable="true"> 
+                    <img src="img/reloj.png">
+                    <audio>
+                        <source src="sonido/reloj.wav" type="audio/wav">    
+                    </audio>
+                </div>
+              
+                <div class="item2" id="item02" draggable="true">
+                    <img src="img/foto.png">
+                <audio><source src="sonido/foto.wav" type="audio/wav"> 
+                </audio>
+                </div>
+               
+                <div class="item3" id="item03" draggable="true">
+                    <img src="img/libros.png">
+                <audio>
+                    <source src="sonido/libros.wav" type="audio/wav"> 
+                </audio>
+                </div>
+               
+                <div class="item4" id="item04" draggable="true">
+                    <img src="img/nieve.png">
+                <audio>
+                    <source src="sonido/muneco.wav" type="audio/wav">
+                </audio>
+                </div>
+               
+                <div class="item5" id="item05" draggable="true">
+                    <img src="img/peluche.png">
+                    <audio>
+                        <source src="sonido/peluche.wav" type="audio/wav">
+                    </audio>
+                </div>
+                
+                <div class="item6" id="item06" draggable="true">
+                    <img src="img/planta.png">
+                <audio> 
+                    <source src="sonido/planta.wav" type="audio/wav">
+                </audio>
+            </div>
+               
+            <div class="item7" id="item07" draggable="true">
+                    <img src="img/plantas.png">
+                <audio>
+                    <source src="sonido/planta.wav" type="audio/wav">
+                </audio>
+            </div>
+              
+            <div class="item8" id="item08" draggable="true">
+                    <img src="img/radio.png">
+                <audio> 
+                    <source src="sonido/radio.wav" type="audio/wav">
+                </audio>
+            </div>
+
+            </div>
+
+        </div> 
+     </body>
+</html>

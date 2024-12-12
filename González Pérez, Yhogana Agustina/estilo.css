@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Grandstander:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Slackey&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Grandstander", cursive;
+  margin: 0;
+  padding: 60px;
+  background-image:  url('./img/skulls.png');
+}
+
+.grid-container {
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  gap: 6vh; 
+  justify-content: start;
+  margin-left: 5px; 
+  padding: 2%;
+}
+
+.icono-meme {
+  cursor: pointer;
+  padding: 3px;
+  background-color: #551e1e;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.meme-chico {
+  width: 30px; 
+  height: 30px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.icono-meme img {
+  width: 8.5vw; /* 15% del ancho del viewport */
+  height: auto; /* Mantiene la proporción */
+  object-fit: cover; /* Ajusta la imagen al tamaño del contenedor sin deformarla */
+}
+
+h1 {
+  font-size: 45px;
+  position: absolute; 
+  margin: 5px 0px 0px 45%;
+  transform: translate(-50%, -50%); 
+  color: #551e1e; 
+  text-align: center; 
+}
+
+h2 {
+  font-size: 25px;
+  color: #551e1e;
+  margin: -5px 0px 10px 0;
+}
+
+.galeria-memes { 
+  margin: 2% -23%; /* Márgenes proporcionales al tamaño del viewport */
+  display: flex; 
+  justify-content: space-around; /* Los div se distribuyen proporcionalmente */
+  width: 90%; /* Ocupa el 90% del ancho del contenedor principal */
+}
+
+.lista-reproduccion {
+  margin: -35% 0 0 21%;
+  object-fit: cover;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+}
+
+.botones {
+  margin: 10% 0 0 80%;
+  align-self: flex-start; 
+}
+
+.botones button {
+  cursor: pointer;
+  position: fixed;
+  padding: 2vw 4vw; 
+  bottom: 40vh; 
+  right: 10vw; 
+}
+
+.boton-play {
+  background-color: transparent; 
+  border: none; 
+  cursor: pointer; 
+}
+
+.icono-play {
+  object-fit: cover; 
+  width: 7vw; /* Tamaño proporcional al ancho de la pantalla */
+  height: auto; /* Mantiene las proporciones de la imagen */
+}
+
+.icono-play:hover {
+  transform: scale(1.1); 
+}
+
+.elemento-lista {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  width: 300px; 
+  margin: 5px 0;
+  position: relative;
+}
+
+.control-volumen {
+  -webkit-appearance: none; /* Eliminar el estilo predeterminado */
+  appearance: none;
+  width: 150px; /* Ancho del slider */
+  height: 8px; /* Altura de la pista */
+  background: #551e1e; /* Color de la pista */
+  border-radius: 5px; /* Bordes redondeados */
+  outline: none; /* Quitar borde al enfocar */
+  cursor: pointer;
+  position: relative; /* Aseguramos que la pista tenga un contexto de posición */
+}
+
+/* Pista del slider */
+.control-volumen::-webkit-slider-runnable-track {
+  background: #551e1e;
+  height: 8px; /* Altura de la pista */
+  border-radius: 5px;
+}
+
+/* Pulgar del slider */
+.control-volumen::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #fae898;
+  border-radius: 50%;
+  border: 2px solid #551e1e;
+  cursor: pointer;
+  margin-top: -6px; /* Ajustar la posición vertical */
+}
+
+/* Estilo para Firefox */
+.control-volumen::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #ffcc00;
+  border: 2px solid #551e1e;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.control-volumen::-moz-range-track {
+  background: #551e1e;
+  height: 8px;
+  border-radius: 5px;
+}
+
+/* Estilo para IE */
+.control-volumen::-ms-thumb {
+  width: 20px;
+  height: 20px;
+  background: #fae898;
+  border: 2px solid #551e1e;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.icono-basura {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  margin: 3px 0 3px -5px;
+  transition: transform 0.2s, filter 0.2s;
+}
+
+.icono-basura:hover {
+  transform: scale(1.1); /* Aumenta el tamaño al 110% */
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    padding: 20px;
+    background-image:  url('./img/fondo1.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  h1 {
+    padding-top: 80px;
+    margin-left: 45%; 
+  }
+
+  h2 {
+    margin: 0 0 25px 0;
+  }
+
+  .grid-container {
+    padding: 90px 0px 30px 150px;
+    grid-template-columns: 1fr 1fr 1fr; 
+    gap: 20px; 
+    justify-content: center; 
+    margin-left: 0; 
+  }
+
+  .icono-meme img {
+    width: 90px; 
+    height: 90px; 
+  }
+
+  .lista-reproduccion {
+    margin: 10px 0 0 0;
+    align-items: center; 
+  }
+
+  .botones {
+    margin-left: 0; 
+    align-self: center; 
+    margin-top: 15px;
+  }
+
+  .botones button {
+    padding: 10px 15px; 
+    position: relative; /* Hacemos que el botón sea fluido en móviles */
+    bottom: 0;
+    right: 0;
+  }
+
+  .elemento-lista {
+    width: 100%; /* La lista ocupa todo el ancho disponible */
+    justify-content: center; 
+  }
+
+  .control-volumen {
+    width: 120px; 
+  }
+
+  .icono-play {
+    margin: 15px 0 0 170px;
+    width: 80px; 
+    height: 80px; 
+  }
+
+  .icono-basura {
+    width: 20px; 
+    height: 20px; 
+    margin-left: 30px;
+  }
+
+  .meme-chico{
+   margin-right: 30px;
+  }
+}
+
+@keyframes zoomInOut {
+  0%, 100% { 
+    transform: scale(1); 
+  }
+  50% { 
+    transform: scale(1.2); 
+  }
+}
+
+.icono-meme.arriba:hover, 
+.icono-meme.abajo:hover, 
+.icono-meme.izquierda:hover, 
+.icono-meme.derecha:hover {
+  animation: zoomInOut 1s ease-in-out infinite; 
+}

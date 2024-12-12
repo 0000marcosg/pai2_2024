@@ -1,0 +1,177 @@
+/* Grid flex*/
+.flex-container {
+        display: grid;
+        
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        height: 100vh;
+        margin-left: 25%;
+        margin-right: 25%;
+        position:relative;
+        
+  align-items: center;
+  }
+  
+.flex-container > div {
+    margin-left: auto;
+    margin-right: auto;
+    width: 120px;       
+    height: 120px; 
+    border-radius: 50%; 
+  
+ 
+  }
+
+
+  /* Declaraciones generales*/
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  
+  }
+
+  body, html {
+    height: 100%;
+    background-color: black;
+    
+  }
+/* Objetos Icorrectos */
+  .color-random {
+    cursor: pointer;
+    transition: transform 0.3s ease, border 0.3s ease;
+  }
+  
+    .color-random:hover{
+      transform: scale(1.2);
+      border: 5px solid white;
+      }
+    
+ /* Animacion no*/
+
+ @keyframes shake {
+  0%, 100% {
+    transform: translateX(0); /
+  }
+  25% {
+    transform: translateX(-20px); 
+  }
+  50% {
+    transform: translateX(20px); 
+  }
+  75% {
+    transform: translateX(-20px); 
+  }
+}
+
+
+@-webkit-keyframes shake {
+  0%, 100% {
+    -webkit-transform: translateX(0); 
+  }
+  25% {
+    -webkit-transform: translateX(-20px); 
+  }
+  50% {
+    -webkit-transform: translateX(20px); 
+  }
+  75% {
+    -webkit-transform: translateX(-20px); 
+  }
+}  
+
+.shake {
+  animation: shake 0.6s ease; 
+  -webkit-animation: shake 0.6s ease;
+}
+/* Objeto correcto*/
+  
+  .color-box {
+   
+    background-color: red; /* Fondo inicial rojo */
+    transition: background-color 0.5s ease;
+    cursor: pointer;
+    transition: transform 0.3s ease, border 0.3s ease;
+}
+
+.color-box:hover{
+  transform: scale(1.2);
+  border: 5px solid white;
+  }
+
+#rojo2, #rojo3, #rojo4 { background-color: red; }
+#verde, #verde2, #verde3, #verde4 { background-color: green; }
+#azul, #azul2, #azul3, #azul4 { background-color: blue; }
+#amarillo, #amarillo2, #amarillo3, #amarillo4 { background-color: yellow; }
+
+
+/* Titulo*/
+ h1 {
+
+  text-align: center;
+  color:white;
+  font-family: "Doto", sans-serif;
+  font-size: 40pt;
+  padding-top: 60px;
+ }
+
+ h1 {
+  background: linear-gradient(90deg, 
+    white 0%, 
+    white 30%, 
+    blue 40%, 
+    yellow 50%, 
+    red 60%, 
+    green 70%, 
+    white 100%);
+  background-size: 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: anim-h1 16s linear infinite;
+  -webkit-animation: anim-h1 16s linear infinite; 
+}
+
+@keyframes anim-h1 {
+  0% {
+    background-position: 300% 0;
+  }
+  100% {
+    background-position: -300% 0;
+  }
+}
+
+@-webkit-keyframes anim-h1 {
+  0% {
+    -webkit-background-position: 300% 0;
+  }
+  100% {
+    -webkit-background-position: -300% 0;
+  }
+}
+
+
+ /* Arcivo responsive */
+
+@media screen and (max-width: 1020px) {
+  .flex-container {
+    margin-left: 5%;
+    margin-right: 5%;    
+}
+  h1 {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  
+  }
+
+@media screen and (max-width: 700px) {
+    
+    .flex-container > div {
+      width: 80px;       
+      height: 80px;
+    }
+    .flex-container {
+      height: 70vh;
+    }
+    }

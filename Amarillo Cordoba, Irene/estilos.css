@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
+* body {
+    padding: 1em;
+    background-color:rgb(197, 197, 197);
+}
+.draggable {
+    width: 150px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 10px;
+}
+
+.container-general {  
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr; 
+}
+
+.container-titulo {
+    width: 100%;
+    text-align: center;
+    padding: 1em 0;
+}
+
+.container-titulo h1 {
+    font-family: "Rubik Mono One", Arial, sans-serif;
+    font-size: 2em;
+    color: black;
+    margin: 0;
+}
+
+.container-mochila {
+    grid-column: 1 /span 2 ;
+    grid-row: 1 /span 2;
+    padding: 2em;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.container-mochila  img {
+    max-width: 40%;
+    height: auto;
+    align-content: center; 
+}
+
+.grilla-objetos1 {
+    grid-column: 3 /span 2;
+    grid-row: 1;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr; 
+    padding-right: 3em;
+}
+
+.grilla-objetos2 {
+    grid-column: 3 /span 2;
+    grid-row: 2;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding-right: 3em; 
+}
+
+/*Objetos grilla*/
+
+.monster {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.agua {
+    grid-column: 2;
+    grid-row: 1; 
+}
+
+.boletera {
+    grid-column: 3;
+    grid-row: 1; 
+}
+
+.desodorante {
+    grid-column: 4;
+    grid-row: 1; 
+}
+
+.camarita {
+    grid-column: 5;
+    grid-row: 1; 
+}
+
+.lapicera {
+    grid-column: 6;
+    grid-row: 1; 
+}
+
+.mate {
+    grid-column: 7;
+    grid-row: 1; 
+}
+
+.nivea {
+    grid-column: 1;
+    grid-row: 2; 
+}
+
+.perifar {
+    grid-column: 2;
+    grid-row: 2; 
+}
+
+.vape {
+    grid-column: 3;
+    grid-row: 2; 
+}
+
+.lentes {
+    grid-column: 4;
+    grid-row: 2; 
+}
+
+.chicles {
+    grid-column: 5;
+    grid-row: 2; 
+}
+
+.tabaco {
+    grid-column: 6;
+    grid-row: 2; 
+}
+
+.vaso {
+    grid-column: 7;
+    grid-row: 2; 
+}
+
+.cuadernola {
+    grid-column: 1;
+    grid-row: 1; 
+}
+
+.colet {
+    grid-column: 2;
+    grid-row: 1; 
+}
+
+.auriculares {
+    grid-column: 3;
+    grid-row: 1; 
+}
+
+.colita {
+    grid-column: 4;
+    grid-row: 1; 
+}
+
+.espejo {
+    grid-column: 5;
+    grid-row: 1; 
+}
+
+.encendedor {
+    grid-column: 6;
+    grid-row: 1; 
+}
+
+.marley {
+    grid-column: 7;
+    grid-row: 1; 
+}
+
+.galletitas {
+    grid-column: 1;
+    grid-row: 2; 
+}
+
+.compu {
+    grid-column: 2;
+    grid-row: 2; 
+}
+
+.libro {
+    grid-column: 3;
+    grid-row: 2; 
+}
+
+.sketchbook {
+    grid-column: 4;
+    grid-row: 2; 
+}
+
+.piedras {
+    grid-column: 5;
+    grid-row: 2;  
+}
+
+.manzana {
+    grid-column: 6;
+    grid-row: 2;  
+}
+
+.barrita {
+    grid-column: 7;
+    grid-row: 2;  
+}
+
+/*Fin objetos*/
+
+img {
+    max-width: 100%;
+    height: auto;
+    align-items: center;
+}
+
+h1 {
+    color:black;
+    font-family: "Rubik Mono One", Arial, sans-serif;
+    font-size: 40px;
+}
+
+h2 {
+    color:black;
+    font-family: "Rubik Mono One", Arial, sans-serif;
+    font-size: 20px;
+    text-align: center;
+} 
+
+p {
+    color:black;
+    font-family: Arial, sans-serif;
+    font-size: 15 px;
+    text-align: center;
+}  
+
+.cartel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.contenido {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.contenido h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.contenido button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cartel-contenido button:hover {
+    background: #0056b3;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container-titulo h1 {
+        font-size: 1.5em; 
+        padding: 0.5em; 
+        text-align: center; 
+    }
+    .container-general {
+        display: flex; 
+        flex-direction: column;
+        gap: 1em; 
+    }
+
+    .grilla-objetos1 {
+        order: 1; 
+        padding-right: 0em;
+    }
+
+    .container-mochila {
+        order: 2; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .grilla-objetos2 {
+        order: 3; 
+        padding-right: 0em;
+    }
+}

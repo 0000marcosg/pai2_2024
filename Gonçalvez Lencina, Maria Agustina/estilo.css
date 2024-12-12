@@ -1,0 +1,73 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #171616;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+.shaky {
+  animation: shake 0.5s infinite; /* Sacudida continua */
+}
+
+#botonInvisible {
+  position: absolute;
+  opacity: 1; /* Totalmente visible para las imágenes */
+  background-color: transparent; /* Elimina el fondo */
+  background-image: url('IMG/telaspider.png'); /* Cambia por la ruta de tu imagen */
+  background-size: cover; /* Asegura que la imagen ocupe todo el botón */
+  background-position: center; /* Centra la imagen */
+  border: none;
+  width: 100px; /*tamaño botón*/
+  height: 100px; 
+  cursor: pointer;
+  }
+
+#botonEnlace {
+  display: none;
+  opacity: 1; /* Totalmente visible para las imágenes */
+  background-color: transparent; 
+  background-image: url('IMG/telaspider.png'); 
+  background-size: cover; 
+  background-position: center; 
+  border: none;
+  width: 100px; 
+  height: 100px; 
+  cursor: pointer;
+}
+
+#imagenTransicion {
+  display: none; /* Inicialmente oculto */    
+  width: 300px; /* Ajusta el tamaño según sea necesario */
+}
+
+.img33 {
+  display: none; /* Inicialmente oculto */    
+  width: 300px; /* Ajusta el tamaño según sea necesario */
+  }
+
+/*responsive*/
+@media (max-width: 768px) {
+  body {
+      flex-direction: column; 
+      height: auto; 
+  }
+
+  #botonInvisible, #botonEnlace {
+      width: 80px; 
+      height: 80px; 
+  }
+
+  #imagenTransicion, .img33 {
+      width: 80%; /* Ajusta el tamaño de la imagen para pantallas pequeñas */
+      max-width: 200px; /* Limita el tamaño máximo de la imagen */
+  }
+}

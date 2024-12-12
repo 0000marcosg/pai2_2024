@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PAI 2</title>
+        <link rel="stylesheet" type="text/css" href="estilo.css">
+    </head>
+    <body>
+             
+        
+        <div class="flex-container">
+                        	
+            <div class="objeto1"></div> <!--transición de 50% a 100%-->
+
+            <div class="objeto2 shake-horizontal oculto"></div> <!--dice que no-->
+
+            <div class="objeto3 shake-vertical"></div> <!--dice que si-->
+
+            <div class="objeto4 rotate-center oculto"></div>    <!--se siente mal y todo gira-->
+
+            <div class="objeto5"></div>  <!--cambia de colores como el camaleón-->
+
+            <div id="mueve" class="objeto6 oculto" onclick="activarAnimacion()"></div> <!--cambia de color y se traslada, cual protector de pantalla-->
+
+        </div>
+<script>
+   function activarAnimacion() {
+	document.getElementById("mueve").style.animation= "mymove 2s infinite";
+}
+</script>
+</body>
+</html>

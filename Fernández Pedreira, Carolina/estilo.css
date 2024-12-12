@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Tiny5&display=swap');
+
+* {
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    max-height: 100vh;
+    max-width: 100vw;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+/*FONDO NUBES-PASTO--------------------------------------*/
+#background-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+ }
+
+/*CONTAINER----------------------------------*/
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%; 
+}
+
+/*CONTADOR-----------------------------------*/
+p {
+    font-family: "Tiny5", sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    margin: 20px;
+}
+
+/*MOSCA--------------------------------------*/
+#mosca, #mosca2, #mosca3, #mosca4 {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    background-image: url("img/mosca.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+    #mosca {
+        animation: bzz 7s linear infinite;
+        margin-top: -30px;
+    }
+
+    #mosca2 {
+        animation: bzz 10s linear infinite;
+    }
+
+    #mosca3 {
+        animation: bzz 6s linear infinite;
+    }
+
+    #mosca4 {
+        animation: bzz 8s linear infinite;
+    }
+
+        @keyframes bzz {
+            0% {
+                left: 5%;
+                transform: rotateY(0deg);
+            }
+            49% {
+                transform: rotateY(0deg);
+            }
+            50% {
+                left: 90%;
+                transform: rotateY(180deg);
+            }
+            99% {
+                transform: rotateY(180deg);
+            }
+            100% {
+                left: 5%;
+                transform: rotateY(0deg);
+            }
+        }
+
+/*SAPO--------------------------------------*/
+#sapo {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100px;
+    background-image: url("img/ranita.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+    #sapo.saltando {
+        animation: salto 0.5s ease-in-out; 
+    }
+
+        @keyframes salto {
+            0% { bottom: 100px; }
+            50% { bottom: 200px; } 
+            100% { bottom: 100px; }
+        }
+
+
+/*RESPONSIVE--------------------------------------*/
+@media screen and (max-width: 768px) {
+    #mosca {animation: bzz 2.75s linear infinite;}
+    #mosca2 {animation: bzz 1s linear infinite;}
+    #mosca3 {animation: bzz 2s linear infinite;}
+    #mosca4 {animation: bzz 1.75s linear infinite;}
+    @keyframes bzz {
+        0% {
+            left: 3%;
+            transform: rotateY(0deg);
+        }
+        49% {
+            transform: rotateY(0deg);
+        }
+        50% {
+            left: 75%;
+            transform: rotateY(180deg);
+        }
+        99% {
+            transform: rotateY(180deg);
+        }
+        100% {
+            left: 3%;
+            transform: rotateY(0deg);
+        }
+    }
+}

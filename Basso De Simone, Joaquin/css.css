@@ -1,0 +1,130 @@
+
+/*Fuente*/
+
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
+/*Layout play*/
+
+.flex-container {
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: flex-start;
+}
+
+body {
+  justify-content: center;
+  align-items: center;
+  background: #00052e;
+  display: flex;
+  height: 80vh;
+  padding: 0px;
+  margin: 0px; 
+  font-family: "Pixelify Sans", sans-serif;
+  cursor: url('img/cursorblanco.png'), auto;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  display: flex;
+  position: relative;
+} 
+
+#score {
+  color: white;
+  font-size: 24px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+#timer {
+  color: white;
+  font-size: 24px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+#areadejuego {
+  width: 900px; 
+  height: 400px; 
+  position: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+ 
+}
+
+.alien {
+  width: 125px;
+  height: 125px;
+  position: relative;
+  cursor: pointer;
+  cursor: url('img/cursor.png'), auto;
+  
+}
+
+.alien2 {
+  width: 125px;
+  height: 125px;
+  position: relative;
+  cursor: pointer;
+  cursor: url('img/cursor.png'), auto;
+}
+
+.alien img, .alien2 img {
+  transition: all 0.2s ease-in-out;
+}
+
+.nave {
+  width: 480px;
+  height: 125px;
+  position: absolute;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  bottom: 0px;
+  pointer-events: none;
+}
+
+#reiniciar {
+  justify-content: center;  
+  align-items: center; 
+  display: none;
+  width: 150px;
+  height: 50px;
+  font-family: "Pixelify Sans", sans-serif;
+  background-color: white;
+  font-size: 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: auto;
+  position: relative;
+}
+
+/*Adaptación a celulares*/
+
+@media screen and (max-width: 768px) {
+  body {
+      background-color: #00052e;
+      justify-content: flex-start;
+  }
+
+  .arriba, .barra {
+    width: 500px;
+  }
+
+  #areadejuego{
+    width: 500px;
+    height: 250px;
+  }
+
+  .alien, .alien2 {
+    width: 90px;
+  }
+  
+}

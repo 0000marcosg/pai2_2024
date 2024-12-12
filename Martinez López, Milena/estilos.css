@@ -1,0 +1,149 @@
+/*Estilo fondo*/
+#contenedor-mono {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('img/fondo.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0; 
+  padding: 0; 
+  overflow: hidden;
+}
+
+/* Estilo del Mono */
+#mono-principal {
+  width: 450px;
+  height: 450px;
+  background-image: url('img/mono.normal.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: background-image 0.5s ease;
+}
+
+/* Resto de keyframes y animaciones */
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+@keyframes scale-up {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Animaciones */
+
+.comiendo-animacion {
+  animation: shake 0.5s infinite;
+}
+
+.coco-animacion {
+  animation: rotate 1s linear;
+}
+
+.celular-animacion {
+  animation: scale-up 0.5s;
+}
+
+.agua-animacion {
+  animation: bounce 0.5s;
+}
+
+.bailando-animacion {
+  animation: shake 0.3s infinite;
+}
+
+.lentes-animacion {
+  animation: rotate 0.7s linear;
+}
+
+/* Objetos */
+
+.objetos {
+  width: 150px;
+  height: 150px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  cursor: grab;
+  transition: all 0.3s ease;
+}
+
+.objetos:hover {
+  transform: scale(1.1);
+}
+
+/* Posiciones de los objetos */
+#banana { top: 10%; left: calc(50% - 500px); }
+#coco { top: 40%; left: calc(50% - 500px); }
+#celular { top: 70%; left: calc(50% - 500px); }
+
+#vaso-de-agua { top: 10%; left: calc(50% + 400px); }
+#plata { top: 40%; left: calc(50% + 400px); }
+#lentes { top: 70%; left: calc(50% + 400px); }
+
+/* Ajustes media screen */
+
+@media screen and (max-width: 768px) {
+  #contenedor-mono {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 20px;
+    padding: 20px;
+    overflow-y: auto;
+  }
+
+  #mono-principal {
+    width: 400px;
+    height: 400px;
+    order: 2;
+  }
+
+  .objetos-superior,
+  .objetos-inferior {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .objetos-superior {
+    order: 1;
+  }
+
+  .objetos-inferior {
+    order: 3;
+  }
+
+  .objetos {
+    width: 110px;
+    height: 110px;
+    flex-shrink: 0;
+  }
+}
