@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nave Espacial</title>
+        <link rel="stylesheet" type="text/css" href="estilo.css">
+    </head>
+    <body>
+ <div id="alf"></div>
+<img src="img/nave.png"  class="ventana">  
+      
+        <!-- VENTANA-->
+        <div class="video-container">
+            <video id="main-video"  autoplay loop muted>
+                <source src="video/video2.mp4"></video>
+                 </div>
+                 <audio id="main-audio">
+    <source src="audio/turbo.mp3" type="audio/mp3">
+</audio>
+
+         <!-- EMPIEZA EL FLEX CONTAINER-->
+        <div id="flex-container"class="flex-container">
+
+            <!--Child 1 (sonido extraterrestre)-->
+            <div class="flex-items" id="wobble-hor-bottom" 
+            onclick="movimiento()"
+           ></div>
+            
+            <!-- Child 2 (boton que rota)-->
+            <div class="flex-items" id="rotate-center" onclick="toggleRotation()"></div>
+           
+            
+             <!--Child 3 (TURBO)-->
+            <div class="flex-items" id="vibrate-3"
+                                   onclick="CambiaVideo()"></div>
+
+             <!--Child 4 (expedientes x)-->
+            <div class="flex-items" onclick="expedientes()"> </div>
+
+            <!--Child 5 (RADAR VIDEO)-->
+           <div class="flex-item"> <video class="video-item" autoplay loop muted>
+            <source src="video/radar.mp4"></video></div>
+
+     <!--Child 6 (EYECTAR ALF)-->
+    <div class="flex-items" id="scale-out" onclick="eyectarAlf()" 
+                                       ></div>
+                                         
+
+     <!-------------AVISO: PARA QUE SE REPRODUZCA EL AUDIO AUTOMATICAMENTE EN EL VIDEO QUE SE REPRODUCE AL APRETAR EL BOTON DE EMERGENCIA HAY QUE CAMBIAR LOS AJUSTES DE SEGURIDAD DEL NAVEGADOR, SINO AL HACER CLICK EN LA PANTALLA (la idea es ya tenerlo configurado)------------> 
+    <!--Child 7 (BOTON EMERGENCIA)-->                                     
+ <div class="flex-items" id="botonEmergencia"></div>
+
+</div>
+
+<div id="fiesta"></div>
+<audio id="audio-fiesta" src="audio/fiesta.mp3"></audio>
+  <div class="grid-container">
+       <button class="grid-button"id="heartbeat_" onclick="fiesta()" 
+                                               > </button>
+</div>
+     
+        <script>        
+
+ // AUDIO EXTRATERRESTRES
+
+ var audioExtraterrestres = new Audio("audio/extraterrestres.mp3");
+
+audioExtraterrestres.loop=false;
+
+function playAudioExtraterrestres() {
+    audioExtraterrestres.currentTime = 0;
+    audioExtraterrestres.play();
+}
+
+function pauseAudioExtraterrestres() {
+    audioExtraterrestres.pause();
+}
+
+    function movimiento() {
+                    var anima = document.getElementById("wobble-hor-bottom");
+
+                    if (anima.style.WebkitAnimationPlayState != null){
+                        if (anima.style.WebkitAnimationPlayState == "running"){
+                            anima.style.WebkitAnimationPlayState = "paused"
+                            anima.style.AnimationPlayState = "paused"
+                        } else {
+                            anima.style.WebkitAnimationPlayState = "running"
+                            anima.style.AnimationPlayState = "running"}
+                    } 
+                    if (audioExtraterrestres.paused)
+                        playAudioExtraterrestres();
+                    else
+                        pauseAudioExtraterrestres();
+}
+ // BOTON QUE ROTA
+
+        function toggleRotation() {
+            var element = document.getElementById("rotate-center");
+
+            if (element.classList.contains("paused")) {
+                element.classList.remove("paused");
+            } else {
+                element.classList.add("paused");
+            }
+        }
+   
+ //             TURBO
+let videoChanged = false; 
+
+function CambiaVideo() {
+    if (!videoChanged) {
+        videoChanged = true; 
+
+        var videoElement = document.getElementById("main-video");
+        var audioElement = document.getElementById("main-audio");
+
+        videoElement.src = "video/nuevo_video.mp4";
+        videoElement.loop = false; 
+        videoElement.play();
+
+         audioElement.src = "audio/turbo.mp3";
+        audioElement.loop = false;
+        audioElement.play();
+
+        videoElement.addEventListener("ended", function () {
+            videoElement.src = "video/video2.mp4"; 
+            videoElement.loop = true; 
+            videoElement.load();
+            videoElement.play();
+            videoChanged = false; 
+            
+        });
+    }
+}
+
+//           EXPEDIENTES X 
+
+var audio = new Audio("audio/expedientes.mp3");
+audio.loop = false;
+
+function playAudio() {
+    audio.currentTime = 0;  
+    audio.play();          
+}
+
+function pauseAudio() {
+    audio.pause();          
+}
+
+function expedientes() {
+    if (audio.paused) {
+        playAudio();       
+    } else {
+        if (audio.currentTime >= 8) {
+            pauseAudio();}
+    }
+}
+audio.ontimeupdate = function() {
+    if (audio.currentTime >= 8) {
+        pauseAudio();       // Detiene el audio a los 6 segundos
+    }
+};
+
+//         ALF
+function eyectarAlf() {
+    var alf = document.getElementById("alf");
+
+    if (alf.style.visibility === "hidden" || alf.style.visibility === "") {
+        alf.style.visibility = "visible";  
+        alf.classList.add('animate');  
+    } else {
+        alf.style.visibility = "hidden";  
+        alf.classList.remove('animate'); 
+    }
+}
+
+ //      BOTON EMERGENCIA
+
+var botonEmergencia = document.getElementById('botonEmergencia');
+      botonEmergencia.style.display = "block"; 
+botonEmergencia.addEventListener('click', function() {
+                  window.location.href = 'emergencia.html';
+     });
+
+ //       FIESTITA
+var anima = document.getElementById("heartbeat");
+    
+
+function fiesta() {
+    var anima = document.getElementById("heartbeat");
+    var fiesta = document.getElementById("fiesta");
+    var audioFiesta = document.getElementById("audio-fiesta"); 
+    
+    if (fiesta.style.visibility !== "visible") {
+        fiesta.style.visibility = "visible"; 
+        fiesta.classList.add('animate'); 
+
+       
+        audioFiesta.currentTime = 0; 
+        audioFiesta.play().catch(error => {
+            console.error("Error al intentar reproducir el audio:", error);
+        });
+
+        
+        fiesta.addEventListener('animationend', function handleAnimationEnd() {
+            fiesta.style.visibility = "hidden";
+            fiesta.classList.remove('animate'); 
+
+            
+            audioFiesta.pause();
+            audioFiesta.currentTime = 0;
+
+            
+            fiesta.removeEventListener('animationend', handleAnimationEnd);
+        });
+    } else {
+       
+        fiesta.style.visibility = "hidden"; 
+        fiesta.classList.remove('animate');
+        audioFiesta.pause();
+        audioFiesta.currentTime = 0;
+    }
+}
+        </script>
+    </body>
+</html>
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+
+    <title>Página principal</title>
+</head>
+<body class="pagina_emergencia">
+            <video id="videoemergencia"  autoplay loop muted>
+                <source src="video/emergencia.mp4"id=videoemergencia type="video/mp4">
+            </video>
+            <audio src="audio/emergencia.mp3"autoplay ></audio> 
+    <a href="index.html" >
+        
+            <div id="botonVuelta"></div>
+        
+    </a>
+    <script>
+    document.addEventListener('click', function() {
+    const audio = document.querySelector('audio');
+    audio.muted = false; // Asegúrate de desactivar el silencio
+    audio.play().catch(error => {
+        console.error("No se pudo reproducir el audio automáticamente:", error);
+    });
+});
+</script>
+</body>
+</html>
